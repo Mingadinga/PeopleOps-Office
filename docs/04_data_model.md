@@ -21,6 +21,14 @@ Business Question
 
 # 2. Data Layers
 
+MVP는 영속 Database를 사용하지 않는다. 실행 중인 Office UI에서 사용하지 않는
+템플릿의 Drizzle 접근 코드, 마이그레이션 메타데이터 및 D1 예제는 제거했다.
+Case JSON, Synthetic CSV, Analysis JSON을 배포 Artifact에 포함하는 구조를 유지한다.
+
+기존 실행 환경을 보존하기 위해 Cloudflare 설정과 Worker는 유지한다.
+`.openai/hosting.json`의 D1 설정은 `null`이며, Worker의 `DB` 타입 선언은
+실제 Database 사용을 의미하지 않는다.
+
 ## Case Data
 
 Format:

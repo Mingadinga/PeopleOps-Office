@@ -61,7 +61,7 @@
   (기존 값들에서 고르면 안전합니다)
 - `thoughts`는 그 직원의 성격이 드러나는 혼잣말 2~3개. 사용자 업종의 현실적인 고민을 담으세요.
 - 고친 뒤 `npx tsc --noEmit` 으로 타입 오류가 없는지 확인하세요.
-  (`db/index.ts` · `worker/index.ts` 의 Cloudflare 타입 오류 3개는 원래 있는 것이니 무시)
+  (`worker/index.ts`에는 기존 Cloudflare 타입 선언이 남아 있습니다. PeopleOps Office에서는 사용하지 않는 `db/` 코드를 제거했습니다.)
 - 서버가 떠 있으면 저장 즉시 화면에 반영됩니다.
 
 ---
