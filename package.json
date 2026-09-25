@@ -10,7 +10,10 @@
     "build": "vinext build",
     "start": "vinext start",
     "test": "npm run build && node --test tests/rendered-html.test.mjs",
-    "lint": "eslint . --ignore-pattern dist --ignore-pattern .next"
+    "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
+    "prebuild": "node scripts/mission1-presentation.mjs",
+    "predev": "node scripts/mission1-presentation.mjs",
+    "test:mission1": "node --test tests/mission1-ui.test.mjs"
   },
   "dependencies": {
     "next": "16.2.6",

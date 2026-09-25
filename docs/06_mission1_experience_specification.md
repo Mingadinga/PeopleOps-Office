@@ -25,7 +25,7 @@ Decision Layer / Evidence / Decision / State Transition / Next Question의 10개
 
 판단 계보는 `Raw Evidence → Human Observation → Skill Decision → Final Hiring Decision`이며 Stage Transition은 별도 운영 판단이다.
 아래 Scene은 경험 설계다. 승인 Baseline v1에서 대표 C0003/APP0003, C0005/APP0005, C0228/APP0228을 사용자 Human Selection으로 확정했다.
-09 §6.4의 별도 Presentation Mapping은 v1에 귀속되며 canonical row를 변경하지 않고 v2로 자동 승계하지 않는다. 실제 UI 연결은 후속 작업이다.
+09 §6.4의 별도 Presentation Mapping은 v1에 귀속되며 canonical row를 변경하지 않고 v2로 자동 승계하지 않는다. UI는 이 Mapping과 v1의 읽기 전용 projection을 사용한다.
 
 ## 3. Mission 1 Scene 목록
 

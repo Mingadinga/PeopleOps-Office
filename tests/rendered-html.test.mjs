@@ -17,11 +17,13 @@ test("renders the Mission intro and accessible Office without DB or API credenti
   assert.match(html, /<dialog[^>]*aria-labelledby="intro-title"/);
   assert.match(html, /Machine Learning Engineer/);
   assert.match(html, /Mission 시작/);
-  for (const id of ["workforce", "talent", "attraction", "operations", "onboarding", "lab"]) {
+  for (const id of ["인력계획실", "채용전략실", "채용운영실", "평가회의실", "면접실", "업무공간", "데이터랩"]) {
     assert.match(html, new RegExp(`data-room="${id}"`));
   }
   assert.match(html, /Mission Board 열기/);
-  assert.match(html, /Mission 01 단계 선택/);
+  assert.match(html, /Mission 1 Scene 선택/);
   assert.match(html, /© godseng.mom/);
+  assert.match(html, /data-dataset-version="v1"/);
+  for (let i = 0; i < 6; i++) assert.match(html, new RegExp(`data-stage="${i}"`));
   assert.doesNotMatch(html, /오늘 업무 시작하기|일시정지|재생 속도|보고 발행|이 콘텐츠 승인하기|ceo\.console/);
 });

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "./office.css";
 import "./exploration.css";
+import "./exploration/v2/mission1.css";
 
 export const metadata: Metadata = {
   title: "PeopleOps Office — 근거 기반 HR 의사결정",

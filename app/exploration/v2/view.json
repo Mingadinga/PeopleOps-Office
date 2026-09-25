@@ -1,0 +1,2158 @@
+{
+  "datasetVersion": "v1",
+  "mappingVersion": "1.0.0",
+  "manifestHash": "2e887a77c4908462f8820e0a5b43aac0f295ca4381ab5c1503b802d3cc0c4807",
+  "observationEnd": "2027-10-31T23:59:59+09:00",
+  "sourcePath": "data/synthetic/v1",
+  "stages": [
+    "인력계획",
+    "인재 정의",
+    "채용 설계",
+    "지원자 검증",
+    "인재 확보",
+    "업무 준비"
+  ],
+  "scenes": [
+    {
+      "id": "M1-01",
+      "title": "인력 요청",
+      "stage": 0,
+      "space": "Mission Board",
+      "question": "어떤 업무 인력이 언제 필요한가?",
+      "roles": [
+        "현업 채용책임자",
+        "ICT 인사담당자"
+      ],
+      "human": "현업이 필요 인력과 목표일을 요청한다.",
+      "interaction": "요청서 확인 → Goal Briefing → 인력계획 시작",
+      "nextQuestion": "목표시점에 필요한 인력이 충분한가?"
+    },
+    {
+      "id": "M1-02",
+      "title": "인력계획",
+      "stage": 0,
+      "space": "인력계획실",
+      "question": "목표시점에 필요한 인력이 충분한가?",
+      "roles": [
+        "ICT 인사담당자",
+        "현업 채용책임자"
+      ],
+      "human": "현재 인력과 확정 이동을 확인하고 확보 대안을 논의한다.",
+      "interaction": "입력 확인 → Forecast 계산 → Gap 계산 → 근거·대안 확인",
+      "nextQuestion": "어떤 기초와 성장 가능성이 필요한가?"
+    },
+    {
+      "id": "M1-03",
+      "title": "인재 요건 Workshop",
+      "stage": 1,
+      "space": "채용전략실",
+      "question": "어떤 기초와 성장 가능성이 필요한가?",
+      "roles": [
+        "ICT 인사담당자",
+        "현업 채용책임자",
+        "ML 엔지니어"
+      ],
+      "human": "실제 업무를 설명하고 입사 전 필요 역량과 학습 가능 영역을 논의한다.",
+      "interaction": "업무 → Skill → 분류 → Evidence 펼치기",
+      "nextQuestion": "업무와 요건을 어떻게 전달할 것인가?"
+    },
+    {
+      "id": "M1-04",
+      "title": "채용공고",
+      "stage": 2,
+      "space": "채용전략실",
+      "question": "업무와 요건을 어떻게 전달할 것인가?",
+      "roles": [
+        "채용담당자",
+        "ICT 인사담당자",
+        "ML 엔지니어"
+      ],
+      "human": "요건을 공고 초안으로 옮긴다.",
+      "interaction": "초안과 인재 요건 연결 확인",
+      "nextQuestion": "공고에서 무엇을 더 명확히 해야 하는가?"
+    },
+    {
+      "id": "M1-05",
+      "title": "공고 점검",
+      "stage": 2,
+      "space": "채용전략실",
+      "question": "공고에서 무엇을 더 명확히 해야 하는가?",
+      "roles": [
+        "채용담당자",
+        "ICT 인사담당자"
+      ],
+      "human": "시스템이 검토 지점을 표시하고 담당자가 문구를 확인한다.",
+      "interaction": "문장 → 점검 이유 → 수정 제안 → 사람의 확인",
+      "nextQuestion": "공고와 전형 정보가 지원자에게 어떻게 보이는가?"
+    },
+    {
+      "id": "M1-06",
+      "title": "지원자 화면",
+      "stage": 2,
+      "space": "지원자 화면 Mode",
+      "question": "공고와 전형 정보가 지원자에게 어떻게 보이는가?",
+      "roles": [
+        "지원자"
+      ],
+      "human": "지원자가 공고·질문·전형 안내를 탐색한다.",
+      "interaction": "지원자 화면 보기 → 안내 확인 → HR 화면 복귀",
+      "nextQuestion": "어떤 인재에게 무엇을 어떻게 알릴 것인가?"
+    },
+    {
+      "id": "M1-07",
+      "title": "인재 유치",
+      "stage": 2,
+      "space": "채용전략실",
+      "question": "어떤 인재에게 무엇을 어떻게 알릴 것인가?",
+      "roles": [
+        "ICT 인사담당자",
+        "채용담당자"
+      ],
+      "human": "Target·Message·Content·Channel을 검토한다.",
+      "interaction": "대상 → 메시지 → 채널 근거 탐색",
+      "nextQuestion": "질문에서 어떤 경험을 발견하고 후속 검증할 것인가?"
+    },
+    {
+      "id": "M1-08",
+      "title": "지원 질문 설계",
+      "stage": 2,
+      "space": "채용전략실",
+      "question": "질문에서 어떤 경험을 발견하고 후속 검증할 것인가?",
+      "roles": [
+        "ICT 인사담당자",
+        "채용담당자"
+      ],
+      "human": "제공된 3문항의 의도와 한계를 논의한다.",
+      "interaction": "문항 → Evidence 목적 → 후속 검증",
+      "nextQuestion": "목표와 가용시간 안에서 어떤 운영 규모를 계획할 것인가?"
+    },
+    {
+      "id": "M1-09",
+      "title": "Funnel Planning",
+      "stage": 2,
+      "space": "채용전략실",
+      "question": "목표와 가용시간 안에서 어떤 운영 규모를 계획할 것인가?",
+      "roles": [
+        "ICT 인사담당자",
+        "채용담당자",
+        "ML 엔지니어"
+      ],
+      "human": "HR이 목표를 제시하고 현업이 Capacity를 설명한다. 계산 후 Trade-off를 논의한다.",
+      "interaction": "목표 → 예상 전환 → 비용 → 60 person-hours → 계산 → 근거",
+      "nextQuestion": "기본요건과 후속 검증할 경험은 무엇인가?"
+    },
+    {
+      "id": "M1-10",
+      "title": "서류",
+      "stage": 3,
+      "space": "채용운영실",
+      "question": "기본요건과 후속 검증할 경험은 무엇인가?",
+      "roles": [
+        "채용담당자",
+        "ICT 인사담당자"
+      ],
+      "human": "지원정보와 SELF_REPORTED 원답변에서 기본요건, Evidence Candidate, 후속검증 질문을 찾는다.",
+      "interaction": "답변 → 요건/경험 → 후속 확인점",
+      "nextQuestion": "면접 전에 어떤 기본기를 확인하는가?"
+    },
+    {
+      "id": "M1-11",
+      "title": "사전검증",
+      "stage": 3,
+      "space": "온라인 평가 화면 Mode",
+      "question": "면접 전에 어떤 기본기를 확인하는가?",
+      "roles": [
+        "지원자"
+      ],
+      "human": "지원자가 역량검사·코딩테스트를 수행하는 맥락을 본다.",
+      "interaction": "단계 안내 → 코딩 기본기 근거 → 기록 확인",
+      "nextQuestion": "실제 면접 필요 인원을 현재 평가자 Capacity로 운영할 수 있는가?"
+    },
+    {
+      "id": "M1-12",
+      "title": "1차면접 Capacity 재검토",
+      "stage": 3,
+      "space": "평가회의실",
+      "question": "실제 면접 필요 인원을 현재 평가자 Capacity로 운영할 수 있는가?",
+      "roles": [
+        "ICT 인사담당자",
+        "채용담당자",
+        "ML 엔지니어",
+        "현업 채용책임자"
+      ],
+      "human": "초기 계획 3h × 20명 = 60h와 실제 사전검증 후 평가 수요를 비교한다. 시스템은 Gap을 계산하고 HR은 추가 자원/기간 조정/평가방식 재설계 중 운영 대응을 설명한다.",
+      "interaction": "Initial Plan → Demand → Gap → 대안 → Human Decision → Revised Capacity",
+      "nextQuestion": "확보한 Capacity 안에서 각 역량을 어떤 방식으로 검증할 것인가?"
+    },
+    {
+      "id": "M1-13",
+      "title": "1차면접 설계",
+      "stage": 3,
+      "space": "평가회의실",
+      "question": "각 역량을 어떤 방식으로 검증할 것인가?",
+      "roles": [
+        "ML 엔지니어",
+        "현업 채용책임자",
+        "ICT 인사담당자"
+      ],
+      "human": "주 평가와 보완 검증을 논의한다.",
+      "interaction": "Skill → Matrix → 평가 이유",
+      "nextQuestion": "답변과 과제에서 무엇이 확인되고 무엇이 남는가?"
+    },
+    {
+      "id": "M1-14",
+      "title": "1차 실무진면접",
+      "stage": 3,
+      "space": "면접실",
+      "question": "답변과 과제에서 무엇이 확인되고 무엇이 남는가?",
+      "roles": [
+        "지원자",
+        "ML 엔지니어",
+        "현업 채용책임자"
+      ],
+      "human": "평가자 3명의 단일 60분 Session 안에서 기술평가·AI 과제·질의 Evidence를 본다. 세 영역 시간을 중복 합산하지 않는다.",
+      "interaction": "대표 3명 답변·원근거·Skill 연결·사람의 수준 확인",
+      "nextQuestion": "평가자 차이를 어떤 원근거로 검토하는가?"
+    },
+    {
+      "id": "M1-15",
+      "title": "1차 평가 조정",
+      "stage": 3,
+      "space": "평가회의실",
+      "question": "평가자 차이를 어떤 원근거로 검토하는가?",
+      "roles": [
+        "ML 엔지니어",
+        "현업 채용책임자",
+        "ICT 인사담당자"
+      ],
+      "human": "평가자가 저장된 Observation의 부족·한계·이견을 확인하고 필요한 경우에만 별도 Calibration을 수행한다. 핵심 Skill01~03의 decisionable Coverage와 역량 충분성을 구분한다. 직접 LIMITED도 관찰 Coverage에 포함하며 명시적 비진행 판단은 별도다. 합의된 LIMITED/NOT_OBSERVED만으로 Calibration을 만들지 않는다.",
+      "interaction": "차이 → 원문 → Rubric → 재검토",
+      "nextQuestion": "실제 협업·학습·가치와 행동은 어떻게 확인되는가?"
+    },
+    {
+      "id": "M1-16",
+      "title": "2차면접",
+      "stage": 3,
+      "space": "면접실",
+      "question": "실제 협업·학습·가치와 행동은 어떻게 확인되는가?",
+      "roles": [
+        "지원자",
+        "면접관"
+      ],
+      "human": "평가자 2명·30분의 합성 면접에서 구체적 과거 행동과 후속 질문을 탐색한다. 기아 공식 운영정책이 아니다.",
+      "interaction": "질문 → 답변 → 행동 근거 → 관찰",
+      "nextQuestion": "필수 근거와 남은 불확실성에 비추어 어떻게 판단했는가?"
+    },
+    {
+      "id": "M1-17",
+      "title": "최종검토",
+      "stage": 4,
+      "space": "평가회의실",
+      "question": "필수 근거와 남은 불확실성에 비추어 어떻게 판단했는가?",
+      "roles": [
+        "ICT 인사담당자",
+        "현업 채용책임자"
+      ],
+      "human": "저장된 Skill Decision·Observation 계보와 Learnable Gap·평가 조정을 검토한다.",
+      "interaction": "Must → 불확실성 → Gap → 조정 → 기록된 판단",
+      "nextQuestion": "HOLD의 어떤 질문을 추가로 확인해야 하는가?"
+    },
+    {
+      "id": "M1-18",
+      "title": "HOLD Focused Follow-up",
+      "stage": 4,
+      "space": "면접실",
+      "question": "HOLD의 어떤 질문을 추가로 확인해야 하는가?",
+      "roles": [
+        "지원자",
+        "해당 Skill 평가자",
+        "ICT 인사담당자"
+      ],
+      "human": "INITIAL HOLD의 Reason·Resolution Plan·기존 Evidence/Observation·미해결 질문에 직접 대응하는 확인을 수행한다. 일반 패턴 재추출을 통한 추가 합격 기회로 만들지 않는다.",
+      "interaction": "Reason + Plan → 최대 1회 Focused Follow-up → new Evidence → new Observation",
+      "nextQuestion": "새 관찰로 불확실성과 평가자 차이가 해소됐는가?"
+    },
+    {
+      "id": "M1-19",
+      "title": "Calibration과 Final Re-review",
+      "stage": 4,
+      "space": "평가회의실",
+      "question": "후속 관찰을 포함해 최종 채용 판단을 내릴 수 있는가?",
+      "roles": [
+        "해당 Skill 평가자",
+        "현업 채용책임자",
+        "ICT 인사담당자"
+      ],
+      "human": "persisted Observation 기반 Calibration 뒤 남은 uncertainty를 검토한다.",
+      "interaction": "새 Observation → Calibration → RE_REVIEW",
+      "nextQuestion": "제안 이후 응답과 입사 변동은 무엇인가?"
+    },
+    {
+      "id": "M1-20",
+      "title": "Offer",
+      "stage": 4,
+      "space": "채용운영실",
+      "question": "제안 이후 응답과 입사 변동은 무엇인가?",
+      "roles": [
+        "채용담당자",
+        "ICT 인사담당자"
+      ],
+      "human": "기록된 Offer·응답·확인된 사유를 확인한다.",
+      "interaction": "제안 → 응답 → 상태/사유",
+      "nextQuestion": "입사를 실제 가용 인력으로 바로 볼 수 있는가?"
+    },
+    {
+      "id": "M1-21",
+      "title": "Join",
+      "stage": 4,
+      "space": "업무공간",
+      "question": "입사를 실제 가용 인력으로 바로 볼 수 있는가?",
+      "roles": [
+        "신규 입사자",
+        "ICT 인사담당자"
+      ],
+      "human": "입사 확인 후 업무 준비 과정을 안내한다.",
+      "interaction": "입사 기록 → 목표시점 공급의 의미",
+      "nextQuestion": "어떤 Gap을 어떤 업무로 줄일 것인가?"
+    },
+    {
+      "id": "M1-22",
+      "title": "Onboarding",
+      "stage": 5,
+      "space": "업무공간",
+      "question": "어떤 Gap을 어떤 업무로 줄일 것인가?",
+      "roles": [
+        "신규 입사자",
+        "온보딩 멘토",
+        "ICT 인사담당자"
+      ],
+      "human": "개인별 learnable_gap_summary와 입사 후 관찰로 Gap·Ramp-up을 협의한다. 모든 Joiner에게 동일 Gap을 강제하지 않는다.",
+      "interaction": "Gap → 1/3/6개월 Task → 실제 업무 근거",
+      "nextQuestion": "실제 업무를 수행할 준비가 되었는가?"
+    },
+    {
+      "id": "M1-23",
+      "title": "Ready",
+      "stage": 5,
+      "space": "업무공간",
+      "question": "실제 업무를 수행할 준비가 되었는가?",
+      "roles": [
+        "신규 입사자",
+        "온보딩 멘토"
+      ],
+      "human": "planned_ready_at과 실제 post-join Work Evidence, 멘토/현업의 확인 주체·시각을 본다.",
+      "interaction": "Task·개인별 Gap·업무 근거 → Human Confirmation → READY_CONFIRMED/연장 기록",
+      "nextQuestion": "목표와 실제 결과는 어떻게 다른가?"
+    },
+    {
+      "id": "M1-24",
+      "title": "Mission 1 결과",
+      "stage": 5,
+      "space": "Mission Board",
+      "question": "목표와 실제 결과는 어떻게 다른가?",
+      "roles": [
+        "ICT 인사담당자",
+        "현업 채용책임자"
+      ],
+      "human": "초기 인력계획과 실제 결과를 세 영역으로 확인한다.",
+      "interaction": "Target/Actual/근거 → 데이터 분석 시작",
+      "nextQuestion": "이 데이터를 새로운 경력채용 계획에 어떻게 활용할 것인가?"
+    },
+    {
+      "id": "M1-25",
+      "title": "Data Lab 연결",
+      "stage": 5,
+      "space": "데이터랩",
+      "question": "이 데이터를 새로운 경력채용 계획에 어떻게 활용할 것인가?",
+      "roles": [
+        "ICT 인사담당자",
+        "인사 데이터 분석가"
+      ],
+      "human": "새 요청의 조건과 분석할 이전 데이터를 연결한다.",
+      "interaction": "Mission 2 문맥 → 새 요청 확인",
+      "nextQuestion": "이번에는 어떤 Capability가 언제 필요한가?"
+    }
+  ],
+  "skills": [
+    {
+      "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+      "description": "문제 구조화의 관찰 가능한 업무 근거",
+      "evidence_refs": [
+        "docs/02_mission1_scenario.md#10-talent-profile-direction"
+      ],
+      "expected_evidence": "최소 납기 위반을 목표로 정의했다; 설비별 가용시간 제약을 확인했다",
+      "requirement_type": "MUST",
+      "skill_id": "M1_SKILL_01",
+      "skill_name": "문제 구조화",
+      "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction"
+    },
+    {
+      "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+      "description": "ML/수리적 사고 기초의 관찰 가능한 업무 근거",
+      "evidence_refs": [
+        "docs/02_mission1_scenario.md#10-talent-profile-direction"
+      ],
+      "expected_evidence": "평균 오차와 구간별 편차를 따로 비교했다; 학습 구간과 검증 구간의 중복을 확인했다",
+      "requirement_type": "MUST",
+      "skill_id": "M1_SKILL_02",
+      "skill_name": "ML/수리적 사고 기초",
+      "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction"
+    },
+    {
+      "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+      "description": "알고리즘 구현 및 검증의 관찰 가능한 업무 근거",
+      "evidence_refs": [
+        "docs/02_mission1_scenario.md#10-talent-profile-direction"
+      ],
+      "expected_evidence": "작업 의존 순서를 반영하는 함수를 작성했다; 빈 입력과 순환 의존의 재현 테스트를 실행했다",
+      "requirement_type": "MUST",
+      "skill_id": "M1_SKILL_03",
+      "skill_name": "알고리즘 구현 및 검증",
+      "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction"
+    },
+    {
+      "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+      "description": "새로운 기술 학습의 관찰 가능한 업무 근거",
+      "evidence_refs": [
+        "docs/02_mission1_scenario.md#10-talent-profile-direction"
+      ],
+      "expected_evidence": "새 도구의 설명과 작은 실행 예제를 비교했다; 문서 버전 차이를 확인하고 실행 예제를 수정했다",
+      "requirement_type": "MUST",
+      "skill_id": "M1_SKILL_04",
+      "skill_name": "새로운 기술 학습",
+      "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction"
+    },
+    {
+      "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+      "description": "협업 및 기술 커뮤니케이션의 관찰 가능한 업무 근거",
+      "evidence_refs": [
+        "docs/02_mission1_scenario.md#10-talent-profile-direction"
+      ],
+      "expected_evidence": "담당 부분과 검토 요청을 동료에게 문서로 전달했다; 동료 피드백과 수정 내역을 함께 기록했다",
+      "requirement_type": "MUST",
+      "skill_id": "M1_SKILL_05",
+      "skill_name": "협업 및 기술 커뮤니케이션",
+      "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction"
+    },
+    {
+      "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+      "description": "Production 경험의 관찰 가능한 업무 근거",
+      "evidence_refs": [
+        "docs/02_mission1_scenario.md#10-talent-profile-direction"
+      ],
+      "expected_evidence": "실패한 배치 작업을 격리하는 절차를 정리했다; 재시도 중복과 복구 로그를 점검했다",
+      "requirement_type": "LEARNABLE",
+      "skill_id": "M1_SKILL_06",
+      "skill_name": "Production 경험",
+      "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction"
+    },
+    {
+      "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+      "description": "논문/알고리즘 구현 경험의 관찰 가능한 업무 근거",
+      "evidence_refs": [
+        "docs/02_mission1_scenario.md#10-talent-profile-direction"
+      ],
+      "expected_evidence": "논문 알고리즘의 작은 구현 예제를 작성했다; 기준 구현과 동일 입력의 결과를 비교했다",
+      "requirement_type": "PLUS",
+      "skill_id": "M1_SKILL_07",
+      "skill_name": "논문/알고리즘 구현 경험",
+      "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction"
+    },
+    {
+      "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+      "description": "관련 연구/프로젝트의 관찰 가능한 업무 근거",
+      "evidence_refs": [
+        "docs/02_mission1_scenario.md#10-talent-profile-direction"
+      ],
+      "expected_evidence": "프로젝트의 담당 작업과 산출물을 설명했다; 변경 전후 결과와 한계를 기록했다",
+      "requirement_type": "PLUS",
+      "skill_id": "M1_SKILL_08",
+      "skill_name": "관련 연구/프로젝트",
+      "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction"
+    },
+    {
+      "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+      "description": "필요시 Business English의 관찰 가능한 업무 근거",
+      "evidence_refs": [
+        "docs/02_mission1_scenario.md#10-talent-profile-direction"
+      ],
+      "expected_evidence": "기술 문서의 설정 조건을 설명했다; 원문 버전과 실제 동작을 대조했다",
+      "requirement_type": "PLUS",
+      "skill_id": "M1_SKILL_09",
+      "skill_name": "필요시 Business English",
+      "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction"
+    }
+  ],
+  "workforcePlan": {
+    "baseline_date": "2026-10-01",
+    "confirmed_joiners": 0,
+    "confirmed_transfer_in": 1,
+    "confirmed_transfer_out": 1,
+    "current_fte": 12,
+    "demand_fte": 16,
+    "evidence_type": "SYNTHETIC",
+    "forecast_supply_fte": 12,
+    "plan_id": "M1_WP_01",
+    "target_date": "2027-09-01",
+    "target_join": 4,
+    "target_ready": 4,
+    "workforce_gap": 4
+  },
+  "funnel": [
+    {
+      "stage": "APPLICATION_STARTED",
+      "label": "지원 시작",
+      "target": 320,
+      "actual": 342
+    },
+    {
+      "stage": "APPLICATION_SUBMITTED",
+      "label": "지원 완료",
+      "target": 240,
+      "actual": 246
+    },
+    {
+      "stage": "DOCUMENT_SCREEN",
+      "label": "서류 통과",
+      "target": 120,
+      "actual": 246
+    },
+    {
+      "stage": "PRE_ASSESSMENT",
+      "label": "사전검증 통과",
+      "target": 60,
+      "actual": 192
+    },
+    {
+      "stage": "FIRST_INTERVIEW",
+      "label": "1차면접 계획 인원",
+      "target": 20,
+      "actual": 192
+    },
+    {
+      "stage": "SECOND_INTERVIEW",
+      "label": "2차면접 대상",
+      "target": 8,
+      "actual": 59
+    },
+    {
+      "stage": "OFFER",
+      "label": "Offer",
+      "target": 5,
+      "actual": 32
+    },
+    {
+      "stage": "JOIN",
+      "label": "Join 목표",
+      "target": 4,
+      "actual": 17
+    }
+  ],
+  "capacity": {
+    "initial": 60,
+    "planned": 20,
+    "unit": 3,
+    "demand": 576,
+    "gap": 516,
+    "additional": 540,
+    "revised": 600,
+    "consumed": 519,
+    "released": 57,
+    "reserved": 576,
+    "pool": 30,
+    "decision": {
+      "additional_hours_each": 18,
+      "alternatives": [
+        "EXTEND_WINDOW",
+        "REDESIGN_ASSESSMENT"
+      ],
+      "evaluator_count": 30,
+      "pool_panels": 10,
+      "rationale": "Fixed synthetic pool receives additional interview hours in whole one-hour allocations; no added panels",
+      "selected": "ADD_EVALUATOR_RESOURCES"
+    },
+    "sourceIds": [
+      "CAP_0000",
+      "CAP_0001",
+      "CAP_0002"
+    ],
+    "calibrationCount": 144,
+    "calibrationHours": 72
+  },
+  "interview": {
+    "entered": 192,
+    "advanced": 59,
+    "failed": 37,
+    "waiting": 91,
+    "withdrawn": 5
+  },
+  "outcomes": {
+    "offered": 32,
+    "accepted": 20,
+    "declined": 4,
+    "expired": 8,
+    "preJoinWithdrawal": 3,
+    "joined": 17,
+    "ready": 8,
+    "targetDateReady": 1,
+    "gaps": 29,
+    "tasks": 107
+  },
+  "readyProof": [
+    {
+      "id": "WF_EMP_C0077_READY_CONFIRMED",
+      "effectiveAt": "2027-09-11T09:00:00+09:00",
+      "confirmedAt": "2027-09-11T09:00:00+09:00",
+      "confirmedBy": "MENTOR_POOL_01",
+      "reason": "개인별 필요한 업무/Gap의 검증과 후속 확인을 검토하여 업무 수행 준비를 확인했다.",
+      "tasks": [
+        {
+          "id": "TASK_EMP_C0077_01",
+          "action": "업무 요구에 맞춰 작은 산출물을 만들고 실행/검토 기록을 남겼다.",
+          "observedAt": "2027-04-14T09:00:00+09:00",
+          "sourceRef": "onboarding_tasks.csv#TASK_EMP_C0077_01/work_evidence"
+        },
+        {
+          "id": "TASK_EMP_C0077_02",
+          "action": "업무 요구에 맞춰 작은 산출물을 만들고 실행/검토 기록을 남겼다.",
+          "observedAt": "2027-06-02T09:00:00+09:00",
+          "sourceRef": "onboarding_tasks.csv#TASK_EMP_C0077_02/work_evidence"
+        },
+        {
+          "id": "TASK_EMP_C0077_03",
+          "action": "업무 요구에 맞춰 작은 산출물을 만들고 실행/검토 기록을 남겼다.",
+          "observedAt": "2027-09-11T09:00:00+09:00",
+          "sourceRef": "onboarding_tasks.csv#TASK_EMP_C0077_03/work_evidence"
+        }
+      ]
+    },
+    {
+      "id": "WF_EMP_C0102_READY_CONFIRMED",
+      "effectiveAt": "2027-08-31T09:00:00+09:00",
+      "confirmedAt": "2027-08-31T09:00:00+09:00",
+      "confirmedBy": "MENTOR_POOL_01",
+      "reason": "개인별 필요한 업무/Gap의 검증과 후속 확인을 검토하여 업무 수행 준비를 확인했다.",
+      "tasks": [
+        {
+          "id": "TASK_EMP_C0102_01",
+          "action": "업무 요구에 맞춰 작은 산출물을 만들고 실행/검토 기록을 남겼다.",
+          "observedAt": "2027-04-14T09:00:00+09:00",
+          "sourceRef": "onboarding_tasks.csv#TASK_EMP_C0102_01/work_evidence"
+        },
+        {
+          "id": "TASK_EMP_C0102_02",
+          "action": "업무 요구에 맞춰 작은 산출물을 만들고 실행/검토 기록을 남겼다.",
+          "observedAt": "2027-06-06T09:00:00+09:00",
+          "sourceRef": "onboarding_tasks.csv#TASK_EMP_C0102_02/work_evidence"
+        },
+        {
+          "id": "TASK_EMP_C0102_03",
+          "action": "업무 요구에 맞춰 작은 산출물을 만들고 실행/검토 기록을 남겼다.",
+          "observedAt": "2027-08-31T09:00:00+09:00",
+          "sourceRef": "onboarding_tasks.csv#TASK_EMP_C0102_03/work_evidence"
+        }
+      ]
+    },
+    {
+      "id": "WF_EMP_C0113_READY_CONFIRMED",
+      "effectiveAt": "2027-09-04T09:00:00+09:00",
+      "confirmedAt": "2027-09-04T09:00:00+09:00",
+      "confirmedBy": "MENTOR_POOL_01",
+      "reason": "개인별 필요한 업무/Gap의 검증과 후속 확인을 검토하여 업무 수행 준비를 확인했다.",
+      "tasks": [
+        {
+          "id": "TASK_EMP_C0113_01",
+          "action": "업무 요구에 맞춰 작은 산출물을 만들고 실행/검토 기록을 남겼다.",
+          "observedAt": "2027-04-14T09:00:00+09:00",
+          "sourceRef": "onboarding_tasks.csv#TASK_EMP_C0113_01/work_evidence"
+        },
+        {
+          "id": "TASK_EMP_C0113_02",
+          "action": "업무 요구에 맞춰 작은 산출물을 만들고 실행/검토 기록을 남겼다.",
+          "observedAt": "2027-06-13T09:00:00+09:00",
+          "sourceRef": "onboarding_tasks.csv#TASK_EMP_C0113_02/work_evidence"
+        },
+        {
+          "id": "TASK_EMP_C0113_03",
+          "action": "업무 요구에 맞춰 작은 산출물을 만들고 실행/검토 기록을 남겼다.",
+          "observedAt": "2027-09-04T09:00:00+09:00",
+          "sourceRef": "onboarding_tasks.csv#TASK_EMP_C0113_03/work_evidence"
+        }
+      ]
+    },
+    {
+      "id": "WF_EMP_C0131_READY_CONFIRMED",
+      "effectiveAt": "2027-09-11T09:00:00+09:00",
+      "confirmedAt": "2027-09-11T09:00:00+09:00",
+      "confirmedBy": "MENTOR_POOL_01",
+      "reason": "개인별 필요한 업무/Gap의 검증과 후속 확인을 검토하여 업무 수행 준비를 확인했다.",
+      "tasks": [
+        {
+          "id": "TASK_EMP_C0131_01",
+          "action": "업무 요구에 맞춰 작은 산출물을 만들고 실행/검토 기록을 남겼다.",
+          "observedAt": "2027-04-03T09:00:00+09:00",
+          "sourceRef": "onboarding_tasks.csv#TASK_EMP_C0131_01/work_evidence"
+        },
+        {
+          "id": "TASK_EMP_C0131_02",
+          "action": "업무 요구에 맞춰 작은 산출물을 만들고 실행/검토 기록을 남겼다.",
+          "observedAt": "2027-06-13T09:00:00+09:00",
+          "sourceRef": "onboarding_tasks.csv#TASK_EMP_C0131_02/work_evidence"
+        },
+        {
+          "id": "TASK_EMP_C0131_03",
+          "action": "업무 요구에 맞춰 작은 산출물을 만들고 실행/검토 기록을 남겼다.",
+          "observedAt": "2027-09-11T09:00:00+09:00",
+          "sourceRef": "onboarding_tasks.csv#TASK_EMP_C0131_03/work_evidence"
+        }
+      ]
+    },
+    {
+      "id": "WF_EMP_C0181_READY_CONFIRMED",
+      "effectiveAt": "2027-10-16T11:35:00+09:00",
+      "confirmedAt": "2027-10-16T11:35:00+09:00",
+      "confirmedBy": "MENTOR_POOL_01",
+      "reason": "개인별 필요한 업무/Gap의 검증과 후속 확인을 검토하여 업무 수행 준비를 확인했다.",
+      "tasks": [
+        {
+          "id": "TASK_EMP_C0181_02",
+          "action": "업무 요구에 맞춰 작은 산출물을 만들고 실행/검토 기록을 남겼다.",
+          "observedAt": "2027-06-25T11:35:00+09:00",
+          "sourceRef": "onboarding_tasks.csv#TASK_EMP_C0181_02/work_evidence"
+        },
+        {
+          "id": "TASK_EMP_C0181_03",
+          "action": "업무 요구에 맞춰 작은 산출물을 만들고 실행/검토 기록을 남겼다.",
+          "observedAt": "2027-09-16T11:35:00+09:00",
+          "sourceRef": "onboarding_tasks.csv#TASK_EMP_C0181_03/work_evidence"
+        },
+        {
+          "id": "TASK_EMP_C0181_04",
+          "action": "업무 요구에 맞춰 작은 산출물을 만들고 실행/검토 기록을 남겼다.",
+          "observedAt": "2027-10-16T11:35:00+09:00",
+          "sourceRef": "onboarding_tasks.csv#TASK_EMP_C0181_04/work_evidence"
+        }
+      ]
+    },
+    {
+      "id": "WF_EMP_C0182_READY_CONFIRMED",
+      "effectiveAt": "2027-10-27T11:00:00+09:00",
+      "confirmedAt": "2027-10-27T11:00:00+09:00",
+      "confirmedBy": "MENTOR_POOL_01",
+      "reason": "개인별 필요한 업무/Gap의 검증과 후속 확인을 검토하여 업무 수행 준비를 확인했다.",
+      "tasks": [
+        {
+          "id": "TASK_EMP_C0182_01",
+          "action": "업무 요구에 맞춰 작은 산출물을 만들고 실행/검토 기록을 남겼다.",
+          "observedAt": "2027-04-12T11:00:00+09:00",
+          "sourceRef": "onboarding_tasks.csv#TASK_EMP_C0182_01/work_evidence"
+        },
+        {
+          "id": "TASK_EMP_C0182_02",
+          "action": "업무 요구에 맞춰 작은 산출물을 만들고 실행/검토 기록을 남겼다.",
+          "observedAt": "2027-06-11T11:00:00+09:00",
+          "sourceRef": "onboarding_tasks.csv#TASK_EMP_C0182_02/work_evidence"
+        },
+        {
+          "id": "TASK_EMP_C0182_04",
+          "action": "업무 요구에 맞춰 작은 산출물을 만들고 실행/검토 기록을 남겼다.",
+          "observedAt": "2027-10-27T11:00:00+09:00",
+          "sourceRef": "onboarding_tasks.csv#TASK_EMP_C0182_04/work_evidence"
+        }
+      ]
+    },
+    {
+      "id": "WF_EMP_C0225_READY_CONFIRMED",
+      "effectiveAt": "2027-10-14T12:05:00+09:00",
+      "confirmedAt": "2027-10-14T12:05:00+09:00",
+      "confirmedBy": "MENTOR_POOL_01",
+      "reason": "개인별 필요한 업무/Gap의 검증과 후속 확인을 검토하여 업무 수행 준비를 확인했다.",
+      "tasks": [
+        {
+          "id": "TASK_EMP_C0225_02",
+          "action": "업무 요구에 맞춰 작은 산출물을 만들고 실행/검토 기록을 남겼다.",
+          "observedAt": "2027-06-13T12:05:00+09:00",
+          "sourceRef": "onboarding_tasks.csv#TASK_EMP_C0225_02/work_evidence"
+        },
+        {
+          "id": "TASK_EMP_C0225_03",
+          "action": "업무 요구에 맞춰 작은 산출물을 만들고 실행/검토 기록을 남겼다.",
+          "observedAt": "2027-09-11T12:05:00+09:00",
+          "sourceRef": "onboarding_tasks.csv#TASK_EMP_C0225_03/work_evidence"
+        },
+        {
+          "id": "TASK_EMP_C0225_04",
+          "action": "업무 요구에 맞춰 작은 산출물을 만들고 실행/검토 기록을 남겼다.",
+          "observedAt": "2027-10-14T12:05:00+09:00",
+          "sourceRef": "onboarding_tasks.csv#TASK_EMP_C0225_04/work_evidence"
+        }
+      ]
+    },
+    {
+      "id": "WF_EMP_C0300_READY_CONFIRMED",
+      "effectiveAt": "2027-09-27T11:10:00+09:00",
+      "confirmedAt": "2027-09-27T11:10:00+09:00",
+      "confirmedBy": "MENTOR_POOL_01",
+      "reason": "개인별 필요한 업무/Gap의 검증과 후속 확인을 검토하여 업무 수행 준비를 확인했다.",
+      "tasks": [
+        {
+          "id": "TASK_EMP_C0300_01",
+          "action": "업무 요구에 맞춰 작은 산출물을 만들고 실행/검토 기록을 남겼다.",
+          "observedAt": "2027-04-26T11:10:00+09:00",
+          "sourceRef": "onboarding_tasks.csv#TASK_EMP_C0300_01/work_evidence"
+        },
+        {
+          "id": "TASK_EMP_C0300_02",
+          "action": "업무 요구에 맞춰 작은 산출물을 만들고 실행/검토 기록을 남겼다.",
+          "observedAt": "2027-06-22T11:10:00+09:00",
+          "sourceRef": "onboarding_tasks.csv#TASK_EMP_C0300_02/work_evidence"
+        },
+        {
+          "id": "TASK_EMP_C0300_03",
+          "action": "업무 요구에 맞춰 작은 산출물을 만들고 실행/검토 기록을 남겼다.",
+          "observedAt": "2027-09-27T11:10:00+09:00",
+          "sourceRef": "onboarding_tasks.csv#TASK_EMP_C0300_03/work_evidence"
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "CASE_A",
+      "candidateId": "C0003",
+      "applicationId": "APP0003",
+      "question": "근거가 부족하면 어떻게 판단할까?",
+      "message": "Evidence 부족 ≠ Skill 부족",
+      "skill": {
+        "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+        "description": "ML/수리적 사고 기초의 관찰 가능한 업무 근거",
+        "evidence_refs": [
+          "docs/02_mission1_scenario.md#10-talent-profile-direction"
+        ],
+        "expected_evidence": "평균 오차와 구간별 편차를 따로 비교했다; 학습 구간과 검증 구간의 중복을 확인했다",
+        "requirement_type": "MUST",
+        "skill_id": "M1_SKILL_02",
+        "skill_name": "ML/수리적 사고 기초",
+        "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction"
+      },
+      "caveats": [
+        "탈락 사례가 아닙니다. FIRST EVIDENCE_PENDING이며 Final Review에 도달하지 않았습니다.",
+        "APPLICATION_RESPONSE의 Skill01을 Skill02 근거로 연결하지 않습니다.",
+        "FIRST Calibration은 별도 Skill07의 평가자 이견 때문이며 Skill02 미관찰 자체가 trigger가 아닙니다."
+      ],
+      "cards": [
+        {
+          "id": "EV_APP0003_DOCUMENT_SCREEN_DOCUMENT_REVIEW_M1_SKILL_01",
+          "visibleAt": "M1-10",
+          "copy": "지원서의 문제 구조화 경험입니다. Skill02 자기기술이 아닙니다.",
+          "source": "APPLICATION_RESPONSE",
+          "activity": "DOCUMENT_REVIEW",
+          "mode": "SELF_REPORTED",
+          "raw": {
+            "action": "지원 답변에서 주장: 지원 질문의 경험·성장·역할 자기기술 — 최소 납기 위반을 목표로 정의했다",
+            "context": "지원 질문의 경험·성장·역할 자기기술",
+            "ownership": "SELF",
+            "response": "해당 맥락에서 수행한 작업과 확인 범위를 기록했다.",
+            "revision": "",
+            "task": "문제 구조화",
+            "verification": "추가 검증은 실행하지 않았다."
+          },
+          "skill": {
+            "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+            "description": "문제 구조화의 관찰 가능한 업무 근거",
+            "evidence_refs": [
+              "docs/02_mission1_scenario.md#10-talent-profile-direction"
+            ],
+            "expected_evidence": "최소 납기 위반을 목표로 정의했다; 설비별 가용시간 제약을 확인했다",
+            "requirement_type": "MUST",
+            "skill_id": "M1_SKILL_01",
+            "skill_name": "문제 구조화",
+            "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction"
+          },
+          "link": {
+            "suggestionSource": "HUMAN",
+            "confirmedBy": "REVIEW_ML_01",
+            "status": "CONFIRMED"
+          },
+          "observations": [
+            {
+              "id": "OB_DOCUMENT_SCREEN_PANEL_01_RECRUITER_EV_APP0003_DOCUMENT_SCREEN_DOCUMENT_REVIEW_M1_SKILL_01",
+              "role": "RECRUITER",
+              "text": "행동은 확인했지만 원문에 검증 미실행이 명시됐다.",
+              "level": "LIMITED"
+            }
+          ]
+        },
+        {
+          "id": "EV_APP0003_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT_M1_SKILL_02",
+          "visibleAt": "M1-14",
+          "copy": "Skill02를 판단할 직접 근거를 확인하지 못했습니다.",
+          "source": "TECHNICAL_ASSESSMENT_RESPONSE",
+          "activity": "TECHNICAL_ASSESSMENT",
+          "mode": "DIRECT_TASK",
+          "raw": {
+            "action": "",
+            "context": "모델 결과 표·편차·학습 검증 분리의 해석",
+            "ownership": "UNSPECIFIED",
+            "response": "해당 작업을 확인할 답변/산출물이 기록되지 않았다.",
+            "revision": "",
+            "task": "ML/수리적 사고 기초",
+            "verification": ""
+          },
+          "skill": {
+            "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+            "description": "ML/수리적 사고 기초의 관찰 가능한 업무 근거",
+            "evidence_refs": [
+              "docs/02_mission1_scenario.md#10-talent-profile-direction"
+            ],
+            "expected_evidence": "평균 오차와 구간별 편차를 따로 비교했다; 학습 구간과 검증 구간의 중복을 확인했다",
+            "requirement_type": "MUST",
+            "skill_id": "M1_SKILL_02",
+            "skill_name": "ML/수리적 사고 기초",
+            "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction"
+          },
+          "link": {
+            "suggestionSource": "HUMAN",
+            "confirmedBy": "REVIEW_ML_01",
+            "status": "CONFIRMED"
+          },
+          "observations": [
+            {
+              "id": "OB_FIRST_PANEL_02_ML_ENGINEER_EV_APP0003_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT_M1_SKILL_02",
+              "role": "ML_ENGINEER",
+              "text": "원문에 해당 행동을 확인할 내용이 없다. 능력 부재를 뜻하지 않는다.",
+              "level": "NOT_OBSERVED"
+            },
+            {
+              "id": "OB_FIRST_PANEL_02_HIRING_MANAGER_EV_APP0003_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT_M1_SKILL_02",
+              "role": "HIRING_MANAGER",
+              "text": "원문에 해당 행동을 확인할 내용이 없다. 능력 부재를 뜻하지 않는다.",
+              "level": "NOT_OBSERVED"
+            },
+            {
+              "id": "OB_FIRST_PANEL_02_TECHNICAL_REVIEWER_EV_APP0003_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT_M1_SKILL_02",
+              "role": "TECHNICAL_REVIEWER",
+              "text": "원문에 해당 행동을 확인할 내용이 없다. 능력 부재를 뜻하지 않는다.",
+              "level": "NOT_OBSERVED"
+            }
+          ]
+        },
+        {
+          "id": "EV_APP0003_FIRST_INTERVIEW_AI_CASE_M1_SKILL_03",
+          "visibleAt": "M1-14",
+          "copy": "Skill03의 직접 근거가 Skill02의 미관찰을 대신하지 않습니다.",
+          "source": "AI_CASE_RESPONSE",
+          "activity": "AI_CASE",
+          "mode": "DIRECT_TASK",
+          "raw": {
+            "action": "제출된 과제/실행기록에서 확인: 설비시간·납기 CSV의 제약과 검증 산출물 — 작업 의존 순서를 반영하는 함수를 작성했다",
+            "context": "설비시간·납기 CSV의 제약과 검증 산출물",
+            "ownership": "SELF",
+            "response": "해당 맥락에서 수행한 작업과 확인 범위를 기록했다.",
+            "revision": "검증에서 발견한 예외를 수정하고 같은 조건에서 다시 확인했다.",
+            "task": "알고리즘 구현 및 검증",
+            "verification": "설비시간·납기 CSV의 제약과 검증 산출물 — 빈 입력과 순환 의존의 재현 테스트를 실행했다"
+          },
+          "skill": {
+            "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+            "description": "알고리즘 구현 및 검증의 관찰 가능한 업무 근거",
+            "evidence_refs": [
+              "docs/02_mission1_scenario.md#10-talent-profile-direction"
+            ],
+            "expected_evidence": "작업 의존 순서를 반영하는 함수를 작성했다; 빈 입력과 순환 의존의 재현 테스트를 실행했다",
+            "requirement_type": "MUST",
+            "skill_id": "M1_SKILL_03",
+            "skill_name": "알고리즘 구현 및 검증",
+            "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction"
+          },
+          "link": {
+            "suggestionSource": "HUMAN",
+            "confirmedBy": "REVIEW_ML_01",
+            "status": "CONFIRMED"
+          },
+          "observations": [
+            {
+              "id": "OB_FIRST_PANEL_02_ML_ENGINEER_EV_APP0003_FIRST_INTERVIEW_AI_CASE_M1_SKILL_03",
+              "role": "ML_ENGINEER",
+              "text": "행동·검증·수정과 재확인의 구체적 근거가 있다.",
+              "level": "STRONG"
+            },
+            {
+              "id": "OB_FIRST_PANEL_02_HIRING_MANAGER_EV_APP0003_FIRST_INTERVIEW_AI_CASE_M1_SKILL_03",
+              "role": "HIRING_MANAGER",
+              "text": "행동·검증·수정과 재확인의 구체적 근거가 있다.",
+              "level": "STRONG"
+            },
+            {
+              "id": "OB_FIRST_PANEL_02_TECHNICAL_REVIEWER_EV_APP0003_FIRST_INTERVIEW_AI_CASE_M1_SKILL_03",
+              "role": "TECHNICAL_REVIEWER",
+              "text": "행동·검증·수정과 재확인의 구체적 근거가 있다.",
+              "level": "STRONG"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "scene": "M1-10",
+          "copy": "지원서의 문제 구조화 경험입니다. Skill02 자기기술이 아닙니다.",
+          "observations": [
+            {
+              "id": "OB_DOCUMENT_SCREEN_PANEL_01_RECRUITER_EV_APP0003_DOCUMENT_SCREEN_DOCUMENT_REVIEW_M1_SKILL_01",
+              "evidenceId": "EV_APP0003_DOCUMENT_SCREEN_DOCUMENT_REVIEW_M1_SKILL_01",
+              "role": "RECRUITER",
+              "text": "행동은 확인했지만 원문에 검증 미실행이 명시됐다.",
+              "level": "LIMITED"
+            }
+          ],
+          "skills": [],
+          "stages": [],
+          "finals": [],
+          "followups": [],
+          "calibrations": []
+        },
+        {
+          "scene": "M1-14",
+          "copy": "서로 다른 평가영역의 기록을 구분해 확인합니다.",
+          "observations": [
+            {
+              "id": "OB_FIRST_PANEL_02_ML_ENGINEER_EV_APP0003_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT_M1_SKILL_02",
+              "evidenceId": "EV_APP0003_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT_M1_SKILL_02",
+              "role": "ML_ENGINEER",
+              "text": "원문에 해당 행동을 확인할 내용이 없다. 능력 부재를 뜻하지 않는다.",
+              "level": "NOT_OBSERVED"
+            },
+            {
+              "id": "OB_FIRST_PANEL_02_HIRING_MANAGER_EV_APP0003_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT_M1_SKILL_02",
+              "evidenceId": "EV_APP0003_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT_M1_SKILL_02",
+              "role": "HIRING_MANAGER",
+              "text": "원문에 해당 행동을 확인할 내용이 없다. 능력 부재를 뜻하지 않는다.",
+              "level": "NOT_OBSERVED"
+            },
+            {
+              "id": "OB_FIRST_PANEL_02_TECHNICAL_REVIEWER_EV_APP0003_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT_M1_SKILL_02",
+              "evidenceId": "EV_APP0003_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT_M1_SKILL_02",
+              "role": "TECHNICAL_REVIEWER",
+              "text": "원문에 해당 행동을 확인할 내용이 없다. 능력 부재를 뜻하지 않는다.",
+              "level": "NOT_OBSERVED"
+            },
+            {
+              "id": "OB_FIRST_PANEL_02_ML_ENGINEER_EV_APP0003_FIRST_INTERVIEW_AI_CASE_M1_SKILL_03",
+              "evidenceId": "EV_APP0003_FIRST_INTERVIEW_AI_CASE_M1_SKILL_03",
+              "role": "ML_ENGINEER",
+              "text": "행동·검증·수정과 재확인의 구체적 근거가 있다.",
+              "level": "STRONG"
+            },
+            {
+              "id": "OB_FIRST_PANEL_02_HIRING_MANAGER_EV_APP0003_FIRST_INTERVIEW_AI_CASE_M1_SKILL_03",
+              "evidenceId": "EV_APP0003_FIRST_INTERVIEW_AI_CASE_M1_SKILL_03",
+              "role": "HIRING_MANAGER",
+              "text": "행동·검증·수정과 재확인의 구체적 근거가 있다.",
+              "level": "STRONG"
+            },
+            {
+              "id": "OB_FIRST_PANEL_02_TECHNICAL_REVIEWER_EV_APP0003_FIRST_INTERVIEW_AI_CASE_M1_SKILL_03",
+              "evidenceId": "EV_APP0003_FIRST_INTERVIEW_AI_CASE_M1_SKILL_03",
+              "role": "TECHNICAL_REVIEWER",
+              "text": "행동·검증·수정과 재확인의 구체적 근거가 있다.",
+              "level": "STRONG"
+            }
+          ],
+          "skills": [],
+          "stages": [],
+          "finals": [],
+          "followups": [],
+          "calibrations": []
+        },
+        {
+          "scene": "M1-15",
+          "copy": "판단할 직접 근거가 아직 부족합니다. 역량 부족을 확인한 것은 아닙니다.",
+          "observations": [],
+          "skills": [
+            {
+              "id": "DC_APP0003_M1_SKILL_02_000226",
+              "skillId": "M1_SKILL_02",
+              "level": "",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "reason": "직접 판단 근거 부족. 미관찰을 역량 부재로 해석하지 않는다.",
+              "observationIds": [
+                "OB_FIRST_PANEL_02_ML_ENGINEER_EV_APP0003_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT_M1_SKILL_02",
+                "OB_FIRST_PANEL_02_HIRING_MANAGER_EV_APP0003_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT_M1_SKILL_02",
+                "OB_FIRST_PANEL_02_TECHNICAL_REVIEWER_EV_APP0003_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT_M1_SKILL_02"
+              ]
+            }
+          ],
+          "stages": [
+            {
+              "id": "APP0003_FIRST_INTERVIEW",
+              "stage": "FIRST_INTERVIEW",
+              "result": "IN_PROGRESS",
+              "reason": "EVIDENCE_PENDING",
+              "rationale": {
+                "human_rationale": "기술 핵심01/02/03의 직접 지지·명시적 제한·부족·미해결을 각각 검토. 점수/정원 없음.",
+                "coverage": {
+                  "M1_SKILL_01": {
+                    "decisionable": true,
+                    "observation_refs": [
+                      "OB_FIRST_PANEL_02_ML_ENGINEER_EV_APP0003_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT_M1_SKILL_01",
+                      "OB_FIRST_PANEL_02_HIRING_MANAGER_EV_APP0003_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT_M1_SKILL_01",
+                      "OB_FIRST_PANEL_02_TECHNICAL_REVIEWER_EV_APP0003_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT_M1_SKILL_01",
+                      "OB_FIRST_PANEL_02_ML_ENGINEER_EV_APP0003_FIRST_INTERVIEW_AI_CASE_M1_SKILL_01",
+                      "OB_FIRST_PANEL_02_HIRING_MANAGER_EV_APP0003_FIRST_INTERVIEW_AI_CASE_M1_SKILL_01",
+                      "OB_FIRST_PANEL_02_TECHNICAL_REVIEWER_EV_APP0003_FIRST_INTERVIEW_AI_CASE_M1_SKILL_01"
+                    ],
+                    "skill_decision_ref": "DC_APP0003_M1_SKILL_01_000225",
+                    "state": "A"
+                  },
+                  "M1_SKILL_02": {
+                    "decisionable": false,
+                    "observation_refs": [
+                      "OB_FIRST_PANEL_02_ML_ENGINEER_EV_APP0003_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT_M1_SKILL_02",
+                      "OB_FIRST_PANEL_02_HIRING_MANAGER_EV_APP0003_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT_M1_SKILL_02",
+                      "OB_FIRST_PANEL_02_TECHNICAL_REVIEWER_EV_APP0003_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT_M1_SKILL_02"
+                    ],
+                    "skill_decision_ref": "DC_APP0003_M1_SKILL_02_000226",
+                    "state": "C"
+                  },
+                  "M1_SKILL_03": {
+                    "decisionable": true,
+                    "observation_refs": [
+                      "OB_FIRST_PANEL_02_ML_ENGINEER_EV_APP0003_FIRST_INTERVIEW_AI_CASE_M1_SKILL_03",
+                      "OB_FIRST_PANEL_02_HIRING_MANAGER_EV_APP0003_FIRST_INTERVIEW_AI_CASE_M1_SKILL_03",
+                      "OB_FIRST_PANEL_02_TECHNICAL_REVIEWER_EV_APP0003_FIRST_INTERVIEW_AI_CASE_M1_SKILL_03"
+                    ],
+                    "skill_decision_ref": "DC_APP0003_M1_SKILL_03_000227",
+                    "state": "A"
+                  }
+                }
+              }
+            }
+          ],
+          "finals": [],
+          "followups": [],
+          "calibrations": [
+            {
+              "id": "APP0003_FIRST_INTERVIEW_CALIBRATION_REVIEW",
+              "triggers": [
+                "EVALUATOR_DISAGREEMENT"
+              ],
+              "activityId": "APP0003_FIRST_INTERVIEW_CALIBRATION",
+              "rationale": "직접 Observation의 평가자/Rubric 차이와 동일 맥락 충돌 검토. 합의된 LIMITED/NOT_OBSERVED만으로 회의를 만들지 않으며 품질 신호로 쓰지 않는다."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CASE_B",
+      "candidateId": "C0005",
+      "applicationId": "APP0005",
+      "question": "추가 확인에도 근거가 없다면?",
+      "message": "Targeted Follow-up은 통과를 위한 구제 절차가 아니다.",
+      "skill": {
+        "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+        "description": "새로운 기술 학습의 관찰 가능한 업무 근거",
+        "evidence_refs": [
+          "docs/02_mission1_scenario.md#10-talent-profile-direction"
+        ],
+        "expected_evidence": "새 도구의 설명과 작은 실행 예제를 비교했다; 문서 버전 차이를 확인하고 실행 예제를 수정했다",
+        "requirement_type": "MUST",
+        "skill_id": "M1_SKILL_04",
+        "skill_name": "새로운 기술 학습",
+        "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction"
+      },
+      "caveats": [
+        "한 차례 후속 확인 뒤에도 MUST 판단 근거가 부족해 종료한 사례이며 Skill04 역량 부족 판정이 아닙니다.",
+        "추가 확인에서 두 평가자가 NOT_OBSERVED로 일치하여 Calibration 회의를 별도로 만들지 않았습니다."
+      ],
+      "cards": [
+        {
+          "id": "EV_APP0005_DOCUMENT_SCREEN_DOCUMENT_REVIEW_M1_SKILL_04",
+          "visibleAt": "M1-10",
+          "copy": "지원서에 기술한 경험만으로 Skill을 확정하지 않습니다.",
+          "source": "APPLICATION_RESPONSE",
+          "activity": "DOCUMENT_REVIEW",
+          "mode": "SELF_REPORTED",
+          "raw": {
+            "action": "지원 답변에서 주장: 지원 질문의 경험·성장·역할 자기기술 — 새 도구의 설명과 작은 실행 예제를 비교했다",
+            "context": "지원 질문의 경험·성장·역할 자기기술",
+            "ownership": "SELF",
+            "response": "해당 맥락에서 수행한 작업과 확인 범위를 기록했다.",
+            "revision": "",
+            "task": "새로운 기술 학습",
+            "verification": "지원 질문의 경험·성장·역할 자기기술 — 문서 버전 차이를 확인하고 실행 예제를 수정했다"
+          },
+          "skill": {
+            "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+            "description": "새로운 기술 학습의 관찰 가능한 업무 근거",
+            "evidence_refs": [
+              "docs/02_mission1_scenario.md#10-talent-profile-direction"
+            ],
+            "expected_evidence": "새 도구의 설명과 작은 실행 예제를 비교했다; 문서 버전 차이를 확인하고 실행 예제를 수정했다",
+            "requirement_type": "MUST",
+            "skill_id": "M1_SKILL_04",
+            "skill_name": "새로운 기술 학습",
+            "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction"
+          },
+          "link": {
+            "suggestionSource": "HUMAN",
+            "confirmedBy": "REVIEW_ML_01",
+            "status": "CONFIRMED"
+          },
+          "observations": [
+            {
+              "id": "OB_DOCUMENT_SCREEN_PANEL_01_RECRUITER_EV_APP0005_DOCUMENT_SCREEN_DOCUMENT_REVIEW_M1_SKILL_04",
+              "role": "RECRUITER",
+              "text": "구체적인 행동과 검증을 확인했다.",
+              "level": "MODERATE"
+            }
+          ]
+        },
+        {
+          "id": "EV_APP0005_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+          "visibleAt": "M1-14",
+          "copy": "질의에서 확인할 직접 근거를 확보하지 못했습니다.",
+          "source": "INTERVIEW_RESPONSE",
+          "activity": "PRACTITIONER_QA",
+          "mode": "DIRECT_INTERACTION",
+          "raw": {
+            "action": "",
+            "context": "새 도구 설명·개인 기여·운영 복구에 대한 후속 질의",
+            "ownership": "UNSPECIFIED",
+            "response": "해당 작업을 확인할 답변/산출물이 기록되지 않았다.",
+            "revision": "",
+            "task": "새로운 기술 학습",
+            "verification": ""
+          },
+          "skill": {
+            "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+            "description": "새로운 기술 학습의 관찰 가능한 업무 근거",
+            "evidence_refs": [
+              "docs/02_mission1_scenario.md#10-talent-profile-direction"
+            ],
+            "expected_evidence": "새 도구의 설명과 작은 실행 예제를 비교했다; 문서 버전 차이를 확인하고 실행 예제를 수정했다",
+            "requirement_type": "MUST",
+            "skill_id": "M1_SKILL_04",
+            "skill_name": "새로운 기술 학습",
+            "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction"
+          },
+          "link": {
+            "suggestionSource": "HUMAN",
+            "confirmedBy": "REVIEW_ML_01",
+            "status": "CONFIRMED"
+          },
+          "observations": [
+            {
+              "id": "OB_FIRST_PANEL_04_ML_ENGINEER_EV_APP0005_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+              "role": "ML_ENGINEER",
+              "text": "원문에 해당 행동을 확인할 내용이 없다. 능력 부재를 뜻하지 않는다.",
+              "level": "NOT_OBSERVED"
+            },
+            {
+              "id": "OB_FIRST_PANEL_04_HIRING_MANAGER_EV_APP0005_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+              "role": "HIRING_MANAGER",
+              "text": "원문에 해당 행동을 확인할 내용이 없다. 능력 부재를 뜻하지 않는다.",
+              "level": "NOT_OBSERVED"
+            },
+            {
+              "id": "OB_FIRST_PANEL_04_TECHNICAL_REVIEWER_EV_APP0005_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+              "role": "TECHNICAL_REVIEWER",
+              "text": "원문에 해당 행동을 확인할 내용이 없다. 능력 부재를 뜻하지 않는다.",
+              "level": "NOT_OBSERVED"
+            }
+          ]
+        },
+        {
+          "id": "EV_APP0005_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04",
+          "visibleAt": "M1-16",
+          "copy": "과거 행동을 확인할 근거가 남아 있지 않습니다.",
+          "source": "INTERVIEW_RESPONSE",
+          "activity": "VALUES_BEHAVIOR_INTERVIEW",
+          "mode": "BEHAVIORAL_INTERACTION",
+          "raw": {
+            "action": "",
+            "context": "학습·협업 행동의 상황·행동·피드백 확인",
+            "ownership": "UNSPECIFIED",
+            "response": "해당 작업을 확인할 답변/산출물이 기록되지 않았다.",
+            "revision": "",
+            "task": "새로운 기술 학습",
+            "verification": ""
+          },
+          "skill": {
+            "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+            "description": "새로운 기술 학습의 관찰 가능한 업무 근거",
+            "evidence_refs": [
+              "docs/02_mission1_scenario.md#10-talent-profile-direction"
+            ],
+            "expected_evidence": "새 도구의 설명과 작은 실행 예제를 비교했다; 문서 버전 차이를 확인하고 실행 예제를 수정했다",
+            "requirement_type": "MUST",
+            "skill_id": "M1_SKILL_04",
+            "skill_name": "새로운 기술 학습",
+            "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction"
+          },
+          "link": {
+            "suggestionSource": "HUMAN",
+            "confirmedBy": "REVIEW_ML_01",
+            "status": "CONFIRMED"
+          },
+          "observations": [
+            {
+              "id": "OB_SECOND_INTERVIEW_PANEL_01_ML_ENGINEER_EV_APP0005_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04",
+              "role": "ML_ENGINEER",
+              "text": "원문에 해당 행동을 확인할 내용이 없다. 능력 부재를 뜻하지 않는다.",
+              "level": "NOT_OBSERVED"
+            },
+            {
+              "id": "OB_SECOND_INTERVIEW_PANEL_01_HIRING_MANAGER_EV_APP0005_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04",
+              "role": "HIRING_MANAGER",
+              "text": "원문에 해당 행동을 확인할 내용이 없다. 능력 부재를 뜻하지 않는다.",
+              "level": "NOT_OBSERVED"
+            }
+          ]
+        },
+        {
+          "id": "EV_APP0005_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04",
+          "visibleAt": "M1-18",
+          "copy": "추가 확인에서도 필요한 산출물을 확인하지 못했습니다.",
+          "source": "INTERVIEW_RESPONSE",
+          "activity": "FOCUSED_FOLLOW_UP",
+          "mode": "BEHAVIORAL_INTERACTION",
+          "raw": {
+            "action": "",
+            "context": "학습·협업 행동의 상황·행동·피드백 확인",
+            "ownership": "UNSPECIFIED",
+            "response": "누락된 개인 수행 산출물과 검증 기록을 제시할 수 있는가? 대상: EV_APP0005_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04 / 원문에 해당 행동을 확인할 내용이 없다. 능력 부재를 뜻하지 않는다. / 학습·협업 행동의 상황·행동·피드백 확인   [ARTIFACT_UNAVAILABLE]",
+            "revision": "",
+            "task": "누락된 개인 수행 산출물과 검증 기록을 제시할 수 있는가? 대상: EV_APP0005_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04 / 원문에 해당 행동을 확인할 내용이 없다. 능력 부재를 뜻하지 않는다. / 학습·협업 행동의 상황·행동·피드백 확인",
+            "verification": ""
+          },
+          "skill": {
+            "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+            "description": "새로운 기술 학습의 관찰 가능한 업무 근거",
+            "evidence_refs": [
+              "docs/02_mission1_scenario.md#10-talent-profile-direction"
+            ],
+            "expected_evidence": "새 도구의 설명과 작은 실행 예제를 비교했다; 문서 버전 차이를 확인하고 실행 예제를 수정했다",
+            "requirement_type": "MUST",
+            "skill_id": "M1_SKILL_04",
+            "skill_name": "새로운 기술 학습",
+            "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction"
+          },
+          "link": {
+            "suggestionSource": "HUMAN",
+            "confirmedBy": "REVIEW_ML_01",
+            "status": "CONFIRMED"
+          },
+          "observations": [
+            {
+              "id": "OB_FINAL_REVIEW_PANEL_01_ML_ENGINEER_EV_APP0005_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04",
+              "role": "ML_ENGINEER",
+              "text": "원문에 해당 행동을 확인할 내용이 없다. 능력 부재를 뜻하지 않는다.",
+              "level": "NOT_OBSERVED"
+            },
+            {
+              "id": "OB_FINAL_REVIEW_PANEL_01_HIRING_MANAGER_EV_APP0005_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04",
+              "role": "HIRING_MANAGER",
+              "text": "원문에 해당 행동을 확인할 내용이 없다. 능력 부재를 뜻하지 않는다.",
+              "level": "NOT_OBSERVED"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "scene": "M1-10",
+          "copy": "지원서에 기술한 경험만으로 Skill을 확정하지 않습니다.",
+          "observations": [
+            {
+              "id": "OB_DOCUMENT_SCREEN_PANEL_01_RECRUITER_EV_APP0005_DOCUMENT_SCREEN_DOCUMENT_REVIEW_M1_SKILL_04",
+              "evidenceId": "EV_APP0005_DOCUMENT_SCREEN_DOCUMENT_REVIEW_M1_SKILL_04",
+              "role": "RECRUITER",
+              "text": "구체적인 행동과 검증을 확인했다.",
+              "level": "MODERATE"
+            }
+          ],
+          "skills": [],
+          "stages": [],
+          "finals": [],
+          "followups": [],
+          "calibrations": []
+        },
+        {
+          "scene": "M1-14",
+          "copy": "서로 다른 평가영역의 기록을 구분해 확인합니다.",
+          "observations": [
+            {
+              "id": "OB_FIRST_PANEL_04_ML_ENGINEER_EV_APP0005_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+              "evidenceId": "EV_APP0005_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+              "role": "ML_ENGINEER",
+              "text": "원문에 해당 행동을 확인할 내용이 없다. 능력 부재를 뜻하지 않는다.",
+              "level": "NOT_OBSERVED"
+            },
+            {
+              "id": "OB_FIRST_PANEL_04_HIRING_MANAGER_EV_APP0005_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+              "evidenceId": "EV_APP0005_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+              "role": "HIRING_MANAGER",
+              "text": "원문에 해당 행동을 확인할 내용이 없다. 능력 부재를 뜻하지 않는다.",
+              "level": "NOT_OBSERVED"
+            },
+            {
+              "id": "OB_FIRST_PANEL_04_TECHNICAL_REVIEWER_EV_APP0005_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+              "evidenceId": "EV_APP0005_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+              "role": "TECHNICAL_REVIEWER",
+              "text": "원문에 해당 행동을 확인할 내용이 없다. 능력 부재를 뜻하지 않는다.",
+              "level": "NOT_OBSERVED"
+            }
+          ],
+          "skills": [],
+          "stages": [],
+          "finals": [],
+          "followups": [],
+          "calibrations": []
+        },
+        {
+          "scene": "M1-15",
+          "copy": "저장된 Observation과 Skill Decision을 확인합니다. 회의 개최 자체는 역량 신호가 아닙니다.",
+          "observations": [],
+          "skills": [
+            {
+              "id": "DC_APP0005_M1_SKILL_04_000236",
+              "skillId": "M1_SKILL_04",
+              "level": "",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "reason": "직접 판단 근거 부족. 미관찰을 역량 부재로 해석하지 않는다.",
+              "observationIds": [
+                "OB_DOCUMENT_SCREEN_PANEL_01_RECRUITER_EV_APP0005_DOCUMENT_SCREEN_DOCUMENT_REVIEW_M1_SKILL_04",
+                "OB_FIRST_PANEL_04_ML_ENGINEER_EV_APP0005_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+                "OB_FIRST_PANEL_04_HIRING_MANAGER_EV_APP0005_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+                "OB_FIRST_PANEL_04_TECHNICAL_REVIEWER_EV_APP0005_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04"
+              ]
+            }
+          ],
+          "stages": [
+            {
+              "id": "APP0005_FIRST_INTERVIEW",
+              "stage": "FIRST_INTERVIEW",
+              "result": "ADVANCED",
+              "reason": "FIRST_EVIDENCE_REVIEWED",
+              "rationale": {
+                "human_rationale": "기술 핵심01/02/03의 직접 지지·명시적 제한·부족·미해결을 각각 검토. 점수/정원 없음.",
+                "coverage": {
+                  "M1_SKILL_01": {
+                    "decisionable": true,
+                    "observation_refs": [
+                      "OB_FIRST_PANEL_04_ML_ENGINEER_EV_APP0005_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT_M1_SKILL_01",
+                      "OB_FIRST_PANEL_04_HIRING_MANAGER_EV_APP0005_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT_M1_SKILL_01",
+                      "OB_FIRST_PANEL_04_TECHNICAL_REVIEWER_EV_APP0005_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT_M1_SKILL_01",
+                      "OB_FIRST_PANEL_04_ML_ENGINEER_EV_APP0005_FIRST_INTERVIEW_AI_CASE_M1_SKILL_01",
+                      "OB_FIRST_PANEL_04_HIRING_MANAGER_EV_APP0005_FIRST_INTERVIEW_AI_CASE_M1_SKILL_01",
+                      "OB_FIRST_PANEL_04_TECHNICAL_REVIEWER_EV_APP0005_FIRST_INTERVIEW_AI_CASE_M1_SKILL_01"
+                    ],
+                    "skill_decision_ref": "DC_APP0005_M1_SKILL_01_000233",
+                    "state": "A"
+                  },
+                  "M1_SKILL_02": {
+                    "decisionable": true,
+                    "observation_refs": [
+                      "OB_FIRST_PANEL_04_ML_ENGINEER_EV_APP0005_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT_M1_SKILL_02",
+                      "OB_FIRST_PANEL_04_HIRING_MANAGER_EV_APP0005_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT_M1_SKILL_02",
+                      "OB_FIRST_PANEL_04_TECHNICAL_REVIEWER_EV_APP0005_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT_M1_SKILL_02"
+                    ],
+                    "skill_decision_ref": "DC_APP0005_M1_SKILL_02_000234",
+                    "state": "A"
+                  },
+                  "M1_SKILL_03": {
+                    "decisionable": true,
+                    "observation_refs": [
+                      "OB_FIRST_PANEL_04_ML_ENGINEER_EV_APP0005_FIRST_INTERVIEW_AI_CASE_M1_SKILL_03",
+                      "OB_FIRST_PANEL_04_HIRING_MANAGER_EV_APP0005_FIRST_INTERVIEW_AI_CASE_M1_SKILL_03",
+                      "OB_FIRST_PANEL_04_TECHNICAL_REVIEWER_EV_APP0005_FIRST_INTERVIEW_AI_CASE_M1_SKILL_03"
+                    ],
+                    "skill_decision_ref": "DC_APP0005_M1_SKILL_03_000235",
+                    "state": "A"
+                  }
+                }
+              }
+            }
+          ],
+          "finals": [],
+          "followups": [],
+          "calibrations": [
+            {
+              "id": "APP0005_FIRST_INTERVIEW_CALIBRATION_REVIEW",
+              "triggers": [
+                "EVALUATOR_DISAGREEMENT"
+              ],
+              "activityId": "APP0005_FIRST_INTERVIEW_CALIBRATION",
+              "rationale": "직접 Observation의 평가자/Rubric 차이와 동일 맥락 충돌 검토. 합의된 LIMITED/NOT_OBSERVED만으로 회의를 만들지 않으며 품질 신호로 쓰지 않는다."
+            }
+          ]
+        },
+        {
+          "scene": "M1-16",
+          "copy": "추가 행동 근거가 기록되어 있는지 확인합니다.",
+          "observations": [
+            {
+              "id": "OB_SECOND_INTERVIEW_PANEL_01_ML_ENGINEER_EV_APP0005_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04",
+              "evidenceId": "EV_APP0005_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04",
+              "role": "ML_ENGINEER",
+              "text": "원문에 해당 행동을 확인할 내용이 없다. 능력 부재를 뜻하지 않는다.",
+              "level": "NOT_OBSERVED"
+            },
+            {
+              "id": "OB_SECOND_INTERVIEW_PANEL_01_HIRING_MANAGER_EV_APP0005_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04",
+              "evidenceId": "EV_APP0005_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04",
+              "role": "HIRING_MANAGER",
+              "text": "원문에 해당 행동을 확인할 내용이 없다. 능력 부재를 뜻하지 않는다.",
+              "level": "NOT_OBSERVED"
+            }
+          ],
+          "skills": [
+            {
+              "id": "DC_APP0005_M1_SKILL_04_001628",
+              "skillId": "M1_SKILL_04",
+              "level": "",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "reason": "직접 판단 근거 부족. 미관찰을 역량 부재로 해석하지 않는다.",
+              "observationIds": [
+                "OB_DOCUMENT_SCREEN_PANEL_01_RECRUITER_EV_APP0005_DOCUMENT_SCREEN_DOCUMENT_REVIEW_M1_SKILL_04",
+                "OB_FIRST_PANEL_04_ML_ENGINEER_EV_APP0005_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+                "OB_FIRST_PANEL_04_HIRING_MANAGER_EV_APP0005_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+                "OB_FIRST_PANEL_04_TECHNICAL_REVIEWER_EV_APP0005_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+                "OB_SECOND_INTERVIEW_PANEL_01_ML_ENGINEER_EV_APP0005_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04",
+                "OB_SECOND_INTERVIEW_PANEL_01_HIRING_MANAGER_EV_APP0005_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04"
+              ]
+            }
+          ],
+          "stages": [
+            {
+              "id": "APP0005_SECOND_INTERVIEW",
+              "stage": "SECOND_INTERVIEW",
+              "result": "ADVANCED",
+              "reason": "BEHAVIOR_REVIEWED",
+              "rationale": {
+                "human_rationale": "단계 활동과 관찰을 검토하여 다음 판단으로 진행한다. 미관찰은 부족/탈락과 동일하지 않다.",
+                "coverage": null
+              }
+            }
+          ],
+          "finals": [],
+          "followups": [],
+          "calibrations": []
+        },
+        {
+          "scene": "M1-17",
+          "copy": "필요한 직접 근거를 확보하지 못해 HOLD로 기록했습니다.",
+          "observations": [],
+          "skills": [
+            {
+              "id": "DC_APP0005_M1_SKILL_04_002036",
+              "skillId": "M1_SKILL_04",
+              "level": "",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "reason": "직접 판단 근거 부족. 미관찰을 역량 부재로 해석하지 않는다.",
+              "observationIds": [
+                "OB_DOCUMENT_SCREEN_PANEL_01_RECRUITER_EV_APP0005_DOCUMENT_SCREEN_DOCUMENT_REVIEW_M1_SKILL_04",
+                "OB_FIRST_PANEL_04_ML_ENGINEER_EV_APP0005_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+                "OB_FIRST_PANEL_04_HIRING_MANAGER_EV_APP0005_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+                "OB_FIRST_PANEL_04_TECHNICAL_REVIEWER_EV_APP0005_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+                "OB_SECOND_INTERVIEW_PANEL_01_ML_ENGINEER_EV_APP0005_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04",
+                "OB_SECOND_INTERVIEW_PANEL_01_HIRING_MANAGER_EV_APP0005_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04"
+              ]
+            }
+          ],
+          "stages": [],
+          "finals": [
+            {
+              "id": "FD_APP0005_INITIAL",
+              "round": "INITIAL",
+              "decision": "HOLD",
+              "holdReason": "MISSING_EVIDENCE",
+              "rationale": {
+                "human_rationale": "필수 근거·반복된 명시적 제한·남은 확인 질문을 검토한 합성 패널 판단."
+              },
+              "plan": [
+                {
+                  "skill_id": "M1_SKILL_04",
+                  "question": "누락된 개인 수행 산출물과 검증 기록을 제시할 수 있는가? 대상: EV_APP0005_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04 / 원문에 해당 행동을 확인할 내용이 없다. 능력 부재를 뜻하지 않는다. / 학습·협업 행동의 상황·행동·피드백 확인"
+                }
+              ]
+            }
+          ],
+          "followups": [],
+          "calibrations": []
+        },
+        {
+          "scene": "M1-18",
+          "copy": "추가 확인에서도 필요한 산출물을 확인하지 못했습니다.",
+          "observations": [
+            {
+              "id": "OB_FINAL_REVIEW_PANEL_01_ML_ENGINEER_EV_APP0005_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04",
+              "evidenceId": "EV_APP0005_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04",
+              "role": "ML_ENGINEER",
+              "text": "원문에 해당 행동을 확인할 내용이 없다. 능력 부재를 뜻하지 않는다.",
+              "level": "NOT_OBSERVED"
+            },
+            {
+              "id": "OB_FINAL_REVIEW_PANEL_01_HIRING_MANAGER_EV_APP0005_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04",
+              "evidenceId": "EV_APP0005_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04",
+              "role": "HIRING_MANAGER",
+              "text": "원문에 해당 행동을 확인할 내용이 없다. 능력 부재를 뜻하지 않는다.",
+              "level": "NOT_OBSERVED"
+            }
+          ],
+          "skills": [],
+          "stages": [],
+          "finals": [],
+          "followups": [
+            {
+              "evidence_id": "EV_APP0005_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04",
+              "hold_decision_id": "FD_APP0005_INITIAL",
+              "skill_id": "M1_SKILL_04",
+              "question": "누락된 개인 수행 산출물과 검증 기록을 제시할 수 있는가? 대상: EV_APP0005_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04 / 원문에 해당 행동을 확인할 내용이 없다. 능력 부재를 뜻하지 않는다. / 학습·협업 행동의 상황·행동·피드백 확인",
+              "response_kind": "ARTIFACT_UNAVAILABLE"
+            }
+          ],
+          "calibrations": []
+        },
+        {
+          "scene": "M1-19",
+          "copy": "한 차례 추가 확인 후에도 판단 근거를 확보하지 못해 이번 채용 진행을 종료했습니다. 역량 부족으로 단정하지 않습니다.",
+          "observations": [
+            {
+              "id": "OB_FINAL_REVIEW_PANEL_01_ML_ENGINEER_EV_APP0005_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04",
+              "evidenceId": "EV_APP0005_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04",
+              "role": "ML_ENGINEER",
+              "text": "원문에 해당 행동을 확인할 내용이 없다. 능력 부재를 뜻하지 않는다.",
+              "level": "NOT_OBSERVED"
+            },
+            {
+              "id": "OB_FINAL_REVIEW_PANEL_01_HIRING_MANAGER_EV_APP0005_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04",
+              "evidenceId": "EV_APP0005_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04",
+              "role": "HIRING_MANAGER",
+              "text": "원문에 해당 행동을 확인할 내용이 없다. 능력 부재를 뜻하지 않는다.",
+              "level": "NOT_OBSERVED"
+            }
+          ],
+          "skills": [
+            {
+              "id": "DC_APP0005_M1_SKILL_04_002044",
+              "skillId": "M1_SKILL_04",
+              "level": "",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "reason": "직접 판단 근거 부족. 미관찰을 역량 부재로 해석하지 않는다.",
+              "observationIds": [
+                "OB_DOCUMENT_SCREEN_PANEL_01_RECRUITER_EV_APP0005_DOCUMENT_SCREEN_DOCUMENT_REVIEW_M1_SKILL_04",
+                "OB_FIRST_PANEL_04_ML_ENGINEER_EV_APP0005_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+                "OB_FIRST_PANEL_04_HIRING_MANAGER_EV_APP0005_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+                "OB_FIRST_PANEL_04_TECHNICAL_REVIEWER_EV_APP0005_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+                "OB_SECOND_INTERVIEW_PANEL_01_ML_ENGINEER_EV_APP0005_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04",
+                "OB_SECOND_INTERVIEW_PANEL_01_HIRING_MANAGER_EV_APP0005_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04",
+                "OB_FINAL_REVIEW_PANEL_01_ML_ENGINEER_EV_APP0005_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04",
+                "OB_FINAL_REVIEW_PANEL_01_HIRING_MANAGER_EV_APP0005_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04"
+              ]
+            }
+          ],
+          "stages": [],
+          "finals": [
+            {
+              "id": "FD_APP0005_RE_REVIEW",
+              "round": "RE_REVIEW",
+              "decision": "DO_NOT_PROCEED",
+              "holdReason": "",
+              "rationale": {
+                "human_rationale": "한 차례 질문별 후속검증 뒤에도 필수 Skill 자체를 판단할 직접 근거가 미확보/미해결이다. 이번 채용 진행은 종료하되 역량 부족을 확인했다고 추론하지 않는다."
+              },
+              "plan": []
+            }
+          ],
+          "followups": [],
+          "calibrations": [
+            {
+              "id": "APP0005_FINAL_REVIEW_FOLLOW_UP_CALIBRATION_REVIEW",
+              "triggers": [],
+              "activityId": "",
+              "rationale": "직접 Observation의 평가자/Rubric 차이와 동일 맥락 충돌 검토. 합의된 LIMITED/NOT_OBSERVED만으로 회의를 만들지 않으며 품질 신호로 쓰지 않는다."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CASE_C",
+      "candidateId": "C0228",
+      "applicationId": "APP0228",
+      "question": "평가자 의견이 다르다면?",
+      "message": "불확실성을 정의하고 필요한 Evidence를 추가로 확인한다.",
+      "skill": {
+        "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+        "description": "새로운 기술 학습의 관찰 가능한 업무 근거",
+        "evidence_refs": [
+          "docs/02_mission1_scenario.md#10-talent-profile-direction"
+        ],
+        "expected_evidence": "새 도구의 설명과 작은 실행 예제를 비교했다; 문서 버전 차이를 확인하고 실행 예제를 수정했다",
+        "requirement_type": "MUST",
+        "skill_id": "M1_SKILL_04",
+        "skill_name": "새로운 기술 학습",
+        "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction"
+      },
+      "caveats": [
+        "후속검증은 합격을 위한 재시험이 아닙니다. v1 HOLD 18명 중 Re-review Proceed는 이 사례 1명입니다.",
+        "후속검증의 두 MODERATE Observation이 일치하여 별도 Calibration 회의 없이 Skill Decision을 기록했습니다.",
+        "Offer EXPIRED는 이후 별도 lifecycle이며 Selection 판단의 성공·실패를 뜻하지 않습니다."
+      ],
+      "cards": [
+        {
+          "id": "EV_APP0228_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+          "visibleAt": "M1-14",
+          "copy": "개인 기여 범위에 대한 평가자의 해석이 다릅니다.",
+          "source": "INTERVIEW_RESPONSE",
+          "activity": "PRACTITIONER_QA",
+          "mode": "DIRECT_INTERACTION",
+          "raw": {
+            "action": "현장 설명과 후속 질의에서 확인: 새 도구 설명·개인 기여·운영 복구에 대한 후속 질의 — 새 도구의 설명과 작은 실행 예제를 비교했다",
+            "context": "새 도구 설명·개인 기여·운영 복구에 대한 후속 질의",
+            "ownership": "TEAM_UNCLEAR",
+            "response": "팀 산출물을 설명했지만 개인이 확인한 범위는 구분하지 않았다.",
+            "revision": "",
+            "task": "새로운 기술 학습",
+            "verification": "새 도구 설명·개인 기여·운영 복구에 대한 후속 질의 — 문서 버전 차이를 확인하고 실행 예제를 수정했다"
+          },
+          "skill": {
+            "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+            "description": "새로운 기술 학습의 관찰 가능한 업무 근거",
+            "evidence_refs": [
+              "docs/02_mission1_scenario.md#10-talent-profile-direction"
+            ],
+            "expected_evidence": "새 도구의 설명과 작은 실행 예제를 비교했다; 문서 버전 차이를 확인하고 실행 예제를 수정했다",
+            "requirement_type": "MUST",
+            "skill_id": "M1_SKILL_04",
+            "skill_name": "새로운 기술 학습",
+            "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction"
+          },
+          "link": {
+            "suggestionSource": "HUMAN",
+            "confirmedBy": "REVIEW_ML_01",
+            "status": "CONFIRMED"
+          },
+          "observations": [
+            {
+              "id": "OB_FIRST_PANEL_04_ML_ENGINEER_EV_APP0228_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+              "role": "ML_ENGINEER",
+              "text": "팀 산출물에서 개인의 검증 범위를 분리할 수 없다.",
+              "level": "LIMITED"
+            },
+            {
+              "id": "OB_FIRST_PANEL_04_HIRING_MANAGER_EV_APP0228_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+              "role": "HIRING_MANAGER",
+              "text": "맥락과 검증 설명은 구체적이나 개인 수행 범위는 추가 확인이 필요하다.",
+              "level": "MODERATE"
+            },
+            {
+              "id": "OB_FIRST_PANEL_04_TECHNICAL_REVIEWER_EV_APP0228_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+              "role": "TECHNICAL_REVIEWER",
+              "text": "맥락과 검증 설명은 구체적이나 개인 수행 범위는 추가 확인이 필요하다.",
+              "level": "MODERATE"
+            }
+          ]
+        },
+        {
+          "id": "EV_APP0228_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04",
+          "visibleAt": "M1-16",
+          "copy": "2차면접에서도 이를 해소할 행동 근거를 확인하지 못했습니다.",
+          "source": "INTERVIEW_RESPONSE",
+          "activity": "VALUES_BEHAVIOR_INTERVIEW",
+          "mode": "BEHAVIORAL_INTERACTION",
+          "raw": {
+            "action": "",
+            "context": "학습·협업 행동의 상황·행동·피드백 확인",
+            "ownership": "UNSPECIFIED",
+            "response": "해당 작업을 확인할 답변/산출물이 기록되지 않았다.",
+            "revision": "",
+            "task": "새로운 기술 학습",
+            "verification": ""
+          },
+          "skill": {
+            "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+            "description": "새로운 기술 학습의 관찰 가능한 업무 근거",
+            "evidence_refs": [
+              "docs/02_mission1_scenario.md#10-talent-profile-direction"
+            ],
+            "expected_evidence": "새 도구의 설명과 작은 실행 예제를 비교했다; 문서 버전 차이를 확인하고 실행 예제를 수정했다",
+            "requirement_type": "MUST",
+            "skill_id": "M1_SKILL_04",
+            "skill_name": "새로운 기술 학습",
+            "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction"
+          },
+          "link": {
+            "suggestionSource": "HUMAN",
+            "confirmedBy": "REVIEW_ML_01",
+            "status": "CONFIRMED"
+          },
+          "observations": [
+            {
+              "id": "OB_SECOND_INTERVIEW_PANEL_01_ML_ENGINEER_EV_APP0228_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04",
+              "role": "ML_ENGINEER",
+              "text": "원문에 해당 행동을 확인할 내용이 없다. 능력 부재를 뜻하지 않는다.",
+              "level": "NOT_OBSERVED"
+            },
+            {
+              "id": "OB_SECOND_INTERVIEW_PANEL_01_HIRING_MANAGER_EV_APP0228_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04",
+              "role": "HIRING_MANAGER",
+              "text": "원문에 해당 행동을 확인할 내용이 없다. 능력 부재를 뜻하지 않는다.",
+              "level": "NOT_OBSERVED"
+            }
+          ]
+        },
+        {
+          "id": "EV_APP0228_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04",
+          "visibleAt": "M1-18",
+          "copy": "본인이 수행하고 검증한 범위를 추가로 확인했습니다.",
+          "source": "INTERVIEW_RESPONSE",
+          "activity": "FOCUSED_FOLLOW_UP",
+          "mode": "BEHAVIORAL_INTERACTION",
+          "raw": {
+            "action": "요청한 범위의 직접 확인: 새 도구의 설명과 작은 실행 예제를 비교했다",
+            "context": "학습·협업 행동의 상황·행동·피드백 확인",
+            "ownership": "SELF",
+            "response": "공동 산출물 중 본인이 수행하고 검증한 범위를 기록으로 분리할 수 있는가? 대상: EV_APP0228_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04 / 원문에 해당 행동을 확인할 내용이 없다. 능력 부재를 뜻하지 않는다. / 학습·협업 행동의 상황·행동·피드백 확인 요청한 범위의 직접 확인: 새 도구의 설명과 작은 실행 예제를 비교했다 문서 버전 차이를 확인하고 실행 예제를 수정했다 [OWNERSHIP_TRACE_SUPPLIED]",
+            "revision": "",
+            "task": "공동 산출물 중 본인이 수행하고 검증한 범위를 기록으로 분리할 수 있는가? 대상: EV_APP0228_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04 / 원문에 해당 행동을 확인할 내용이 없다. 능력 부재를 뜻하지 않는다. / 학습·협업 행동의 상황·행동·피드백 확인",
+            "verification": "문서 버전 차이를 확인하고 실행 예제를 수정했다"
+          },
+          "skill": {
+            "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+            "description": "새로운 기술 학습의 관찰 가능한 업무 근거",
+            "evidence_refs": [
+              "docs/02_mission1_scenario.md#10-talent-profile-direction"
+            ],
+            "expected_evidence": "새 도구의 설명과 작은 실행 예제를 비교했다; 문서 버전 차이를 확인하고 실행 예제를 수정했다",
+            "requirement_type": "MUST",
+            "skill_id": "M1_SKILL_04",
+            "skill_name": "새로운 기술 학습",
+            "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction"
+          },
+          "link": {
+            "suggestionSource": "HUMAN",
+            "confirmedBy": "REVIEW_ML_01",
+            "status": "CONFIRMED"
+          },
+          "observations": [
+            {
+              "id": "OB_FINAL_REVIEW_PANEL_01_ML_ENGINEER_EV_APP0228_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04",
+              "role": "ML_ENGINEER",
+              "text": "구체적인 행동과 검증을 확인했다.",
+              "level": "MODERATE"
+            },
+            {
+              "id": "OB_FINAL_REVIEW_PANEL_01_HIRING_MANAGER_EV_APP0228_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04",
+              "role": "HIRING_MANAGER",
+              "text": "구체적인 행동과 검증을 확인했다.",
+              "level": "MODERATE"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "scene": "M1-14",
+          "copy": "서로 다른 평가영역의 기록을 구분해 확인합니다.",
+          "observations": [
+            {
+              "id": "OB_FIRST_PANEL_04_ML_ENGINEER_EV_APP0228_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+              "evidenceId": "EV_APP0228_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+              "role": "ML_ENGINEER",
+              "text": "팀 산출물에서 개인의 검증 범위를 분리할 수 없다.",
+              "level": "LIMITED"
+            },
+            {
+              "id": "OB_FIRST_PANEL_04_HIRING_MANAGER_EV_APP0228_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+              "evidenceId": "EV_APP0228_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+              "role": "HIRING_MANAGER",
+              "text": "맥락과 검증 설명은 구체적이나 개인 수행 범위는 추가 확인이 필요하다.",
+              "level": "MODERATE"
+            },
+            {
+              "id": "OB_FIRST_PANEL_04_TECHNICAL_REVIEWER_EV_APP0228_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+              "evidenceId": "EV_APP0228_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+              "role": "TECHNICAL_REVIEWER",
+              "text": "맥락과 검증 설명은 구체적이나 개인 수행 범위는 추가 확인이 필요하다.",
+              "level": "MODERATE"
+            }
+          ],
+          "skills": [],
+          "stages": [],
+          "finals": [],
+          "followups": [],
+          "calibrations": []
+        },
+        {
+          "scene": "M1-15",
+          "copy": "저장된 Observation과 Skill Decision을 확인합니다. 회의 개최 자체는 역량 신호가 아닙니다.",
+          "observations": [],
+          "skills": [
+            {
+              "id": "DC_APP0228_M1_SKILL_04_001172",
+              "skillId": "M1_SKILL_04",
+              "level": "",
+              "status": "DISAGREEMENT_REMAINS",
+              "reason": "동일 근거에 대한 평가자 해석 차이를 해소할 직접 관찰이 부족하다.",
+              "observationIds": [
+                "OB_DOCUMENT_SCREEN_PANEL_01_RECRUITER_EV_APP0228_DOCUMENT_SCREEN_DOCUMENT_REVIEW_M1_SKILL_04",
+                "OB_FIRST_PANEL_04_ML_ENGINEER_EV_APP0228_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+                "OB_FIRST_PANEL_04_HIRING_MANAGER_EV_APP0228_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+                "OB_FIRST_PANEL_04_TECHNICAL_REVIEWER_EV_APP0228_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04"
+              ]
+            }
+          ],
+          "stages": [
+            {
+              "id": "APP0228_FIRST_INTERVIEW",
+              "stage": "FIRST_INTERVIEW",
+              "result": "ADVANCED",
+              "reason": "FIRST_EVIDENCE_REVIEWED",
+              "rationale": {
+                "human_rationale": "기술 핵심01/02/03의 직접 지지·명시적 제한·부족·미해결을 각각 검토. 점수/정원 없음.",
+                "coverage": {
+                  "M1_SKILL_01": {
+                    "decisionable": true,
+                    "observation_refs": [
+                      "OB_FIRST_PANEL_04_ML_ENGINEER_EV_APP0228_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT_M1_SKILL_01",
+                      "OB_FIRST_PANEL_04_HIRING_MANAGER_EV_APP0228_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT_M1_SKILL_01",
+                      "OB_FIRST_PANEL_04_TECHNICAL_REVIEWER_EV_APP0228_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT_M1_SKILL_01",
+                      "OB_FIRST_PANEL_04_ML_ENGINEER_EV_APP0228_FIRST_INTERVIEW_AI_CASE_M1_SKILL_01",
+                      "OB_FIRST_PANEL_04_HIRING_MANAGER_EV_APP0228_FIRST_INTERVIEW_AI_CASE_M1_SKILL_01",
+                      "OB_FIRST_PANEL_04_TECHNICAL_REVIEWER_EV_APP0228_FIRST_INTERVIEW_AI_CASE_M1_SKILL_01"
+                    ],
+                    "skill_decision_ref": "DC_APP0228_M1_SKILL_01_001169",
+                    "state": "A"
+                  },
+                  "M1_SKILL_02": {
+                    "decisionable": true,
+                    "observation_refs": [
+                      "OB_FIRST_PANEL_04_ML_ENGINEER_EV_APP0228_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT_M1_SKILL_02",
+                      "OB_FIRST_PANEL_04_HIRING_MANAGER_EV_APP0228_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT_M1_SKILL_02",
+                      "OB_FIRST_PANEL_04_TECHNICAL_REVIEWER_EV_APP0228_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT_M1_SKILL_02"
+                    ],
+                    "skill_decision_ref": "DC_APP0228_M1_SKILL_02_001170",
+                    "state": "A"
+                  },
+                  "M1_SKILL_03": {
+                    "decisionable": true,
+                    "observation_refs": [
+                      "OB_FIRST_PANEL_04_ML_ENGINEER_EV_APP0228_FIRST_INTERVIEW_AI_CASE_M1_SKILL_03",
+                      "OB_FIRST_PANEL_04_HIRING_MANAGER_EV_APP0228_FIRST_INTERVIEW_AI_CASE_M1_SKILL_03",
+                      "OB_FIRST_PANEL_04_TECHNICAL_REVIEWER_EV_APP0228_FIRST_INTERVIEW_AI_CASE_M1_SKILL_03"
+                    ],
+                    "skill_decision_ref": "DC_APP0228_M1_SKILL_03_001171",
+                    "state": "A"
+                  }
+                }
+              }
+            }
+          ],
+          "finals": [],
+          "followups": [],
+          "calibrations": [
+            {
+              "id": "APP0228_FIRST_INTERVIEW_CALIBRATION_REVIEW",
+              "triggers": [
+                "EVALUATOR_DISAGREEMENT"
+              ],
+              "activityId": "APP0228_FIRST_INTERVIEW_CALIBRATION",
+              "rationale": "직접 Observation의 평가자/Rubric 차이와 동일 맥락 충돌 검토. 합의된 LIMITED/NOT_OBSERVED만으로 회의를 만들지 않으며 품질 신호로 쓰지 않는다."
+            }
+          ]
+        },
+        {
+          "scene": "M1-16",
+          "copy": "추가 행동 근거가 기록되어 있는지 확인합니다.",
+          "observations": [
+            {
+              "id": "OB_SECOND_INTERVIEW_PANEL_01_ML_ENGINEER_EV_APP0228_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04",
+              "evidenceId": "EV_APP0228_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04",
+              "role": "ML_ENGINEER",
+              "text": "원문에 해당 행동을 확인할 내용이 없다. 능력 부재를 뜻하지 않는다.",
+              "level": "NOT_OBSERVED"
+            },
+            {
+              "id": "OB_SECOND_INTERVIEW_PANEL_01_HIRING_MANAGER_EV_APP0228_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04",
+              "evidenceId": "EV_APP0228_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04",
+              "role": "HIRING_MANAGER",
+              "text": "원문에 해당 행동을 확인할 내용이 없다. 능력 부재를 뜻하지 않는다.",
+              "level": "NOT_OBSERVED"
+            }
+          ],
+          "skills": [
+            {
+              "id": "DC_APP0228_M1_SKILL_04_001900",
+              "skillId": "M1_SKILL_04",
+              "level": "",
+              "status": "DISAGREEMENT_REMAINS",
+              "reason": "동일 근거에 대한 평가자 해석 차이를 해소할 직접 관찰이 부족하다.",
+              "observationIds": [
+                "OB_DOCUMENT_SCREEN_PANEL_01_RECRUITER_EV_APP0228_DOCUMENT_SCREEN_DOCUMENT_REVIEW_M1_SKILL_04",
+                "OB_FIRST_PANEL_04_ML_ENGINEER_EV_APP0228_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+                "OB_FIRST_PANEL_04_HIRING_MANAGER_EV_APP0228_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+                "OB_FIRST_PANEL_04_TECHNICAL_REVIEWER_EV_APP0228_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+                "OB_SECOND_INTERVIEW_PANEL_01_ML_ENGINEER_EV_APP0228_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04",
+                "OB_SECOND_INTERVIEW_PANEL_01_HIRING_MANAGER_EV_APP0228_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04"
+              ]
+            }
+          ],
+          "stages": [
+            {
+              "id": "APP0228_SECOND_INTERVIEW",
+              "stage": "SECOND_INTERVIEW",
+              "result": "ADVANCED",
+              "reason": "BEHAVIOR_REVIEWED",
+              "rationale": {
+                "human_rationale": "단계 활동과 관찰을 검토하여 다음 판단으로 진행한다. 미관찰은 부족/탈락과 동일하지 않다.",
+                "coverage": null
+              }
+            }
+          ],
+          "finals": [],
+          "followups": [],
+          "calibrations": []
+        },
+        {
+          "scene": "M1-17",
+          "copy": "개인 기여 범위의 이견이 남아 HOLD로 기록했습니다.",
+          "observations": [],
+          "skills": [
+            {
+              "id": "DC_APP0228_M1_SKILL_04_002372",
+              "skillId": "M1_SKILL_04",
+              "level": "",
+              "status": "DISAGREEMENT_REMAINS",
+              "reason": "동일 근거에 대한 평가자 해석 차이를 해소할 직접 관찰이 부족하다.",
+              "observationIds": [
+                "OB_DOCUMENT_SCREEN_PANEL_01_RECRUITER_EV_APP0228_DOCUMENT_SCREEN_DOCUMENT_REVIEW_M1_SKILL_04",
+                "OB_FIRST_PANEL_04_ML_ENGINEER_EV_APP0228_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+                "OB_FIRST_PANEL_04_HIRING_MANAGER_EV_APP0228_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+                "OB_FIRST_PANEL_04_TECHNICAL_REVIEWER_EV_APP0228_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+                "OB_SECOND_INTERVIEW_PANEL_01_ML_ENGINEER_EV_APP0228_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04",
+                "OB_SECOND_INTERVIEW_PANEL_01_HIRING_MANAGER_EV_APP0228_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04"
+              ]
+            }
+          ],
+          "stages": [],
+          "finals": [
+            {
+              "id": "FD_APP0228_INITIAL",
+              "round": "INITIAL",
+              "decision": "HOLD",
+              "holdReason": "EVALUATOR_DISAGREEMENT",
+              "rationale": {
+                "human_rationale": "필수 근거·반복된 명시적 제한·남은 확인 질문을 검토한 합성 패널 판단."
+              },
+              "plan": [
+                {
+                  "skill_id": "M1_SKILL_04",
+                  "question": "공동 산출물 중 본인이 수행하고 검증한 범위를 기록으로 분리할 수 있는가? 대상: EV_APP0228_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04 / 원문에 해당 행동을 확인할 내용이 없다. 능력 부재를 뜻하지 않는다. / 학습·협업 행동의 상황·행동·피드백 확인"
+                }
+              ]
+            }
+          ],
+          "followups": [],
+          "calibrations": []
+        },
+        {
+          "scene": "M1-18",
+          "copy": "본인이 수행하고 검증한 범위를 추가로 확인했습니다.",
+          "observations": [
+            {
+              "id": "OB_FINAL_REVIEW_PANEL_01_ML_ENGINEER_EV_APP0228_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04",
+              "evidenceId": "EV_APP0228_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04",
+              "role": "ML_ENGINEER",
+              "text": "구체적인 행동과 검증을 확인했다.",
+              "level": "MODERATE"
+            },
+            {
+              "id": "OB_FINAL_REVIEW_PANEL_01_HIRING_MANAGER_EV_APP0228_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04",
+              "evidenceId": "EV_APP0228_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04",
+              "role": "HIRING_MANAGER",
+              "text": "구체적인 행동과 검증을 확인했다.",
+              "level": "MODERATE"
+            }
+          ],
+          "skills": [],
+          "stages": [],
+          "finals": [],
+          "followups": [
+            {
+              "evidence_id": "EV_APP0228_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04",
+              "hold_decision_id": "FD_APP0228_INITIAL",
+              "skill_id": "M1_SKILL_04",
+              "question": "공동 산출물 중 본인이 수행하고 검증한 범위를 기록으로 분리할 수 있는가? 대상: EV_APP0228_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04 / 원문에 해당 행동을 확인할 내용이 없다. 능력 부재를 뜻하지 않는다. / 학습·협업 행동의 상황·행동·피드백 확인",
+              "response_kind": "OWNERSHIP_TRACE_SUPPLIED"
+            }
+          ],
+          "calibrations": []
+        },
+        {
+          "scene": "M1-19",
+          "copy": "필수 Skill을 판단할 직접 근거를 확인한 뒤 Offer 진행을 기록했습니다. 과거 이견은 이력으로 보존합니다.",
+          "observations": [
+            {
+              "id": "OB_FINAL_REVIEW_PANEL_01_ML_ENGINEER_EV_APP0228_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04",
+              "evidenceId": "EV_APP0228_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04",
+              "role": "ML_ENGINEER",
+              "text": "구체적인 행동과 검증을 확인했다.",
+              "level": "MODERATE"
+            },
+            {
+              "id": "OB_FINAL_REVIEW_PANEL_01_HIRING_MANAGER_EV_APP0228_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04",
+              "evidenceId": "EV_APP0228_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04",
+              "role": "HIRING_MANAGER",
+              "text": "구체적인 행동과 검증을 확인했다.",
+              "level": "MODERATE"
+            }
+          ],
+          "skills": [
+            {
+              "id": "DC_APP0228_M1_SKILL_04_002380",
+              "skillId": "M1_SKILL_04",
+              "level": "MODERATE",
+              "status": "AGREED",
+              "reason": "동일 Skill의 독립된 직접 관찰로 수행 범위를 확인했다. 다른 맥락의 제한/모호성은 해당 근거의 한계로 보존한다.",
+              "observationIds": [
+                "OB_DOCUMENT_SCREEN_PANEL_01_RECRUITER_EV_APP0228_DOCUMENT_SCREEN_DOCUMENT_REVIEW_M1_SKILL_04",
+                "OB_FIRST_PANEL_04_ML_ENGINEER_EV_APP0228_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+                "OB_FIRST_PANEL_04_HIRING_MANAGER_EV_APP0228_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+                "OB_FIRST_PANEL_04_TECHNICAL_REVIEWER_EV_APP0228_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+                "OB_SECOND_INTERVIEW_PANEL_01_ML_ENGINEER_EV_APP0228_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04",
+                "OB_SECOND_INTERVIEW_PANEL_01_HIRING_MANAGER_EV_APP0228_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04",
+                "OB_FINAL_REVIEW_PANEL_01_ML_ENGINEER_EV_APP0228_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04",
+                "OB_FINAL_REVIEW_PANEL_01_HIRING_MANAGER_EV_APP0228_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04"
+              ]
+            }
+          ],
+          "stages": [],
+          "finals": [
+            {
+              "id": "FD_APP0228_RE_REVIEW",
+              "round": "RE_REVIEW",
+              "decision": "PROCEED_TO_OFFER",
+              "holdReason": "",
+              "rationale": {
+                "human_rationale": "모든 필수 Skill을 판단할 직접 근거와 Skill Decision을 확인하고 기존 제한/상충 기준을 검토했다. 판단 가능한 Skill의 비핵심 맥락 및 Learnable 준비 범위만 업무 지원으로 추적한다."
+              },
+              "plan": []
+            }
+          ],
+          "followups": [],
+          "calibrations": [
+            {
+              "id": "APP0228_FINAL_REVIEW_FOLLOW_UP_CALIBRATION_REVIEW",
+              "triggers": [],
+              "activityId": "",
+              "rationale": "직접 Observation의 평가자/Rubric 차이와 동일 맥락 충돌 검토. 합의된 LIMITED/NOT_OBSERVED만으로 회의를 만들지 않으며 품질 신호로 쓰지 않는다."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

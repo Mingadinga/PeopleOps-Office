@@ -14,7 +14,7 @@ PeopleOps Office는 ICT 인사담당자의 관점에서 하나의 채용 프로�
 
 ## 2. Global Layout
 
-Desktop First. 상단에 Mission 문맥과 6단계 진행도, 왼쪽에 Human Layer, 오른쪽에 Decision Layer,
+Desktop First. 상단에 Mission 문맥과 6단계 진행도, 왼쪽에 Decision Layer, 오른쪽에 Human Layer,
 하단에 Scene Control을 둔다. 한 순간의 Primary CTA는 하나다.
 
 | 영역 | 보여주는 내용 |
@@ -23,7 +23,7 @@ Desktop First. 상단에 Mission 문맥과 6단계 진행도, 왼쪽에 Human La
 | Decision Layer | 현재 질문, 확인한 데이터, Evidence, 검토 중인 가정, 판단 과정, 결정, 다음 질문 |
 | Scene Control | 현재 공개 단계에 맞는 근거 확인·다음 진행·복귀 |
 
-Human Layer의 변화와 오른쪽 기록은 같은 Scene을 참조한다. 도달하지 않은 결정은 먼저 표시하지 않는다.
+Human Layer의 변화와 왼쪽 기록은 같은 Scene을 참조한다. 도달하지 않은 결정은 먼저 표시하지 않는다.
 Case Panel shell과 Pixel Office의 정체성은 유지한다. 주요 정보는 한국어로 읽을 수 있어야 한다.
 
 ## 3. 6단계 진행과 상태
@@ -264,3 +264,19 @@ V1 UX-13(예정 단계 자유 탐색)은 V2 UX-04/05로 대체했다.
 OPEN-01 Python 실행 방식, OPEN-02 Mission 2 진행도 적용, OPEN-13 URL/재방문 복원·배치·모션 세부는
 [11 Open Issues](11_v2_migration_specification.md#7-open-issues)에 기록한다.
 이 미결정을 구현된 기능이나 승인된 상세 정책으로 표현하지 않는다.
+
+
+### Mission 1 UI 연결 Implementation Note (2026-09-25)
+
+사용자의 최신 UI 연결 요청에 따라 판단 패널은 왼쪽, 공간·사람은 오른쪽에 배치한다.
+상위 6단계와 06의 M1-01~25를 사용한다. 22 Scene은 Capacity/HOLD 추가 이전 개수이며 축약하지 않는다.
+판단 패널 Header/독립 스크롤/Footer, 기존 pastel/pixel·Credit을 유지한다.
+URL의 mission/scene/case와 v1 전용 로컬 탐색 이력으로 새로고침·뒤로가기를 복원한다.
+복원 위치는 이미 도달한 Scene까지 제한하며 저장소 접근 불가 시 현재 탭의 메모리 상태로 진행한다.
+공간 탐색은 예정 업무 결과를 열지 않는다. 과거 Scene 재방문은 진행 최고 위치를 낮추지 않는다.
+`node scripts/mission1-presentation.mjs`는 v1 hash를 확인하고 UI 전용 정적 projection만 만든다.
+Dataset 생성이 아니며 npm dev/build 전 실행한다. Mapping과 정본은 읽기 전용이다.
+6개 Think Before Reveal은 판단 원리를 생각한 후 저장된 근거를 공개하며 선택·점수·결과 분기를 만들지 않는다.
+대표 근거는 Mapping의 Scene까지 누적 공개하며 미래 Final/Follow-up과 이후 Offer 상태를 앞당겨 보여주지 않는다.
+사람 업무 맥락은 즉시 표시하고 시스템 기록의 타이핑은 전체 표시/reduced motion으로 생략 가능하다.
+Mission 1 마무리는 탐색 완료만 기록하며 Mission 2 분석을 자동 실행하지 않는다.
