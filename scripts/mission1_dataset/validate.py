@@ -3,7 +3,7 @@ import json
 from collections import Counter, defaultdict
 from datetime import timedelta
 from .common import parse, compact
-from .schema import SCHEMA, KEYS, NULLABLE, ENUMS, STAGES, LEVELS, ACTIVITIES, PROVENANCE, FORBIDDEN
+from .schema import OPTIONAL_TABLES, SCHEMA, KEYS, NULLABLE, ENUMS, STAGES, LEVELS, ACTIVITIES, PROVENANCE, FORBIDDEN
 
 
 
@@ -35,11 +35,11 @@ def _validate(data, rules):
                 if col not in NULLABLE.get(table,set()):check(value!='','required',f'{loc}.{col}: NULL forbidden')
                 options=ENUMS.get((table,col))
                 if value and options:check(value in options,'enum',f'{loc}.{col}: {value}')
-                if value and (col.endswith('_at') or col=='response_deadline'):
+                if value and (col.endswith('_at') or col in ('response_deadline','verification_deadline')):
                     try:
                         dt=parse(value)
                         check(dt.utcoffset()==timedelta(hours=9),'timestamp',f'{loc}.{col}: not Asia/Seoul offset')
-                        if col not in ('scheduled_at','expected_join_at','planned_ready_at','response_deadline'):
+                        if col not in ('scheduled_at','expected_join_at','planned_ready_at','response_deadline','verification_deadline'):
                             check(start<=dt<=end,'observation_window',f'{loc}.{col}: outside observation window')
                     except (ValueError,TypeError):check(False,'timestamp',f'{loc}.{col}: invalid timestamp')
     if errors:return result()
@@ -106,7 +106,7 @@ def _validate(data, rules):
         check(app['application_status']=='SUBMITTED','stage_lifecycle','Unsubmitted application in process')
         check(parse(row['entered_at'])>=parse(app['submitted_at']),'temporal','Stage before submission')
         for a,b in [('entered_at','invited_at'),('invited_at','scheduled_at'),('scheduled_at','completed_at'),('entered_at','completed_at'),('completed_at','decision_at'),('decision_at','notified_at'),('entered_at','withdrawn_at')]:ordered(row,a,b,row['stage_event_id'])
-        if row['result'] in ('ADVANCED','FAILED'):
+        if row['result'] in ('ADVANCED','FAILED','CLOSED','CONDITIONAL_ADVANCE'):
             check(bool(row['completed_at'] and row['decision_at'] and row['rationale'] and row['decision_reason_code']),'stage_decision','Terminal decision lacks completion/trace')
         if row['stage']=='DOCUMENT_SCREEN' and row['result']=='FAILED':
             trace=json.loads(row['rationale'])
@@ -124,7 +124,7 @@ def _validate(data, rules):
         names=[r['stage'] for r in sequence]
         check(names==list(STAGES[:len(names)]),'stage_lifecycle',aid+': missing/duplicate/out-of-order Stage')
         for prior,current in zip(sequence,sequence[1:]):
-            check(prior['result']=='ADVANCED' and bool(prior['notified_at']),'stage_lifecycle',aid+': advanced before prior notification')
+            check((prior['result']=='ADVANCED' or (rules.get('eligibility_resolution') and prior['stage']=='DOCUMENT_SCREEN' and prior['result']=='CONDITIONAL_ADVANCE')) and bool(prior['notified_at']),'stage_lifecycle',aid+': advanced before prior notification')
             if prior['notified_at']:check(parse(current['entered_at'])>=parse(prior['notified_at']),'temporal','Next Stage precedes notice')
     for row in data['assessment_activities']:
         stage=fk('stage_history',row['stage_event_id'],'Activity')
@@ -163,13 +163,24 @@ def _validate(data, rules):
         try:
             artifact=json.loads(row['raw_evidence']);raw[row['evidence_id']]=artifact;scan(artifact,row['evidence_id'])
             check(set(artifact)=={'task','action','verification','revision','ownership','response','context'},'evidence_schema',row['evidence_id'])
-            check(artifact.get('ownership') in ('SELF','TEAM_UNCLEAR','UNSPECIFIED'),'evidence_schema','Unknown ownership')
+            check(artifact.get('ownership') in ('SELF','TEAM_CLEAR','TEAM_UNCLEAR','UNSPECIFIED'),'evidence_schema','Unknown ownership')
         except (ValueError,TypeError):check(False,'evidence_schema','Invalid raw Evidence JSON')
     if errors:return result()
     from .invariants import evidence_and_decisions, capacity_history, workforce_and_offers
     evidence_and_decisions(data,rules,indexes,check,fk,ordered,scan)
     capacity_history(data,rules,indexes,check,fk)
     workforce_and_offers(data,rules,indexes,check,fk,ordered,scan)
+    if rules.get('application_model'):
+        from .application_invariants import validate_application
+        validate_application(data,rules,check)
+    else:
+        check(not any(data.get(n) for n in OPTIONAL_TABLES),'application_contract','Legacy dataset contains new application records')
+        check(not any(s['result']=='CLOSED' for s in data['stage_history']),'application_contract','Legacy CLOSED state')
+    if rules.get('eligibility_resolution'):
+        from .resolution_invariants import validate_resolution
+        validate_resolution(data,rules,check)
+    else:
+        check(not data.get('eligibility_verifications') and not any(s['result']=='CONDITIONAL_ADVANCE' for s in data['stage_history']),'eligibility_resolution','Resolution records in legacy version')
     warnings.append({'code':'REVIEW_PENDING','message':'Synthetic rules/realism review remains pending; no freeze.'})
     warnings.append({'code':'SYNTHETIC_POLICY_ASSUMPTIONS','message':'Source matrix, resource blocks, re-review uncertainty handling and mentor scenarios require human rule audit; not employer policies.'})
     if not data['offers']:warnings.append({'code':'EMPTY_OFFER_COHORT','message':'No offers; preserve empty sample.'})
@@ -193,7 +204,7 @@ def validate_manifest(manifest, data, rules, directory, rules_path):
         if not condition:errors.append({'code':'manifest','message':message})
     for field in ('dataset_version','generation_version','generation_rules_version','schema_version','seed','generated_at','observation_start','observation_end','timezone','case_id','job_id'):
         require(manifest.get(field)==rules[field],'Manifest mismatch: '+field)
-    counts={n+'.csv':len(data[n]) for n in SCHEMA}
+    counts={n+'.csv':len(data[n]) for n in SCHEMA if n not in OPTIONAL_TABLES or data.get(n)}
     counts.update({n+'.json':len(data[n]) if isinstance(data[n],list) else 1 for n in ('workforce_plan','funnel_plan','talent_profile')})
     require(manifest.get('record_counts')==counts,'Manifest record counts differ from persisted data')
     require(manifest.get('file_sha256')==file_hashes(directory),'Dataset file hashes do not match manifest')

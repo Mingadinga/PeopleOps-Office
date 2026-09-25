@@ -333,3 +333,7 @@ v1은 현재 승인 Baseline이며 기아 실데이터/공식 정책이 아니�
 새 Candidate→Validation→Human Review→새 Baseline으로 교체하며 과거 버전과 그 분석/Presentation을 보존한다(09 §6.3).
 이번 범위는 승인 snapshot·합성 가정·Registry·Freeze 검증까지다. 대표 사례 선정, Presentation Mapping 생성,
 Mission 2 분석 및 UI 연결은 별도 후속 작업이다.
+
+## v0.5 Application / Document contract
+
+KIA-02 supplement: PUBLIC REPOSTED SOURCE https://app.superpasshr.com/positions/0da4b528-75fb-4d56-989c-9190cd34dbd7 reproduces eligibility/preferred/job structure. Official https://career.kia.com/apply/applyView.kc?recuCls=39&recuType=N1&recuYy=2026 detailed body not retrieved; official-source verification remains pending. Dates are synthetic adaptations, not original employer dates. v0.5 requires Human Review; ACTIVE remains v1.

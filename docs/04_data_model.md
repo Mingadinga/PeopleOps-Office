@@ -111,3 +111,11 @@ Runtime과 Mission 2 분석은 동일한 canonical v1을 사용한다. 매 방�
 기존 Case/UI 데이터와 검토 후보를 연결하거나 교체하지 않았다.
 application_id와 candidate_id의 분리, Stage/Activity 및 Offer 객체/이력 분리, 단일 onboarding 파일의 분할,
 Evidence 수준 분리는 후속 이관 대상이다. 실제 구현 매핑은 [11](11_v2_migration_specification.md)을 따른다.
+
+## v0.5 Application / Document contract
+
+v0.5 adds application_eligibility.csv (raw minimal fields plus requirement states) and application_experiences.csv (same-experience actions/categories/ownership and Evidence references). Document-only CLOSED distinguishes insufficient submitted evidence from Skill limitation. Existing v1 schema/snapshot remains unchanged.
+
+## v0.6 operational eligibility history
+
+The requirement-level eligibility_verifications.csv links Document CONDITIONAL_ADVANCE to confirmed minimal facts, resolution and PRE entry. Initial eligibility and historical Document decisions remain unchanged. No new assessment Stage or candidate score. See 09 v0.6.

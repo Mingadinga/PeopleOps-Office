@@ -47,6 +47,7 @@ def evidence_and_decisions(data,rules,idx,check,fk,ordered,scan):
             check(e['source_type']==expected_source,'verification_mode','Follow-up source/mode mismatch')
         else:
             spec=MATRIX.get(kind)
+            if kind=='DOCUMENT_REVIEW' and rules.get('application_model'):spec=('APPLICATION_RESPONSE','SELF_REPORTED',{1,3})
             check(spec is not None,'source_skill_matrix','Evidence from non-evidence activity')
             if spec:
                 check((e['source_type'],e['verification_mode'])==spec[:2],'verification_mode',e['evidence_id'])

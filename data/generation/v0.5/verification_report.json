@@ -1,0 +1,61 @@
+{
+  "independent": "PASS",
+  "manifest": "PASS",
+  "deterministic": "PASS",
+  "canonical_files": 27,
+  "seed": 20260924,
+  "dataset_version": "v0.5",
+  "active_baseline": "v1",
+  "review_status": "UNREVIEWED",
+  "frozen": false,
+  "regression": {
+    "unique_tests": 148,
+    "initial_suite_passed": 146,
+    "initial_failures": "Two legacy test expectations incorrectly included v0.5 optional tables; corrected to preserve legacy schema.",
+    "affected_suite_rerun": {
+      "tests": 31,
+      "status": "PASS"
+    },
+    "final_status": "PASS"
+  },
+  "lint": "PASS",
+  "build": "NOT_RUN: no UI/runtime changes",
+  "preserved_existing_files": 168,
+  "preservation": "PASS",
+  "canonical_sha256": {
+    "activity_participants.csv": "f79c62aa38a156a266811b3aa88d45787477a818f931a6ec1f58fd72562069b0",
+    "activity_sessions.csv": "006e802fe208209886b67f8e7ecc8b2d8ea6bf34cd3e9db1a143793b20dde932",
+    "application_eligibility.csv": "7b621db957a1d16a5890d34a889b3dc3d48678d3b3b3e1ce68ffca55af341867",
+    "application_experiences.csv": "b8d1f310d55c250da1cfc6ea72d70a910ad45dcea2df0a0c005515afd8500a2d",
+    "applications.csv": "498192479c318d881da9d656ee8beb1a41ab1b2319c761c954a6d8e8961c0588",
+    "assessment_activities.csv": "17d10062921277293f4ce8f158e187931dc8870a530abaa52773be961a77c5b6",
+    "assessment_evidence.csv": "bdd4da0a5214cc3857d8f5f53fba35a32fb9dbb375f1b9c033149919acc52258",
+    "assessment_observations.csv": "8720bde8e95ee21dab12b4b81e139a346b6f22311168953f968b4ef38269ff0b",
+    "calibration_reviews.csv": "5c271f6f58481dc6db1af4bc949f8f53b9600ec1d075b1beca1595e07919c619",
+    "capacity_assignments.csv": "af1827412f3c897a517baa0a41c3726921529886f9f331f20f4b842ca4433dca",
+    "evaluator_reservations.csv": "1b239823173a540a17b90fc49cd7ce9e515645cd25245a8a2d91ecadfb868179",
+    "evidence_decisions.csv": "492fce17949f5adafd50b057362c94b954c1ff7a29b73dca9de8bc263422137c",
+    "evidence_skill_links.csv": "0909a3d472b91dc469ee215798aa561574fa18d8a1e67a530789bd6fd3dae883",
+    "final_decisions.csv": "22ff1c7af5e36c1106e176797bdca5629a451c6b84155ab83c2987236ba30bdd",
+    "funnel_plan.json": "b2ac158a79a2caf9d48cb3fcecade7cc54d96bc90fb727ff1b7e2be4d583d3b0",
+    "interview_capacity_events.csv": "9f1702156ed171cf1c17f301e151763636299830c204c0f323984246d502fb00",
+    "offer_events.csv": "de6add9d43ac3fbeef5a0babbc5db4e6a1056b38a51b6489b7c95b7ef5584e2b",
+    "offers.csv": "0b6eb97bc21fa70c83d1e80d4cdc662762a2cda281b174a45c23649e9822314b",
+    "onboarding_profiles.csv": "442f3347b9f2257f04c018e6e437380ad6f72cdd2e94d12c6687077f6491dd61",
+    "onboarding_skill_gaps.csv": "746727065142af9ebfe9239735a634641829e0b9639b84b09f992e410410c648",
+    "onboarding_tasks.csv": "9deb07dec02c7ac66b738f56fcaab2ce2442bbd7e2acbbc8224ab74d4775f55f",
+    "skill_decision_observations.csv": "0ceb8de8851a219b3ba6b4b86ab8938bc4d0718300a4771ad737e8b5e1828cc8",
+    "stage_history.csv": "09db703b3527ab9905a4be843198a4d0f02be77e03a31d3e3ed3ac14de895f37",
+    "talent_profile.json": "c3dc5e138426eddbbd77253ff4876029cc47168e639688e0ebab63bbc1702924",
+    "targeted_followups.csv": "c69ab416cd587b3c2c1e7e7d65f0aa725bef75b1037e03f89b084370b1bb7585",
+    "workforce_events.csv": "719652d6b58bbbe0fb7d26a611e8510fe2258ae4ed933bd805aa061af2a391d0",
+    "workforce_plan.json": "9c1152532e2776501302f5676fcc1a8ea4f9bf3f9bb539ca609899d7630c830a"
+  },
+  "human_review_warnings": [
+    "Eligibility scenario weights are categorical coverage assumptions, not employer applicant rates.",
+    "UNKNOWN eligibility retained: 50 Document advances, 6 offers, 3 joins; no invented verification.",
+    "Experience category/context/ownership catalog is synthetic; cross-stage direct tests remain independent of self-report.",
+    "Document advance 76 vs target 120; no tuning. Join 4 is incidental, target-date READY is 0.",
+    "New candidate is not automatically representative-selected or promoted."
+  ]
+}

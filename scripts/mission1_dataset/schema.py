@@ -2,7 +2,7 @@
 PROVENANCE = 'SYNTHETIC_HUMAN_SCENARIO'
 STAGES = ('DOCUMENT_SCREEN', 'PRE_ASSESSMENT', 'FIRST_INTERVIEW', 'SECOND_INTERVIEW', 'FINAL_REVIEW')
 LEVELS = ('NOT_OBSERVED', 'LIMITED', 'MODERATE', 'STRONG')
-RESULTS = ('ADVANCED', 'FAILED', 'WITHDRAWN', 'IN_PROGRESS')
+RESULTS = ('ADVANCED', 'FAILED', 'WITHDRAWN', 'IN_PROGRESS', 'CLOSED', 'CONDITIONAL_ADVANCE')
 ACTIVITIES = {
     'DOCUMENT_SCREEN': ('DOCUMENT_REVIEW',),
     'PRE_ASSESSMENT': ('APTITUDE', 'CODING_TEST'),
@@ -36,11 +36,19 @@ SCHEMA.update({
  'evaluator_reservations':'allocation_id stage_event_id activity_id participant_id purpose event_type person_hours effective_at reason_code',
  'targeted_followups':'evidence_id hold_decision_id skill_id hold_reason question existing_evidence_ids existing_observation_ids response_kind',
 })
+OPTIONAL_TABLES = {'application_eligibility', 'application_experiences', 'eligibility_verifications'}
+SCHEMA.update({
+ 'eligibility_verifications': 'verification_id application_id candidate_id eligibility_id requirement previous_status verification_requested_at verification_deadline verification_result verified_at resolved_at resulting_status verification_evidence confirmed_by decision_provenance rationale',
+ 'application_eligibility': 'eligibility_id application_id candidate_id degree_level graduation_status expected_graduation_date language_test_type language_test_valid_until travel_visa_eligibility military_requirement_applicable military_requirement_status eligibility_reference_date expected_join_date requirement_states overall_state public_source_ref source_provenance date_provenance decision_provenance',
+ 'application_experiences': 'experience_id application_id candidate_id experience_type ownership actions evidence_categories evidence_refs recorded_at decision_provenance',
+})
 SCHEMA = {k: v.split() for k, v in SCHEMA.items()}
 KEYS = {name: (fields[0],) for name, fields in SCHEMA.items()}
 KEYS['skill_decision_observations'] = ('decision_id', 'observation_id')
 KEYS['activity_participants'] = ('activity_id', 'participant_id', 'participation_started_at')
 NULLABLE = {
+    'eligibility_verifications': {'verified_at','resolved_at','confirmed_by'},
+    'application_eligibility': {'expected_graduation_date','language_test_valid_until'},
     'calibration_reviews': {'activity_id'},
     'evaluator_reservations': {'activity_id'},
     'applications': {'submitted_at'},
@@ -104,3 +112,5 @@ ENUMS.update({
  ('interview_capacity_events','event_type'): ('INITIAL_PLAN','GAP_IDENTIFIED','CAPACITY_ADDED','CAPACITY_RELEASED'),
  ('interview_capacity_events','scope'): ('WHOLE_CYCLE',),
 })
+
+ENUMS[('stage_history','decision_reason_code')] += ('APPLICATION_EVIDENCE_CANDIDATE','INSUFFICIENT_APPLICATION_EVIDENCE','ELIGIBILITY_CONFIRMATION_REQUIRED')

@@ -1,5 +1,7 @@
 # PeopleOps Office — V2 Recruitment Design
 
+v0.5 Application/Document 승인 계약은 하단에 있으며 서류에 한해 이전 계약보다 우선한다. v1 Baseline은 변경하지 않는다.
+
 ## 1. 책임과 출처 경계
 
 인재 요건 → 인재 유치·공고 → 지원·검증 → 평가 조정 → 최종검토 → Offer·Join → Ready의
@@ -358,3 +360,77 @@ Mission 1은 Workforce / Recruiting Process / Onboarding 결과의 WHAT을 보�
 모든 Actual은 freeze된 Dataset과 연결하며 합불·이탈·Ready를 Story에 맞춰 만들지 않는다.
 Funnel/데이터 구조·합성 판단·대표 사례 결정은 09에 반영했고 해결 이력을 11에 남겼다.
 OPEN-10 공고·Culture 원문은 [11](11_v2_migration_specification.md#7-open-issues)에 유지한다.
+
+## Application / Document Screen v0.5 — approved Human Review
+
+v1 remains the ACTIVE approved baseline; v0.5 is a new UNREVIEWED candidate, not v2.
+The public reposted 2026 H1 Kia ML Engineer eligibility structure is referenced; dates
+are adapted to the PeopleOps Office synthetic recruiting cycle, not Kia internal policy.
+Eligibility reference date is the synthetic application submission date; expected join date
+is the cycle plan 2027-03-01. Degree is bachelor/master, graduated or expected graduation
+by that planned join date; language is TOEIC Speaking/OPIc valid through reference date;
+travel/visa must be eligible; military completion/exemption applies only when applicable.
+Only minimal statuses are stored; no sex, age, military/visa reason or sensitive background.
+Each requirement records PASS/FAIL/UNKNOWN/NOT_APPLICABLE; explicit FAIL takes precedence,
+then UNKNOWN; military NOT_APPLICABLE satisfies that requirement without fabricating a pass.
+UNKNOWN is not failure. Preferred qualifications are never hard filters.
+
+Application experiences are SELF_REPORTED, with stable experience_id, context/type,
+category-specific observable actions, ownership SELF/TEAM_CLEAR/TEAM_UNCLEAR and Evidence IDs.
+PROBLEM maps to Skill01; BUILD and VALIDATE to Skill03. This replaces the fixed application
+Skill01/04/05/06/08 template only in v0.5. Direct Assessment matrices and rules stay unchanged.
+Within at least one SAME experience, at least two of PROBLEM/BUILD/VALIDATE must have
+explicit actions and SELF/TEAM_CLEAR personal contribution. Unrelated experiences cannot
+be combined. Categories are evidence candidates, not Skill levels, points or ranking.
+Document explicit eligibility failure uses FAILED/BASIC_REQUIREMENT_VIOLATION with requirement
+references. Otherwise qualifying experience uses ADVANCED/APPLICATION_EVIDENCE_CANDIDATE.
+Otherwise CLOSED/INSUFFICIENT_APPLICATION_EVIDENCE terminates this application: insufficient
+submitted evidence to proceed, NOT a Skill/ability limitation. CLOSED is Document-only.
+No document-only canonical Skill Decision; existing self-reported-only STRONG prohibition remains.
+
+Implementation parameters fixed before results: one or two experiences (equal categorical
+weights); all eight subsets of the three categories equally represented in the sampling catalog;
+three context templates and three ownership states sampled equally. These are illustrative
+coverage scenarios, not empirical applicant frequencies. Eligibility uses a complete-profile
+scenario plus one explicit failure and one unknown scenario per requirement (nine equally
+weighted scenarios); military applicability is independently applicable/not applicable.
+The distributions are not derived from Target 120. No latent quality or ability score.
+Each experience's actions are generated once and reused by its application Evidence; subsequent
+direct tests retain their previous keyed scenario generation, not conditioned on self-report.
+This limited cross-stage consistency is a documented synthetic assumption, not verified ability.
+
+Funnel Targets remain 320/240/120/60/20/8/5/4. FIRST 20 is expected planned FIRST population;
+20 × 3h = initial 60h, never quota. Actual demand comes from prior Stage outcomes.
+No target-based resampling, probability tuning or automatic baseline promotion.
+
+## v0.6 Eligibility Resolution — approved Human Review
+
+v0.6 supersedes only the v0.5 Eligibility lifecycle. Active baseline remains v1;
+v0.5 remains an unchanged historical candidate. Experience/category/ownership distribution,
+same-experience two-category Document evidence rule and every downstream decision/distribution remain unchanged.
+Document PASS + qualifying experience → ADVANCED; UNKNOWN + qualifying experience →
+CONDITIONAL_ADVANCE / ELIGIBILITY_CONFIRMATION_REQUIRED. Explicit FAIL and insufficient
+application evidence retain their v0.5 closure semantics. Conditional is not verified PASS.
+
+A minimal requirement-level eligibility_verifications.csv preserves initial application_eligibility
+without overwriting it. Each event contains stable verification_id, application/candidate/eligibility
+reference, requirement, previous_status=UNKNOWN, requested_at, verification_deadline, result,
+verified_at (only for confirmed response), resolved_at, resulting_status, verification_evidence
+(JSON minimal confirmed fact), human role, rationale and SYNTHETIC_HUMAN_SCENARIO provenance.
+This is an operational gate between Document and PRE, not a scored assessment/new hiring Stage.
+
+Implementation Note fixed before results: request one day after Document notification; allow
+7 calendar days; confirmed synthetic response at day 3. Each unknown requirement independently
+uses one of three equally weighted scenarios VERIFIED_PASS, VERIFIED_FAIL, ELIGIBILITY_NOT_VERIFIED.
+These are illustrative synthetic administrative responses, not Kia frequencies or target-derived rates.
+Missing response resolves at deadline to UNKNOWN/ELIGIBILITY_NOT_VERIFIED and closes this procedure,
+never Skill limitation or eligibility FAIL. If the observation window ends first, retain PENDING with
+no resolved_at/verified_at and do not advance. PASS/FAIL require explicit minimal requirement facts
+and HR_OPERATIONS_01 confirmation. No degree/military/visa/language inference or sensitive details.
+
+PRE entry and every PRE Activity require all requirements PASS/NOT_APPLICABLE at that time;
+conditional applicants need linked verified records. Any verified FAIL or not-verified requirement
+prevents entry, Offer and Join. Existing explicit PASS/FAIL/N/A statuses cannot be changed by this gate.
+The original Document conditional decision remains history even after resolution. Reports separate
+Document evidence-qualified progression (ADVANCED + CONDITIONAL_ADVANCE) from resolved PRE entry.
+Target counts never influence verification response or deadline. No automatic baseline promotion.

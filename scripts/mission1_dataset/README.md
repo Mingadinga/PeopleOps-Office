@@ -1,3 +1,37 @@
+# v0.6 Eligibility Resolution candidate
+
+Active baseline remains v1. v0.5 is preserved. v0.6 adds only the conditional Document
+→ human eligibility verification → PRE gate. Evidence-qualified count includes both
+ADVANCED and CONDITIONAL_ADVANCE; neither is a verified Skill judgment.
+
+```sh
+python3 -B -m scripts.mission1_dataset generate --rules data/generation/v0.6/generation_rules.json --output data/generated/v0.6 --manifest data/generation/v0.6/dataset_manifest.json
+python3 -B -m scripts.mission1_dataset validate --rules data/generation/v0.6/generation_rules.json --output data/generated/v0.6 --manifest data/generation/v0.6/dataset_manifest.json
+```
+
+7-day deadline / day-3 response and equal administrative scenario weights are synthetic,
+recorded in rules and manifest. No inferred qualification or target-based resampling.
+Historical command examples below must not be used to overwrite preserved versions.
+
+# v0.5 Application / Document candidate
+
+Active baseline remains v1 (source v0.4). v0.5 is UNREVIEWED, NOT FROZEN.
+Use explicit paths; legacy Python defaults remain v0.4 for historical regression compatibility.
+Do not run legacy generation commands against preserved candidate directories.
+
+```sh
+python3 -B -m scripts.mission1_dataset generate --rules data/generation/v0.5/generation_rules.json --output data/generated/v0.5 --manifest data/generation/v0.5/dataset_manifest.json
+python3 -B -m scripts.mission1_dataset validate --rules data/generation/v0.5/generation_rules.json --output data/generated/v0.5 --manifest data/generation/v0.5/dataset_manifest.json
+python3 -B -m unittest discover -s tests -p 'test_mission1*.py'
+```
+
+New eligibility and experience tables are version-optional; legacy canonical bytes remain unchanged.
+Document CLOSED is insufficient application evidence, not candidate ability failure.
+Same-experience 2-of-3 categories and personal ownership are required. Reposted public eligibility
+structure and synthetic dates/distributions are separate. See docs/07 and docs/09 v0.5 contracts.
+Manifest implementation_parameters.application_model records the predeclared scenario catalog.
+The following v0.4/v0.3/v0.2 sections preserve historical documentation.
+
 # v0.4 Final Dataset Candidate
 
 Current CLI defaults target v0.4, the UNREVIEWED / NOT FROZEN Final Freeze Candidate, not Dataset v1. v0.1/v0.2/v0.3 are write-protected history.

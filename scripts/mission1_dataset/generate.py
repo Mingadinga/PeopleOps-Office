@@ -62,6 +62,9 @@ class Generator:
                 self.add('applications',application_id=aid,candidate_id=cid,job_id=self.rules['job_id'],
                          source_channel=rng(self.rules,'channel',cid).choice(config['channel_options']),
                          started_at=stamp(began),submitted_at=submitted,application_status=status)
+                if submitted and self.rules.get('application_model'):
+                    from .application import populate
+                    populate(self,self.data['applications'][-1])
 
     def activity(self, app, stage, kind, begin, minutes, participants, panel=1, follow_skills=None):
         aid=stage['stage_event_id']+'_'+kind
@@ -84,6 +87,11 @@ class Generator:
         if self.modern and kind in ('CALIBRATION','FOLLOW_UP_CALIBRATION'):
             from .interview import calibration_ledger
             calibration_ledger(self,stage,row,actors,begin,end)
+        if kind=='DOCUMENT_REVIEW' and self.rules.get('application_model'):
+            if status=='COMPLETED':
+                from .application import collect
+                collect(self,app,row,end)
+            return end
         matrix=self.rules['source_matrix'].get(kind)
         if status=='COMPLETED' and matrix:
             self.evidence.collect(app,row,[f'M1_SKILL_{i:02d}' for i in matrix['skills']],end)
@@ -195,13 +203,16 @@ class Generator:
             record.update(result='',decision_reason_code='FINAL_REVIEW_COMPLETE',rationale=compact({'final_decision_ref':final['final_decision_id']}))
             advance=final['decision']=='PROCEED_TO_OFFER'
         else:
-            if self.modern and name=='FIRST_INTERVIEW':
+            if name=='DOCUMENT_SCREEN' and self.rules.get('application_model'):
+                from .application import decision as document_decision
+                result,reason,trace=document_decision(self.data,app,bool(self.rules.get('eligibility_resolution')))
+            elif self.modern and name=='FIRST_INTERVIEW':
                 from .interview import first_transition
                 result,reason,trace=first_transition(self.data,app,record,stamp(decision),self.rules.get('final_candidate_contract',False))
             else:
                 result,reason,trace=stage_transition_decision(self.data,app,record,stamp(decision))
-            advance=result=='ADVANCED'
-            record.update(result=result,decision_reason_code=reason,rationale=compact(trace));advance=result=='ADVANCED'
+            advance=result in ('ADVANCED','CONDITIONAL_ADVANCE')
+            record.update(result=result,decision_reason_code=reason,rationale=compact(trace));advance=result in ('ADVANCED','CONDITIONAL_ADVANCE')
         record.update(decision_at=stamp(decision),decision_provenance=PROVENANCE)
         notified=plus(decision,days=clock.choice(config['notification_delay_days']))
         if notified<=self.end:record['notified_at']=stamp(notified)
@@ -210,6 +221,9 @@ class Generator:
     def process(self):
         queue=[(a,parse(a['submitted_at'])) for a in self.data['applications'] if a['application_status']=='SUBMITTED']
         for name in STAGES:
+            if name=='PRE_ASSESSMENT' and self.rules.get('eligibility_resolution'):
+                from .resolution import resolve_queue
+                queue=resolve_queue(self,queue)
             if name=='FIRST_INTERVIEW':
                 self.capacity.plan(queue)
                 queue=[(a,max(t,self.capacity.cohort_at)) for a,t in queue]

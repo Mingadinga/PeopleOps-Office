@@ -403,3 +403,39 @@ Mission 1 결과는 세 Outcome의 WHAT까지만 다룬다. WHY·가설·추가 
 KPI는 마지막에 임의로 추가하는 수치가 아니라 Plan과 Stage/Offer/Ready Event에서 추적한다.
 대표 사례의 Freeze 후 선정·Mapping은 09에 확정했다. 상세 배치·대사·복원(OPEN-13),
 출처 부족(OPEN-10)은 [11](11_v2_migration_specification.md#7-open-issues)에 남긴다.
+
+## v0.5 Application / Document contract
+
+Future v0.5 Document scenes distinguish public-structure eligibility (synthetic dates), same-experience self-reported evidence review, and application closure without Skill judgment. FIRST plan 20 means expected population and 60h resource plan, not quota. Current UI and representative mapping remain bound to v1; no automatic migration.
+
+## v0.6 Eligibility Resolution — approved Human Review
+
+v0.6 supersedes only the v0.5 Eligibility lifecycle. Active baseline remains v1;
+v0.5 remains an unchanged historical candidate. Experience/category/ownership distribution,
+same-experience two-category Document evidence rule and every downstream decision/distribution remain unchanged.
+Document PASS + qualifying experience → ADVANCED; UNKNOWN + qualifying experience →
+CONDITIONAL_ADVANCE / ELIGIBILITY_CONFIRMATION_REQUIRED. Explicit FAIL and insufficient
+application evidence retain their v0.5 closure semantics. Conditional is not verified PASS.
+
+A minimal requirement-level eligibility_verifications.csv preserves initial application_eligibility
+without overwriting it. Each event contains stable verification_id, application/candidate/eligibility
+reference, requirement, previous_status=UNKNOWN, requested_at, verification_deadline, result,
+verified_at (only for confirmed response), resolved_at, resulting_status, verification_evidence
+(JSON minimal confirmed fact), human role, rationale and SYNTHETIC_HUMAN_SCENARIO provenance.
+This is an operational gate between Document and PRE, not a scored assessment/new hiring Stage.
+
+Implementation Note fixed before results: request one day after Document notification; allow
+7 calendar days; confirmed synthetic response at day 3. Each unknown requirement independently
+uses one of three equally weighted scenarios VERIFIED_PASS, VERIFIED_FAIL, ELIGIBILITY_NOT_VERIFIED.
+These are illustrative synthetic administrative responses, not Kia frequencies or target-derived rates.
+Missing response resolves at deadline to UNKNOWN/ELIGIBILITY_NOT_VERIFIED and closes this procedure,
+never Skill limitation or eligibility FAIL. If the observation window ends first, retain PENDING with
+no resolved_at/verified_at and do not advance. PASS/FAIL require explicit minimal requirement facts
+and HR_OPERATIONS_01 confirmation. No degree/military/visa/language inference or sensitive details.
+
+PRE entry and every PRE Activity require all requirements PASS/NOT_APPLICABLE at that time;
+conditional applicants need linked verified records. Any verified FAIL or not-verified requirement
+prevents entry, Offer and Join. Existing explicit PASS/FAIL/N/A statuses cannot be changed by this gate.
+The original Document conditional decision remains history even after resolution. Reports separate
+Document evidence-qualified progression (ADVANCED + CONDITIONAL_ADVANCE) from resolved PRE entry.
+Target counts never influence verification response or deadline. No automatic baseline promotion.

@@ -1,0 +1,61 @@
+{
+  "dataset_version": "v0.6",
+  "seed": 20260924,
+  "review_status": "UNREVIEWED",
+  "frozen": false,
+  "active_baseline": "v1",
+  "independent_validator": "PASS",
+  "manifest": "PASS",
+  "deterministic": "PASS",
+  "canonical_files": 28,
+  "canonical_sha256": {
+    "activity_participants.csv": "716445770edbb1a4854dc7433e5bcad9bde44a87dfa22f2a7d4ac1f1a1962f19",
+    "activity_sessions.csv": "20ae6a28b21e46d883443f3a10ad6dc2c41bee4e8ce08b62b6796dc2b3877756",
+    "application_eligibility.csv": "7b621db957a1d16a5890d34a889b3dc3d48678d3b3b3e1ce68ffca55af341867",
+    "application_experiences.csv": "b8d1f310d55c250da1cfc6ea72d70a910ad45dcea2df0a0c005515afd8500a2d",
+    "applications.csv": "498192479c318d881da9d656ee8beb1a41ab1b2319c761c954a6d8e8961c0588",
+    "assessment_activities.csv": "dd05fb50fca34fbf4d736ab5e9b46690dc4cdac858c1819b2583f4a1cde00003",
+    "assessment_evidence.csv": "97ca6a62d4e7fa0e915d911d7d7be470dda50d6d366d4dad379e13987b4c5ce3",
+    "assessment_observations.csv": "db98a5f20d0119eb5cbf43dc720246ac491e3be80216393664316fb6e008788d",
+    "calibration_reviews.csv": "856274d224dddf80a236e9ebdfdcf593f7491df31d67e9b9ca80e1c5cb5cb6dc",
+    "capacity_assignments.csv": "114c01fa3d4fb5161616ada45de0d17238127b5849dd7dd377458a100fa77890",
+    "eligibility_verifications.csv": "37eacf1e9e71f4f041c2e95f9aaa2e0e33e7aa3ebb7db9c7f0f52fb8aa0f3c59",
+    "evaluator_reservations.csv": "cfcde84d446a679f88dda49fb827c38a56c931354bbe021601409d4b2aacd2d1",
+    "evidence_decisions.csv": "c5d96cde7bd849791f85c9d3c7dbec1ed6deebe18cdaef32d16facddeb73ada3",
+    "evidence_skill_links.csv": "635f4933115fbb448877ecff7821d3118192badcffe69f60395bec700b30988b",
+    "final_decisions.csv": "b88a861cd0aa0378714e6087589b020a55e80fa3aa731cc42e6548ae82f69149",
+    "funnel_plan.json": "b2ac158a79a2caf9d48cb3fcecade7cc54d96bc90fb727ff1b7e2be4d583d3b0",
+    "interview_capacity_events.csv": "113d64241a1c72299909e23cd3409bc67c7c0214a8cac03f21e7f0f26265c5ad",
+    "offer_events.csv": "00f8636b246c6d6ddd6dc2ea53a3d93294c6c381d329d03a288ba786d71baeac",
+    "offers.csv": "5c790af510ea1e97fefd2c60adce552d13c5646c0c3510f756f1118d0cfb0d43",
+    "onboarding_profiles.csv": "3ee1d4f91bb45ad19343e472e053c6f4d58284b73b34af4b7e3924a99d19a50f",
+    "onboarding_skill_gaps.csv": "46574c42ccec31700aa4941093332b5f45e81006fa3645219d980db19f66d505",
+    "onboarding_tasks.csv": "e8e8c835a095906a48ff19906607501c1b63d587a64866fff1ce982c407c425f",
+    "skill_decision_observations.csv": "76c8f252801855a598a907d4b8f84b1f9ddea4d52ec73229d9cb571945e38036",
+    "stage_history.csv": "3141c9085d1858552b72262bceb62f099f935e9e8a647535f0b0cd4236eb5ec7",
+    "talent_profile.json": "c3dc5e138426eddbbd77253ff4876029cc47168e639688e0ebab63bbc1702924",
+    "targeted_followups.csv": "654037b5fa0bf968f1a40dd7f1827167c081429d95ee83f3e04e392fe63e678d",
+    "workforce_events.csv": "2671cd0e331fade5b1d115ebd731a07d3ffc7d1c1e793636e9a44ef53f47684f",
+    "workforce_plan.json": "9c1152532e2776501302f5676fcc1a8ea4f9bf3f9bb539ca609899d7630c830a"
+  },
+  "lint": "PASS",
+  "build_rendering": "NOT_RUN: UI/runtime unchanged",
+  "existing_files_preserved": 203,
+  "offer_unresolved": 0,
+  "join_unresolved": 0,
+  "implementation_notes": [
+    "Censoring check corrected to use actual Document Review Activity completion rather than internal stage entered/completed marker. No generated rule change.",
+    "Report separately labels Document evidence-qualified conditional cohort and resolved PRE entry; reporting-only refresh did not alter canonical records."
+  ],
+  "regression": {
+    "tests": 164,
+    "status": "PASS",
+    "new_resolution_tests": 16
+  },
+  "nonblocking_test_warning": "Existing presentation validator emits unclosed-file ResourceWarning; all assertions passed.",
+  "human_review_warnings": [
+    "7-day deadline/day-3 response and equal verification scenario weights are synthetic, not employer frequencies.",
+    "Evidence-qualified Document 76; resolved PRE 43 and FIRST 30 differ from plan; no tuning.",
+    "Join 4 and observed Ready 3 do not imply workforce goal: target-date Ready 0; cohort and targeted follow-up inputs changed without downstream rule tuning."
+  ]
+}

@@ -1,0 +1,302 @@
+{
+  "capacity_parameters": {
+    "additional_hours_per_evaluator_unit": 1,
+    "initial_hours_per_evaluator": 2,
+    "initial_panels": 10,
+    "initial_person_hours": 60,
+    "initial_planned_candidates": 20,
+    "no_response_release_days": 1,
+    "planned_unit_person_hours": 3,
+    "pool_id_format": "FIRST_PANEL_{panel:02d}_{role}",
+    "resource_decision_days": 2,
+    "slots_per_panel_week": 2
+  },
+  "case_id": "M01",
+  "dataset_path": "data/generated/v0.5",
+  "dataset_version": "v0.5",
+  "file_sha256": {
+    "activity_participants.csv": "f79c62aa38a156a266811b3aa88d45787477a818f931a6ec1f58fd72562069b0",
+    "activity_sessions.csv": "006e802fe208209886b67f8e7ecc8b2d8ea6bf34cd3e9db1a143793b20dde932",
+    "application_eligibility.csv": "7b621db957a1d16a5890d34a889b3dc3d48678d3b3b3e1ce68ffca55af341867",
+    "application_experiences.csv": "b8d1f310d55c250da1cfc6ea72d70a910ad45dcea2df0a0c005515afd8500a2d",
+    "applications.csv": "498192479c318d881da9d656ee8beb1a41ab1b2319c761c954a6d8e8961c0588",
+    "assessment_activities.csv": "17d10062921277293f4ce8f158e187931dc8870a530abaa52773be961a77c5b6",
+    "assessment_evidence.csv": "bdd4da0a5214cc3857d8f5f53fba35a32fb9dbb375f1b9c033149919acc52258",
+    "assessment_observations.csv": "8720bde8e95ee21dab12b4b81e139a346b6f22311168953f968b4ef38269ff0b",
+    "calibration_reviews.csv": "5c271f6f58481dc6db1af4bc949f8f53b9600ec1d075b1beca1595e07919c619",
+    "capacity_assignments.csv": "af1827412f3c897a517baa0a41c3726921529886f9f331f20f4b842ca4433dca",
+    "evaluator_reservations.csv": "1b239823173a540a17b90fc49cd7ce9e515645cd25245a8a2d91ecadfb868179",
+    "evidence_decisions.csv": "492fce17949f5adafd50b057362c94b954c1ff7a29b73dca9de8bc263422137c",
+    "evidence_skill_links.csv": "0909a3d472b91dc469ee215798aa561574fa18d8a1e67a530789bd6fd3dae883",
+    "final_decisions.csv": "22ff1c7af5e36c1106e176797bdca5629a451c6b84155ab83c2987236ba30bdd",
+    "funnel_plan.json": "b2ac158a79a2caf9d48cb3fcecade7cc54d96bc90fb727ff1b7e2be4d583d3b0",
+    "interview_capacity_events.csv": "9f1702156ed171cf1c17f301e151763636299830c204c0f323984246d502fb00",
+    "offer_events.csv": "de6add9d43ac3fbeef5a0babbc5db4e6a1056b38a51b6489b7c95b7ef5584e2b",
+    "offers.csv": "0b6eb97bc21fa70c83d1e80d4cdc662762a2cda281b174a45c23649e9822314b",
+    "onboarding_profiles.csv": "442f3347b9f2257f04c018e6e437380ad6f72cdd2e94d12c6687077f6491dd61",
+    "onboarding_skill_gaps.csv": "746727065142af9ebfe9239735a634641829e0b9639b84b09f992e410410c648",
+    "onboarding_tasks.csv": "9deb07dec02c7ac66b738f56fcaab2ce2442bbd7e2acbbc8224ab74d4775f55f",
+    "skill_decision_observations.csv": "0ceb8de8851a219b3ba6b4b86ab8938bc4d0718300a4771ad737e8b5e1828cc8",
+    "stage_history.csv": "09db703b3527ab9905a4be843198a4d0f02be77e03a31d3e3ed3ac14de895f37",
+    "talent_profile.json": "c3dc5e138426eddbbd77253ff4876029cc47168e639688e0ebab63bbc1702924",
+    "targeted_followups.csv": "c69ab416cd587b3c2c1e7e7d65f0aa725bef75b1037e03f89b084370b1bb7585",
+    "workforce_events.csv": "719652d6b58bbbe0fb7d26a611e8510fe2258ae4ed933bd805aa061af2a391d0",
+    "workforce_plan.json": "9c1152532e2776501302f5676fcc1a8ea4f9bf3f9bb539ca609899d7630c830a"
+  },
+  "frozen": false,
+  "generated_at": "2027-11-01T00:00:00+09:00",
+  "generation_rules_sha256": "874ae6aa4fdfe08b70e22091a312eb4194e01103a5069ff5be2f05c61ad8369f",
+  "generation_rules_version": "m1-rules-0.5.0",
+  "generation_version": "m1-generator-0.5.0",
+  "generator_source_sha256": {
+    "__init__.py": "33339b8efbc3c6f480c0082ef855509f78f5fd7ff6983b7be38fd9850632c1c6",
+    "__main__.py": "b213cb63aee65956e629b700a288a44600bbf55797c0ebedbf6b2d7e1dff74fd",
+    "application.py": "85ecb232d5f1b38a36f2674e9f07e0b107d413ebde6406dc0a8ba8633821c7d8",
+    "application_invariants.py": "a112ad8fb93872ffe564b2fbf9f6b7f8166e2a80fa1fb3dfe54436f9c41e2901",
+    "application_report.py": "7e10349d099cfaba7dc0d838a7a406fa2a2f83db582b2819d258903aa72c9dcc",
+    "capacity.py": "f1115d0cb3a9084eb49c0706737b20b7b8d9b95c5e2a5e884461951bc0b55ed3",
+    "common.py": "f0e29dc3f336e64ab61f4795b37ce84e928e502953ff681599650ec0e5d05725",
+    "evidence.py": "f6b156c309e1f892a4ddc13466b33b202f4e1b3a0e16b55453f6cdc905240dbb",
+    "final_candidate.py": "df407f39dbe3ee1f811c6ccebfa21851241455a94c3de93dc40e54d37924ff06",
+    "final_candidate_invariants.py": "d83ae6a3c67538e537c51b96c497732662b429f9681b485d872faca03ef38b26",
+    "generate.py": "78003fd2823e796afb3dba3f2ad390f6b70daa5bda8d5e9c03e6940c146d55b6",
+    "interview.py": "90a1f8e71f3acfe57f23634b7a1e2b26c381dc1d65b12f6a1d506ea2d2a0a339",
+    "interview_invariants.py": "8473be595ebf5fece2b1e05fcd645c3722448ddb859659959c065c4fa34739a3",
+    "invariants.py": "3bb299a9c69aafa344f4fb87f5a4a8403589a344cf6f87b495cdb5e2b3557a1d",
+    "report.py": "b2bf075f790bd88bb9d40b26f6aa9f7424be3b39b7d8d87dd64643ddc8a2200e",
+    "schema.py": "67c5287c46ee4c77f3520b217618f0790706520946d39cf3236e210e754c9e02",
+    "validate.py": "501a1c6113eb30708be48b55bcdbf657ac97694d974323c2cd1de66aa56a932e"
+  },
+  "implementation_parameters": {
+    "application_model": {
+      "category_sets": [
+        [],
+        [
+          "PROBLEM"
+        ],
+        [
+          "BUILD"
+        ],
+        [
+          "VALIDATE"
+        ],
+        [
+          "PROBLEM",
+          "BUILD"
+        ],
+        [
+          "PROBLEM",
+          "VALIDATE"
+        ],
+        [
+          "BUILD",
+          "VALIDATE"
+        ],
+        [
+          "PROBLEM",
+          "BUILD",
+          "VALIDATE"
+        ]
+      ],
+      "contexts": [
+        "COURSE_PROJECT",
+        "PERSONAL_PROTOTYPE",
+        "TEAM_PROJECT"
+      ],
+      "date_provenance": "SYNTHETIC_DATE_ADAPTATION",
+      "eligibility_scenarios": [
+        "COMPLETE",
+        "DEGREE_FAIL",
+        "DEGREE_UNKNOWN",
+        "LANGUAGE_FAIL",
+        "LANGUAGE_UNKNOWN",
+        "TRAVEL_FAIL",
+        "TRAVEL_UNKNOWN",
+        "MILITARY_FAIL",
+        "MILITARY_UNKNOWN"
+      ],
+      "expected_join_date": "2027-03-01",
+      "experience_counts": [
+        1,
+        2
+      ],
+      "ownership": [
+        "SELF",
+        "TEAM_CLEAR",
+        "TEAM_UNCLEAR"
+      ],
+      "population_note": "Equal-weight categorical coverage catalog, not measured prevalence or target-derived rates. Complete plus single requirement failure/unknown; applicability independent. No resampling after observed results.",
+      "public_source_ref": "KIA-02-REPOST",
+      "public_source_url": "https://app.superpasshr.com/positions/0da4b528-75fb-4d56-989c-9190cd34dbd7",
+      "reference_date_policy": "APPLICATION_SUBMISSION_DATE",
+      "source_provenance": "PUBLIC_REPOSTED_SOURCE"
+    },
+    "calibration": "Same direct evidence evaluator disagreement or same direct context explicit limitation/positive conflict; consensus LIMITED or NOT_OBSERVED alone is not a trigger",
+    "capacity": "30 fixed evaluators; Initial 2h each; additional whole 1h per evaluator rounds cover observed interview gap; calibration accounted separately",
+    "censoring": "planned appointments/deadlines may exceed end; actual events may not",
+    "coverage": "Decisionable FIRST direct evidence includes agreed LIMITED/MODERATE/STRONG; coverage and explicit limitation rejection are separate",
+    "document_eligibility": "No verified public basic requirements available; no invented failure criterion",
+    "evaluator_pool": "30 is retained synthetic resource parameter, not product policy or employer staffing",
+    "human_decisions": "offline SYNTHETIC_HUMAN_SCENARIO, not operational hiring automation",
+    "interview": {
+      "calibration_minutes": 15,
+      "calibration_roles": [
+        "ML_ENGINEER",
+        "HIRING_MANAGER"
+      ],
+      "calibration_trigger": "Same direct evidence evaluator disagreement or same direct context explicit limitation/positive conflict; consensus LIMITED or NOT_OBSERVED alone is not a trigger",
+      "core_skills": [
+        "M1_SKILL_01",
+        "M1_SKILL_02",
+        "M1_SKILL_03"
+      ],
+      "first_minutes": 60,
+      "first_roles": [
+        "ML_ENGINEER",
+        "HIRING_MANAGER",
+        "TECHNICAL_REVIEWER"
+      ],
+      "scenario_note": "PeopleOps synthetic scenario; secondary interview references, not official Kia policy",
+      "second_minutes": 30,
+      "second_roles": [
+        "ML_ENGINEER",
+        "HIRING_MANAGER"
+      ]
+    },
+    "onboarding": "Learnable gaps plus local work-prep requirements with selection level below STRONG; all required gap tasks need verified work and mentor confirmation",
+    "pool_scheduling": "Reserve only occupied activity blocks; future follow-up reservations do not block earlier free intervals. No personal working-day/holiday calendar.",
+    "randomness": "keyed streams retain v0.1 namespace to isolate rule changes; no seed search; unchanged legacy pattern/contact weights",
+    "re_review": "Every MUST must be decisionable; missing/unresolved after one targeted follow-up ends DNP for insufficient decision basis, not inferred skill deficiency",
+    "response_window": "14 days, SYNTHETIC assumption, not employer policy",
+    "stage_failure": "FIRST decisionable core01/02/03 coverage required, including agreed direct LIMITED; explicit agreed limitation without positive counter-evidence remains an independent failed criterion; missing/unresolved otherwise pending",
+    "targeted_followup": {
+      "response_options": {
+        "EVALUATOR_DISAGREEMENT": [
+          "OWNERSHIP_TRACE_SUPPLIED",
+          "SHARED_SCOPE_CONFIRMED",
+          "OWNERSHIP_STILL_AMBIGUOUS"
+        ],
+        "MISSING_EVIDENCE": [
+          "ARTIFACT_SUPPLIED",
+          "ARTIFACT_UNAVAILABLE",
+          "CHECK_OMITTED"
+        ],
+        "UNRESOLVED_EVIDENCE": [
+          "CHECK_COMPLETED",
+          "LIMITATION_CONFIRMED",
+          "QUESTION_UNANSWERED"
+        ]
+      },
+      "sampling": "equal weights within the unresolved question category; keyed by input snapshot; no ordinary evidence pattern call"
+    }
+  },
+  "job_id": "M1_ML_ENGINEER",
+  "observation_end": "2027-10-31T23:59:59+09:00",
+  "observation_start": "2026-10-01T00:00:00+09:00",
+  "random_stream_version": "m1-generator-0.1.0",
+  "record_counts": {
+    "activity_participants.csv": 561,
+    "activity_sessions.csv": 159,
+    "application_eligibility.csv": 246,
+    "application_experiences.csv": 381,
+    "applications.csv": 342,
+    "assessment_activities.csv": 672,
+    "assessment_evidence.csv": 1147,
+    "assessment_observations.csv": 2203,
+    "calibration_reviews.csv": 73,
+    "capacity_assignments.csv": 224,
+    "evaluator_reservations.csv": 530,
+    "evidence_decisions.csv": 764,
+    "evidence_skill_links.csv": 1147,
+    "final_decisions.csv": 20,
+    "funnel_plan.json": 8,
+    "interview_capacity_events.csv": 3,
+    "offer_events.csv": 20,
+    "offers.csv": 9,
+    "onboarding_profiles.csv": 4,
+    "onboarding_skill_gaps.csv": 5,
+    "onboarding_tasks.csv": 23,
+    "skill_decision_observations.csv": 3249,
+    "stage_history.csv": 412,
+    "talent_profile.json": 9,
+    "targeted_followups.csv": 6,
+    "workforce_events.csv": 15,
+    "workforce_plan.json": 1
+  },
+  "response_window_days": 14,
+  "review_status": "UNREVIEWED",
+  "schema_version": "m1-schema-0.5.0",
+  "seed": 20260924,
+  "source_matrix": {
+    "AI_CASE": {
+      "context": "설비시간·납기 CSV의 제약과 검증 산출물",
+      "skills": [
+        1,
+        3
+      ],
+      "source_type": "AI_CASE_RESPONSE",
+      "verification_mode": "DIRECT_TASK"
+    },
+    "CODING_TEST": {
+      "context": "작은 데이터 처리 함수와 경계 입력 테스트",
+      "skills": [
+        3
+      ],
+      "source_type": "CODING_TEST_RESPONSE",
+      "verification_mode": "DIRECT_TASK"
+    },
+    "DOCUMENT_REVIEW": {
+      "context": "지원 질문의 경험·성장·역할 자기기술",
+      "skills": [
+        1,
+        3
+      ],
+      "source_type": "APPLICATION_RESPONSE",
+      "verification_mode": "SELF_REPORTED"
+    },
+    "PRACTITIONER_QA": {
+      "context": "새 도구 설명·개인 기여·운영 복구에 대한 후속 질의",
+      "skills": [
+        4,
+        5,
+        6,
+        8
+      ],
+      "source_type": "INTERVIEW_RESPONSE",
+      "verification_mode": "DIRECT_INTERACTION"
+    },
+    "TECHNICAL_ASSESSMENT": {
+      "context": "모델 결과 표·편차·학습 검증 분리의 해석",
+      "skills": [
+        1,
+        2,
+        7
+      ],
+      "source_type": "TECHNICAL_ASSESSMENT_RESPONSE",
+      "verification_mode": "DIRECT_TASK"
+    },
+    "VALUES_BEHAVIOR_INTERVIEW": {
+      "context": "학습·협업 행동의 상황·행동·피드백 확인",
+      "skills": [
+        4,
+        5
+      ],
+      "source_type": "INTERVIEW_RESPONSE",
+      "verification_mode": "BEHAVIORAL_INTERACTION"
+    }
+  },
+  "timestamp_note": "generated_at is a fixed reproducibility stamp, not the wall-clock execution time.",
+  "timezone": "Asia/Seoul",
+  "validation_errors": [],
+  "validation_status": "PASS",
+  "validation_warnings": [
+    {
+      "code": "REVIEW_PENDING",
+      "message": "Synthetic rules/realism review remains pending; no freeze."
+    },
+    {
+      "code": "SYNTHETIC_POLICY_ASSUMPTIONS",
+      "message": "Source matrix, resource blocks, re-review uncertainty handling and mentor scenarios require human rule audit; not employer policies."
+    }
+  ]
+}

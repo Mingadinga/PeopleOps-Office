@@ -5,7 +5,7 @@ import hashlib
 from pathlib import Path
 from .common import DEFAULT_RULES, DEFAULT_OUTPUT, DEFAULT_MANIFEST, ROOT, load_rules, write_data, read_data, file_hashes, dump, compact
 from .generate import generate
-from .schema import SCHEMA
+from .schema import OPTIONAL_TABLES, SCHEMA
 from .validate import validate, validate_manifest
 from .report import summarize, markdown
 
@@ -36,7 +36,7 @@ def main():
     if args.command=='generate':
         hashes=file_hashes(args.output)
         versions={k:rules[k] for k in ('dataset_version','generation_version','generation_rules_version','schema_version','seed','generated_at','observation_start','observation_end','timezone','case_id','job_id')}
-        manifest={**versions,'record_counts':{n+'.csv':len(data[n]) for n in SCHEMA},
+        manifest={**versions,'record_counts':{n+'.csv':len(data[n]) for n in SCHEMA if n not in OPTIONAL_TABLES or data.get(n)},
                   'dataset_path':str(args.output.resolve().relative_to(ROOT)) if args.output.resolve().is_relative_to(ROOT) else str(args.output.resolve()),
                   'generation_rules_sha256':hashlib.sha256(args.rules.read_bytes()).hexdigest(),
                   'generator_source_sha256':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(Path(__file__).parent.glob('*.py'))},

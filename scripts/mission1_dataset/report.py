@@ -6,7 +6,9 @@ from statistics import median
 from math import floor, ceil
 from zoneinfo import ZoneInfo
 from .common import parse
-from .schema import SCHEMA, STAGES, RESULTS, PLAN_FILES
+from .application_report import summarize_application
+from .resolution_report import summarize_resolution
+from .schema import OPTIONAL_TABLES, SCHEMA, STAGES, RESULTS, PLAN_FILES
 
 
 def distribution(values):
@@ -21,7 +23,7 @@ def distribution(values):
 def summarize(data, rules, validation):
     stage_rows=defaultdict(list)
     for r in data['stage_history']:stage_rows[r['stage']].append(r)
-    counts={k+'.csv':len(data[k]) for k in SCHEMA}
+    counts={k+'.csv':len(data[k]) for k in SCHEMA if k not in OPTIONAL_TABLES or data.get(k)}
     counts.update({n+'.json':len(data[n]) if isinstance(data[n],list) else 1 for n in PLAN_FILES})
     workforce=data['workforce_events'];offer_events=data['offer_events']
     profiles={r['employee_id']:r for r in data['onboarding_profiles']}
@@ -29,14 +31,14 @@ def summarize(data, rules, validation):
     actual={
         'APPLICATION_STARTED':unique(data['applications']),
         'APPLICATION_SUBMITTED':unique([r for r in data['applications'] if r['application_status']=='SUBMITTED']),
-        'DOCUMENT_SCREEN':unique([r for r in stage_rows['DOCUMENT_SCREEN'] if r['result']=='ADVANCED']),
+        'DOCUMENT_SCREEN':unique([r for r in stage_rows['DOCUMENT_SCREEN'] if r['result'] in ('ADVANCED','CONDITIONAL_ADVANCE')]),
         'PRE_ASSESSMENT':unique([r for r in stage_rows['PRE_ASSESSMENT'] if r['result']=='ADVANCED']),
         'FIRST_INTERVIEW':unique(stage_rows['FIRST_INTERVIEW']),
         'SECOND_INTERVIEW':unique(stage_rows['SECOND_INTERVIEW']),
         'OFFER':unique(data['offers']),
         'JOIN':len({profiles[r['employee_id']]['source_candidate_id'] for r in workforce if r['event_type']=='JOINED'}),
     }
-    funnel=[{'stage':p['stage'],'label':p['label'],'target':p['target_count'],'actual':actual[p['stage']],'difference':actual[p['stage']]-p['target_count']} for p in data['funnel_plan']]
+    funnel=[{'stage':p['stage'],'label':('서류 근거 충족(조건부 포함)' if rules.get('eligibility_resolution') and p['stage']=='DOCUMENT_SCREEN' else p['label']),'target':p['target_count'],'actual':actual[p['stage']],'difference':actual[p['stage']]-p['target_count']} for p in data['funnel_plan']]
     outcomes={}
     for stage in STAGES:
         rows=stage_rows[stage];entered=unique(rows)
@@ -79,6 +81,8 @@ def summarize(data, rules, validation):
     hold_apps={f['application_id'] for f in data['final_decisions'] if f['decision']=='HOLD'}
     rereviews=[f for f in data['final_decisions'] if f['review_round']=='RE_REVIEW']
     return {'scope':'Synthetic Dataset '+rules['dataset_version']+' sanity only; no WHY, hypothesis, intervention or Mission 2 Main Story.',
+            'eligibility_resolution':(summarize_resolution(data) if rules.get('eligibility_resolution') else None),
+            'application_document':(summarize_application(data) if rules.get('application_model') else None),
             'dataset_version':rules['dataset_version'],'record_counts':counts,'funnel':funnel,'stage_outcomes':outcomes,
             'time_distributions':timings,'capacity':{'by_activity_person_hours':{k:round(v,4) for k,v in sorted(effort.items())},
             'total_person_hours':round(sum(effort.values()),4),'first_interview_and_calibration_person_hours':round(interview_effort+first_calibration if 'interview_model' in rules else interview_effort,4),'interview_consumed_person_hours':round(interview_effort,4),'first_calibration_person_hours':round(first_calibration,4),'additional_person_hours':sum(float(e['person_hours']) for e in capacity_events if e['event_type']=='CAPACITY_ADDED'),
@@ -114,8 +118,8 @@ def markdown(report):
     lines += [f'| {k} | {v} |' for k,v in report['record_counts'].items()]
     lines += ['','## Target vs Actual','','| Bucket | Target | Actual | Difference |','|---|---:|---:|---:|']
     lines += [f"| {r['label']} | {r['target']} | {r['actual']} | {r['difference']:+} |" for r in report['funnel']]
-    lines += ['','## Stage Outcomes','','| Stage | Entered | Completed | Advanced | Failed | Withdrawn | In Progress | Final lifecycle completed |','|---|---:|---:|---:|---:|---:|---:|---:|']
-    lines += [f"| {s} | "+' | '.join(str(row[k]) for k in ('ENTERED','COMPLETED','ADVANCED','FAILED','WITHDRAWN','IN_PROGRESS','FINAL_REVIEW_COMPLETED'))+' |' for s,row in report['stage_outcomes'].items()]
+    lines += ['','## Stage Outcomes','','| Stage | Entered | Completed | Advanced | Conditional | Failed | Closed | Withdrawn | In Progress | Final lifecycle completed |','|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|']
+    lines += [f"| {s} | "+' | '.join(str(row[k]) for k in ('ENTERED','COMPLETED','ADVANCED','CONDITIONAL_ADVANCE','FAILED','CLOSED','WITHDRAWN','IN_PROGRESS','FINAL_REVIEW_COMPLETED'))+' |' for s,row in report['stage_outcomes'].items()]
     lines += ['','## Time Distributions','','Days; NULL endpoints are excluded, never filled. Scheduling Wait includes known future appointments and does not imply elapsed waiting.','','| Metric / Stage | n | Median | p90 | Range | NULL endpoints |','|---|---:|---:|---:|---|---:|']
     for metric,stages in report['time_distributions'].items():
         for stage,d in stages.items():lines.append(f"| {metric} / {stage} | {d['n']} | {d['median']} | {d['p90']} | {d['min']}–{d['max']} | {d['null_count']} |")
@@ -130,4 +134,8 @@ def markdown(report):
     for error in report['validation']['errors']:lines.append(f"- ERROR {error['code']}: {error['message']}")
     for warning in report['validation']['warnings']:lines.append(f"- WARNING {warning['code']}: {warning['message']}")
     lines += ['','## Interpretation Boundary','']+['- '+note for note in report['notes']]
+    if report.get('application_document'):
+        lines += ['','## Application / Document (v0.5)','', 'CLOSED means insufficient submitted application evidence; it is not Skill limitation.', '', '```json', json.dumps(report['application_document'],ensure_ascii=False,indent=2), '```']
+    if report.get('eligibility_resolution'):
+        lines += ['', '## Eligibility Resolution (v0.6)', '', '```json', json.dumps(report['eligibility_resolution'],ensure_ascii=False,indent=2), '```']
     return '\n'.join(lines)+'\n'

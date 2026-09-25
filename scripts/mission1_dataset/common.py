@@ -5,7 +5,7 @@ import json
 import random
 from datetime import datetime, timedelta
 from pathlib import Path
-from .schema import SCHEMA, PLAN_FILES
+from .schema import SCHEMA, PLAN_FILES, OPTIONAL_TABLES
 
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_RULES = ROOT / 'data/generation/v0.4/generation_rules.json'
@@ -46,10 +46,13 @@ def empty_data():
 
 def write_data(directory, data):
     directory = Path(directory)
+    if directory.resolve() in {(ROOT/'data/generated'/v).resolve() for v in ('v0.4','v0.5')}:
+        raise ValueError('Preserved v0.4 source cannot be overwritten; use a new candidate path')
     if 'synthetic' in directory.parts or 'presentation' in directory.parts or any(v in directory.parts for v in ('v0.1','v0.2','v0.3')):
         raise ValueError('Review generator cannot write frozen/presentation data')
     directory.mkdir(parents=True, exist_ok=True)
     for name, fields in SCHEMA.items():
+        if name in OPTIONAL_TABLES and not data.get(name):continue
         with (directory / (name+'.csv')).open('w', encoding='utf-8', newline='') as f:
             writer = csv.DictWriter(f, fieldnames=fields, lineterminator='\n')
             writer.writeheader()
@@ -61,7 +64,7 @@ def read_data(directory):
     directory = Path(directory)
     data = {}
     for name in SCHEMA:
-        if not (directory / (name+'.csv')).exists() and name in ('activity_sessions','evaluator_reservations','targeted_followups','calibration_reviews'):
+        if not (directory / (name+'.csv')).exists() and name in OPTIONAL_TABLES | {'activity_sessions','evaluator_reservations','targeted_followups','calibration_reviews'}:
             data[name]=[];continue
         with (directory / (name+'.csv')).open(encoding='utf-8', newline='') as f:
             reader = csv.DictReader(f)

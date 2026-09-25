@@ -9,7 +9,7 @@ from scripts.mission1_dataset.generate import generate, Generator
 from scripts.mission1_dataset.validate import validate, validate_manifest
 from scripts.mission1_dataset.report import summarize, distribution
 from scripts.mission1_dataset.evidence import interpret, calibrate
-from scripts.mission1_dataset.schema import SCHEMA
+from scripts.mission1_dataset.schema import SCHEMA, OPTIONAL_TABLES
 
 
 class DatasetTests(unittest.TestCase):
@@ -31,7 +31,7 @@ class DatasetTests(unittest.TestCase):
             write_data(directory,self.base)
             loaded=read_data(directory)
             self.assertEqual(validate(loaded,self.rules)['errors'],[])
-            self.assertEqual(set(SCHEMA),{p.stem for p in Path(directory).glob('*.csv')})
+            self.assertEqual(set(SCHEMA)-OPTIONAL_TABLES,{p.stem for p in Path(directory).glob('*.csv')})
 
     def test_identical_input_produces_identical_bytes(self):
         again=generate(copy.deepcopy(self.rules))
@@ -185,7 +185,7 @@ class DatasetTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             write_data(directory,self.base)
             manifest={k:self.rules[k] for k in ('dataset_version','generation_version','generation_rules_version','schema_version','seed','generated_at','observation_start','observation_end','timezone','case_id','job_id')}
-            manifest.update(record_counts={n+'.csv':len(self.base[n]) for n in SCHEMA},file_sha256=file_hashes(directory),
+            manifest.update(record_counts={n+'.csv':len(self.base[n]) for n in SCHEMA if n not in OPTIONAL_TABLES},file_sha256=file_hashes(directory),
                             generation_rules_sha256=hashlib.sha256(DEFAULT_RULES.read_bytes()).hexdigest(),
                             generator_source_sha256={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(Path(validation_module.__file__).parent.glob('*.py'))},
                             review_status='UNREVIEWED',frozen=False,implementation_parameters=self.rules['implementation_parameters'],random_stream_version=self.rules['random_stream_version'],source_matrix=self.rules['source_matrix'],capacity_parameters=self.rules['capacity'],response_window_days=self.rules['offers']['response_window_days'])
