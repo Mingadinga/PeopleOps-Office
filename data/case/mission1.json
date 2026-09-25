@@ -1,0 +1,81 @@
+{
+  "mission_id": "M01",
+  "title": "Machine Learning Engineer 인력 확보",
+  "evidence_type": "SYNTHETIC",
+  "source": "docs/02_mission1_scenario.md",
+  "baseline_date": "2026-10-01",
+  "target_ready_date": "2027-09-01",
+  "demand_fte": 16,
+  "current_fte": 12,
+  "confirmed_flow": [
+    { "date": "2027-01", "label": "확정 내부 전입", "fte": 1 },
+    { "date": "2027-03", "label": "확정 내부 전출", "fte": -1 }
+  ],
+  "ramp_up_months": 6,
+  "steps": [
+    {
+      "id": "workforce",
+      "title": "인력계획실",
+      "question": "목표 시점에 필요한 인력이 충분한가?",
+      "data": "현재 인력과 확정된 유입·유출을 목표 시점 기준으로 비교합니다.",
+      "reasoning": "현재 인원만 보면 목표 날짜까지 예정된 전입·전출을 놓칩니다. 이번에는 전입과 전출 규모가 같아 예상 인력이 현재와 같지만, 이동 규모가 달라지면 예상 인력도 달라집니다.",
+      "decision": "부족 인력 4 FTE를 확보하기 위해 신입 외부채용을 기본 방향으로 정합니다. 기존 숙련 인력이 신입을 육성할 수 있고, 신입이 업무에 익숙해질 기간(Ramp-up) 6개월을 확보할 수 있다는 시나리오 가정에 따른 결정입니다.",
+      "nextQuestion": "그렇다면 어떤 사람을 확보해야 할까요?",
+      "reference": "Mission 1 시나리오 · 3~9절 / 의사결정 원칙 · 3절"
+    },
+    {
+      "id": "talent",
+      "title": "Talent Desk",
+      "question": "어떤 역량을 갖춘 사람이 필요한가?",
+      "data": "Talent Profile은 data/case/talent_profile.json에서 관리합니다.",
+      "reasoning": "업무 이해 → Skill 정의 → Must Have / Learnable / Plus → Evidence → Target Candidate 순서로 판단합니다.",
+      "decision": "Talent Profile의 Target Candidate는 이 시나리오의 직무 해석입니다.",
+      "nextQuestion": "이 인재에게 어떻게 직무를 알릴 것인가?",
+      "reference": "data/case/talent_profile.json"
+    },
+    {
+      "id": "attraction",
+      "title": "채용전략실",
+      "question": "필요한 인재에게 어떻게 직무를 알릴 것인가?",
+      "data": "Target Talent, Message, Content, Channel, Candidate Information Need를 함께 확인합니다.",
+      "reasoning": "단순 지원자 수 증가보다 직무에 적합한 관심과 지원을 만드는 것이 목표입니다. 채널 선택은 목표 인재와 필요한 정보에 근거해야 합니다.",
+      "decision": "확정된 원칙: Talent Profile에 맞춰 Attraction 전략을 구성합니다. 구체적인 채널 선정과 집행 결과는 아직 연결되지 않았습니다.",
+      "nextQuestion": "필요한 역량을 어떻게 확인할까요?",
+      "reference": "제품 흐름 · Attraction / 데이터 모델 · Recruiting Strategy",
+      "pending": "채널별 전략과 합성 이벤트 데이터 연결은 준비 중입니다."
+    },
+    {
+      "id": "operations",
+      "title": "채용운영실",
+      "question": "역량을 어떻게 확인하고 전형을 운영할 것인가?",
+      "data": "지원 → 기술 평가 → AI 문제 해결 과제 → 직무면접 → 최종면접. 이후 Offer와 Join까지 단계 진입·결정·통지·완료 및 이탈을 기록합니다.",
+      "reasoning": "Skill마다 주된 평가 방식을 정하고 다른 전형은 이를 보완합니다. 현재 상태뿐 아니라 Stage History를 기록해야 전환율과 소요 시간을 계산할 수 있습니다.",
+      "decision": "확정된 원칙: Skill → Evidence → Assessment로 전형을 설계합니다. 실제 합격·이탈·전환율은 합성 이벤트를 연결한 후 확인합니다.",
+      "nextQuestion": "입사 이후 업무 준비를 어떻게 지원할까요?",
+      "reference": "제품 흐름 · Selection / Recruiting Operation · 데이터 모델 8~9절",
+      "pending": "전형별 Evidence와 Funnel 결과는 준비 중입니다."
+    },
+    {
+      "id": "onboarding",
+      "title": "Onboarding",
+      "question": "입사자가 목표 시점에 업무 가능한 상태가 되었는가?",
+      "data": "Join → Skill Gap → Ramp-up Task → Ready. 목표 Ready 시점은 2027-09이며 Ramp-up 허용 기간은 6개월입니다.",
+      "reasoning": "입사 인원과 목표 시점에 업무 가능한 인력은 다릅니다. Selection Evidence와 Skill Gap을 연결해 준비 과정을 확인해야 합니다.",
+      "decision": "확정된 원칙: 4 JOINED ≠ Workforce Goal Achieved. 실제 Ready 여부와 Available Supply를 통해 목표 달성을 확인합니다.",
+      "nextQuestion": "목표 시점의 인력 확보 결과는 어떨까요?",
+      "reference": "Mission 1 시나리오 · 7~9절 / 데이터 모델 · Onboarding",
+      "pending": "실제 Ready 날짜와 온보딩 결과 데이터는 준비 중입니다."
+    },
+    {
+      "id": "kpi",
+      "title": "KPI 화면",
+      "question": "목표 시점에 필요한 Workforce Supply를 확보했는가?",
+      "data": "Target-date Workforce Fulfillment = Target-date Available Supply / Demand × 100. 시나리오 목표는 100%이며 초기 예상은 12 / 16 = 75%입니다.",
+      "reasoning": "Target은 분석 전에 정의합니다. Actual은 합성 Event 데이터에서 계산해야 하며, 초기 예상 75%는 최종 채용 Actual이 아닙니다.",
+      "decision": "최종 달성 여부는 아직 판단하지 않습니다. KPI Actual과 계산 근거는 실제 데이터 분석을 연결한 후 제공합니다.",
+      "nextQuestion": "이 데이터를 바탕으로 다음 채용을 어떻게 개선할까요?",
+      "reference": "Mission 1 시나리오 · 8~9절 / 데이터 모델 · KPI",
+      "pending": "KPI Actual · 분석 결과 없음"
+    }
+  ]
+}

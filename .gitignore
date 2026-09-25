@@ -64,3 +64,7 @@ __pycache__/
 
 # build/는 Vite 플러그인 소스이므로 제외하지 않는다.
 # .openai/hosting.json도 현재 빌드에 필요한 설정이므로 보존한다.
+
+# Local development captures
+/screenshots/
+/videos/

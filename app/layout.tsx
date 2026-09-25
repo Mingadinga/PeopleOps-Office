@@ -1,21 +1,14 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./office.css";
-import { COMPANY } from "../company.config";
+import "./exploration.css";
 
 export const metadata: Metadata = {
-  title: COMPANY.pageTitle,
-  description: COMPANY.description,
+  title: "PeopleOps Office — 근거 기반 HR 의사결정",
+  description: "인력계획부터 채용, 온보딩까지 데이터와 판단 근거를 공간을 이동하며 탐색하는 HR 업무 공간",
   openGraph: {
-    title: COMPANY.name,
-    description: "AI가 일하고, 대표가 결정하는 회사",
-    images: [{ url: "/og.png", width: 1672, height: 935, alt: `${COMPANY.name} 픽셀 오피스` }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: COMPANY.name,
-    description: "AI가 일하고, 대표가 결정하는 회사",
-    images: ["/og.png"],
+    title: "PeopleOps Office",
+    description: "문제와 근거를 따라 HR 의사결정 과정을 탐색하세요.",
   },
 };
 

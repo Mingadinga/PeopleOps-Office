@@ -1,0 +1,271 @@
+{
+  "mission_id": "M01",
+  "role": "Machine Learning Engineer",
+  "summary": "4 FTE 확보 방향을 실제 업무에 필요한 역량과 확인 가능한 경험으로 구체화합니다. 아래 분류는 공개 채용요건이 아닌 이 시나리오의 Talent Profile 결정입니다.",
+  "job_context": [
+    "현실 문제 이해",
+    "수학적·기술적 문제로 구조화",
+    "알고리즘 또는 모델 구현",
+    "결과와 성능 검증",
+    "실제 서비스 적용"
+  ],
+  "job_context_note": "공개자료에 나타난 ML·최적화 업무와 개발·검증·적용 과정을 바탕으로 재구성한 프로젝트의 업무 흐름입니다. 특정 회사의 내부 절차를 뜻하지 않습니다.",
+  "sources": [
+    {
+      "id": "PUBLIC-ML-01",
+      "type": "PUBLIC",
+      "publisher": "Hyundai Motor Company / HATCI",
+      "title": "AI Control Systems Engineer 채용공고",
+      "url": "https://careers-americas.hyundai.com/hatci/job/Superior-Charter-Township-AI-Control-Systems-Engineer-MI-48198/1393620500/",
+      "published_date": "2026-09-17",
+      "note": "ML·최적화 기반 솔루션 개발, 시뮬레이션에서 하드웨어로의 이전, 시험과 검증, 기술 설명을 다룹니다. 이 시나리오 직무와 동일한 채용요건이라는 뜻은 아닙니다."
+    },
+    {
+      "id": "PUBLIC-ML-02",
+      "type": "PUBLIC",
+      "publisher": "Google Cloud",
+      "title": "Professional Machine Learning Engineer Certification Exam Guide",
+      "url": "https://services.google.com/fh/files/misc/professional_machine_learning_engineer_certification_exam_guide.pdf",
+      "accessed_date": "2026-09-22",
+      "note": "ML 문제와 모델의 설계·구현·평가·운영, 협업 범위를 설명하는 공개 직무 참고자료입니다. 채용공고나 회사의 내부 요구사항은 아닙니다."
+    }
+  ],
+  "category_rationale": {
+    "MUST": "업무 문제를 정의하고 기본 해결 방법을 구현·검증하며 팀과 설명을 주고받는 출발 역량으로 판단했습니다. 신입 채용 시 확인할 기본 역량이라는 프로젝트 해석입니다.",
+    "LEARNABLE": "실무 환경·도메인·내부 체계에 의존하므로 입사 후 학습과 온보딩으로 확보할 수 있다고 판단했습니다.",
+    "PLUS": "관련 경험은 도움이 되지만, 기초 역량을 대신하는 필수 조건으로 두지 않기로 판단했습니다."
+  },
+  "skills": [
+    {
+      "skill_id": "SKILL-01",
+      "name": "문제 구조화",
+      "requirement": "MUST",
+      "definition": "현실의 문제를 해결 가능한 수학적·기술적 문제로 바꾸는 역량",
+      "reason": "모델이나 알고리즘을 만들기 전에 목표, 변수, 제약, 검증 기준을 분명히 해야 합니다.",
+      "expected_evidence": "프로젝트·연구에서 문제 정의 → 변수와 조건 → 접근법 → 결과 검증을 설명한 경험",
+      "evidence_type": "INFERENCE",
+      "evidence_refs": [
+        "PUBLIC-ML-01",
+        "PUBLIC-ML-02",
+        "INFERENCE-TP-01"
+      ],
+      "source_reference": [
+        "PUBLIC-ML-01",
+        "PUBLIC-ML-02"
+      ],
+      "inference_ref": "INFERENCE-TP-01"
+    },
+    {
+      "skill_id": "SKILL-02",
+      "name": "ML 기초",
+      "requirement": "MUST",
+      "definition": "기본 모델 원리, 데이터 처리, 학습과 평가의 의미를 이해하는 역량",
+      "reason": "업무 문제에 맞는 모델을 선택하고 결과를 해석하려면 기초 개념이 필요합니다.",
+      "expected_evidence": "학습 데이터, 모델 선택, 평가 지표와 한계를 설명한 프로젝트·학습 경험",
+      "evidence_type": "INFERENCE",
+      "evidence_refs": [
+        "PUBLIC-ML-01",
+        "PUBLIC-ML-02",
+        "INFERENCE-TP-02"
+      ],
+      "source_reference": [
+        "PUBLIC-ML-01",
+        "PUBLIC-ML-02"
+      ],
+      "inference_ref": "INFERENCE-TP-02"
+    },
+    {
+      "skill_id": "SKILL-03",
+      "name": "수리최적화 기초",
+      "requirement": "MUST",
+      "definition": "목적함수와 제약조건을 이해하고 기본적인 최적화 문제를 다루는 역량",
+      "reason": "해결 목표와 제약을 명확히 표현해야 최적화 접근을 설계할 수 있습니다.",
+      "expected_evidence": "목적함수·제약조건·해법 선택과 결과 비교를 설명한 과제 또는 프로젝트",
+      "evidence_type": "INFERENCE",
+      "evidence_refs": [
+        "PUBLIC-ML-01",
+        "INFERENCE-TP-03"
+      ],
+      "source_reference": [
+        "PUBLIC-ML-01"
+      ],
+      "inference_ref": "INFERENCE-TP-03"
+    },
+    {
+      "skill_id": "SKILL-04",
+      "name": "알고리즘 구현 및 검증",
+      "requirement": "MUST",
+      "definition": "설계한 방법을 코드로 구현하고 결과와 성능을 확인하는 역량",
+      "reason": "아이디어가 실제 문제를 해결하는지 재현 가능한 구현과 검증으로 확인해야 합니다.",
+      "expected_evidence": "구현 코드, 실험 설정, 기준선 비교, 오류 분석과 개선 과정을 설명한 경험",
+      "evidence_type": "INFERENCE",
+      "evidence_refs": [
+        "PUBLIC-ML-01",
+        "PUBLIC-ML-02",
+        "INFERENCE-TP-04"
+      ],
+      "source_reference": [
+        "PUBLIC-ML-01",
+        "PUBLIC-ML-02"
+      ],
+      "inference_ref": "INFERENCE-TP-04"
+    },
+    {
+      "skill_id": "SKILL-05",
+      "name": "새로운 기술 학습",
+      "requirement": "MUST",
+      "definition": "새 방법을 찾아 이해하고 문제에 맞게 적용하며 한계를 확인하는 역량",
+      "reason": "업무 문제와 적용 기술이 바뀔 수 있어, 입사 후에도 스스로 학습하는 출발 역량이 필요합니다.",
+      "expected_evidence": "처음 접한 방법을 학습·적용하고 결과를 검증한 과정을 설명한 경험",
+      "evidence_type": "INFERENCE",
+      "evidence_refs": [
+        "PUBLIC-ML-01",
+        "PUBLIC-ML-02",
+        "INFERENCE-TP-05"
+      ],
+      "source_reference": [
+        "PUBLIC-ML-01",
+        "PUBLIC-ML-02"
+      ],
+      "inference_ref": "INFERENCE-TP-05"
+    },
+    {
+      "skill_id": "SKILL-06",
+      "name": "협업 및 기술 커뮤니케이션",
+      "requirement": "MUST",
+      "definition": "문제, 선택한 방법, 결과와 한계를 동료에게 명확히 설명하고 협업하는 역량",
+      "reason": "문제 정의와 결과 검증, 실제 적용에는 다른 역할과의 의견 조율이 필요합니다.",
+      "expected_evidence": "협업 프로젝트에서 역할, 의견 차이, 기술적 선택과 결과 공유를 설명한 경험",
+      "evidence_type": "INFERENCE",
+      "evidence_refs": [
+        "PUBLIC-ML-01",
+        "PUBLIC-ML-02",
+        "INFERENCE-TP-06"
+      ],
+      "source_reference": [
+        "PUBLIC-ML-01",
+        "PUBLIC-ML-02"
+      ],
+      "inference_ref": "INFERENCE-TP-06"
+    },
+    {
+      "skill_id": "SKILL-07",
+      "name": "Production 환경 이해",
+      "requirement": "LEARNABLE",
+      "definition": "모델을 실제 운영 환경에 적용할 때의 성능·안정성·유지보수 조건 이해",
+      "reason": "실제 환경의 제약은 중요하지만, 이 신입 시나리오에서는 기초 구현 역량을 바탕으로 입사 후 익힐 수 있다고 판단했습니다.",
+      "expected_evidence": "배포·운영 제약을 고려해 본 경험이 있다면 확인하되, 경험 부재만으로 제외하지 않음",
+      "evidence_type": "INFERENCE",
+      "evidence_refs": [
+        "PUBLIC-ML-01",
+        "PUBLIC-ML-02",
+        "INFERENCE-TP-07"
+      ],
+      "source_reference": [
+        "PUBLIC-ML-01",
+        "PUBLIC-ML-02"
+      ],
+      "inference_ref": "INFERENCE-TP-07"
+    },
+    {
+      "skill_id": "SKILL-08",
+      "name": "해당 업무 도메인 이해",
+      "requirement": "LEARNABLE",
+      "definition": "문제가 발생하는 산업·서비스의 용어, 제약과 사용 맥락 이해",
+      "reason": "도메인 지식은 실제 과제와 함께 습득할 수 있으며, 기초 문제 해결 역량과 구분했습니다.",
+      "expected_evidence": "새 도메인을 학습해 문제에 반영한 방식이 있다면 확인",
+      "evidence_type": "INFERENCE",
+      "evidence_refs": [
+        "PUBLIC-ML-01",
+        "INFERENCE-TP-08"
+      ],
+      "source_reference": [
+        "PUBLIC-ML-01"
+      ],
+      "inference_ref": "INFERENCE-TP-08"
+    },
+    {
+      "skill_id": "SKILL-09",
+      "name": "내부 시스템 및 개발 환경",
+      "requirement": "LEARNABLE",
+      "definition": "입사 후 사용할 조직별 도구, 코드베이스, 개발·협업 절차 이해",
+      "reason": "조직 내부 환경은 입사 전 확인할 수 없으므로 온보딩으로 익히는 범위로 두었습니다.",
+      "expected_evidence": "새 도구나 코드베이스에 적응한 경험이 있다면 학습 방법을 확인",
+      "evidence_type": "INFERENCE",
+      "evidence_refs": [
+        "INFERENCE-TP-09"
+      ],
+      "source_reference": [],
+      "inference_ref": "INFERENCE-TP-09"
+    },
+    {
+      "skill_id": "SKILL-10",
+      "name": "세부 최적화/RL 방법론",
+      "requirement": "LEARNABLE",
+      "definition": "특정 최적화 또는 강화학습 방법을 과제에 맞게 선택·적용하는 지식",
+      "reason": "기초 개념과 학습 역량을 우선 확인하고, 세부 방법은 실제 과제에 맞춰 발전시킬 수 있다고 판단했습니다.",
+      "expected_evidence": "특정 방법의 적용 경험이 있다면 선택 이유와 검증 방식을 확인",
+      "evidence_type": "INFERENCE",
+      "evidence_refs": [
+        "PUBLIC-ML-01",
+        "INFERENCE-TP-10"
+      ],
+      "source_reference": [
+        "PUBLIC-ML-01"
+      ],
+      "inference_ref": "INFERENCE-TP-10"
+    },
+    {
+      "skill_id": "SKILL-11",
+      "name": "논문/알고리즘 구현 경험",
+      "requirement": "PLUS",
+      "definition": "공개 연구나 알고리즘을 읽고 직접 구현·재현한 경험",
+      "reason": "새 접근을 빠르게 시험하는 데 도움이 되지만 필수 경력 조건으로 두지 않습니다.",
+      "expected_evidence": "구현 결과, 재현 조건, 원문과 다른 점을 설명한 경험",
+      "evidence_type": "INFERENCE",
+      "evidence_refs": [
+        "PUBLIC-ML-01",
+        "INFERENCE-TP-11"
+      ],
+      "source_reference": [
+        "PUBLIC-ML-01"
+      ],
+      "inference_ref": "INFERENCE-TP-11"
+    },
+    {
+      "skill_id": "SKILL-12",
+      "name": "관련 연구/프로젝트 경험",
+      "requirement": "PLUS",
+      "definition": "ML·최적화와 관련된 연구 또는 프로젝트 수행 경험",
+      "reason": "업무와 연결되는 경험은 유용하지만, 경험의 이름보다 문제 해결 과정을 우선 확인합니다.",
+      "expected_evidence": "본인 기여, 선택한 방법, 실험 결과와 배운 점을 설명한 경험",
+      "evidence_type": "INFERENCE",
+      "evidence_refs": [
+        "PUBLIC-ML-01",
+        "PUBLIC-ML-02",
+        "INFERENCE-TP-12"
+      ],
+      "source_reference": [
+        "PUBLIC-ML-01",
+        "PUBLIC-ML-02"
+      ],
+      "inference_ref": "INFERENCE-TP-12"
+    },
+    {
+      "skill_id": "SKILL-13",
+      "name": "Business English",
+      "requirement": "PLUS",
+      "definition": "영어 자료를 읽고 업무 내용을 공유하는 역량",
+      "reason": "공개자료와 협업에서 도움이 될 수 있으나 이 시나리오의 기본 필수 조건으로 두지 않습니다.",
+      "expected_evidence": "영문 기술자료를 이해하거나 결과를 공유한 경험이 있다면 확인",
+      "evidence_type": "INFERENCE",
+      "evidence_refs": [
+        "INFERENCE-TP-13"
+      ],
+      "source_reference": [],
+      "inference_ref": "INFERENCE-TP-13"
+    }
+  ],
+  "target_candidate": "현실의 문제를 구조화하고 수리최적화와 머신러닝의 기초를 바탕으로 해결 방법을 설계·구현할 수 있으며, 새로운 기술을 능동적으로 학습하고 협업을 통해 해결책을 발전시킬 수 있는 신입 엔지니어.",
+  "decision_type": "INFERENCE"
+}
