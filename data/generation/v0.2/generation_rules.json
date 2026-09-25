@@ -1,0 +1,533 @@
+{
+  "dataset_version": "v0.2",
+  "generation_version": "m1-generator-0.2.0",
+  "generation_rules_version": "m1-rules-0.2.0",
+  "schema_version": "m1-canonical-0.2.0",
+  "seed": 20260924,
+  "case_id": "M01",
+  "job_id": "M1_ML_ENGINEER",
+  "timezone": "Asia/Seoul",
+  "observation_start": "2026-10-01T00:00:00+09:00",
+  "observation_end": "2027-10-31T23:59:59+09:00",
+  "generated_at": "2027-11-01T00:00:00+09:00",
+  "clock_note": "generated_at is a fixed reproducibility stamp, not the wall-clock execution time.",
+  "provenance": "SYNTHETIC",
+  "review_status": "UNREVIEWED",
+  "workforce_plan": {
+    "plan_id": "M1_WP_01",
+    "baseline_date": "2026-10-01",
+    "target_date": "2027-09-01",
+    "demand_fte": 16,
+    "current_fte": 12,
+    "confirmed_transfer_in": 1,
+    "confirmed_transfer_out": 1,
+    "confirmed_joiners": 0,
+    "target_join": 4,
+    "target_ready": 4
+  },
+  "funnel_targets": [
+    [
+      "APPLICATION_STARTED",
+      "지원 시작",
+      320
+    ],
+    [
+      "APPLICATION_SUBMITTED",
+      "지원 완료",
+      240
+    ],
+    [
+      "DOCUMENT_SCREEN",
+      "서류 통과",
+      120
+    ],
+    [
+      "PRE_ASSESSMENT",
+      "사전검증 통과",
+      60
+    ],
+    [
+      "FIRST_INTERVIEW",
+      "1차면접 계획 인원",
+      20
+    ],
+    [
+      "SECOND_INTERVIEW",
+      "2차면접 대상",
+      8
+    ],
+    [
+      "OFFER",
+      "Offer",
+      5
+    ],
+    [
+      "JOIN",
+      "Join 목표",
+      4
+    ]
+  ],
+  "applications": {
+    "arrival_start": "2026-10-12T09:00:00+09:00",
+    "arrival_days": 21,
+    "daily_arrivals_min": 12,
+    "daily_arrivals_max": 20,
+    "submission_delay_days": [
+      1,
+      2,
+      3,
+      5,
+      8
+    ],
+    "draft_actions": [
+      "SUBMIT",
+      "SUBMIT",
+      "SUBMIT",
+      "SUBMIT",
+      "ABANDON",
+      "RETURN_LATER"
+    ],
+    "channel_options": [
+      "CAREER_SITE",
+      "TECH_COMMUNITY",
+      "CAMPUS",
+      "RECRUITING_EVENT"
+    ]
+  },
+  "process": {
+    "first_interview_calendar_start": "2026-12-07T09:00:00+09:00",
+    "first_interview_weekday_offsets": [
+      0,
+      3
+    ],
+    "calendar_block_minutes": 120,
+    "document_review_days": [
+      2,
+      3,
+      5,
+      7
+    ],
+    "decision_delay_days": [
+      1,
+      2,
+      3,
+      5
+    ],
+    "notification_delay_days": [
+      0,
+      1,
+      2,
+      4
+    ],
+    "withdrawal_contacts": [
+      "ATTEND",
+      "ATTEND",
+      "ATTEND",
+      "ATTEND",
+      "ATTEND",
+      "ATTEND",
+      "ATTEND",
+      "ATTEND",
+      "ATTEND",
+      "ATTEND",
+      "ATTEND",
+      "ATTEND",
+      "ATTEND",
+      "ATTEND",
+      "ATTEND",
+      "ATTEND",
+      "ATTEND",
+      "WITHDRAW_CONFIRMED_UNKNOWN",
+      "NO_RESPONSE_PENDING"
+    ],
+    "preassessment_wait_days": [
+      4,
+      7,
+      10
+    ],
+    "second_interview_wait_days": [
+      7,
+      10,
+      14
+    ],
+    "activity_minutes": {
+      "DOCUMENT_REVIEW": [
+        15,
+        20,
+        25
+      ],
+      "APTITUDE": [
+        35,
+        40,
+        45
+      ],
+      "CODING_TEST": [
+        50,
+        60,
+        70
+      ],
+      "TECHNICAL_ASSESSMENT": [
+        25,
+        30,
+        35
+      ],
+      "AI_CASE": [
+        25,
+        30,
+        35
+      ],
+      "PRACTITIONER_QA": [
+        20,
+        25
+      ],
+      "CALIBRATION": [
+        15,
+        20,
+        25
+      ],
+      "VALUES_BEHAVIOR_INTERVIEW": [
+        40,
+        50,
+        60
+      ],
+      "FINAL_REVIEW_DISCUSSION": [
+        20,
+        25,
+        30
+      ],
+      "FOCUSED_FOLLOW_UP": [
+        30,
+        40,
+        50
+      ],
+      "FOLLOW_UP_CALIBRATION": [
+        15,
+        20,
+        25
+      ]
+    },
+    "calendar_note": "Reusable panel pool, two weekly blocks per panel; panels added in 80h resource blocks after whole-cycle demand gap review. No detailed personal calendar."
+  },
+  "evidence": {
+    "patterns": [
+      "EXPLICIT",
+      "EXPLICIT",
+      "EXPLICIT",
+      "REVISED",
+      "PARTIAL",
+      "AMBIGUOUS",
+      "NOT_DOCUMENTED"
+    ],
+    "note": "Directly sampled observable response structures, independently per source/skill; no candidate-level trait or score. Channel is not an input."
+  },
+  "rubric": {
+    "rubric_id": "M1_EVIDENCE_RUBRIC_V02",
+    "source": "docs/07_recruitment_design_specification.md#7-evidence-level과-calibration",
+    "levels": {
+      "NOT_OBSERVED": "담당 행동/근거를 확인할 수 없음",
+      "LIMITED": "구체적 행동은 있으나 검증이나 개인 기여 확인이 부족함",
+      "MODERATE": "직접 수행한 구체적 행동과 검증을 확인함",
+      "STRONG": "검증 결과에 따른 변경과 재검증을 확인함"
+    },
+    "ambiguity": "공동 산출물에서 개인 검증 범위가 불명확하면 ML 평가자는 LIMITED, 맥락 중심 현업 평가자는 MODERATE를 제안할 수 있다. 원문이 범위를 해소하지 않으면 미합의로 보존한다.",
+    "calibration": "Persisted observations only; positive direct evidence may contextualize earlier limitations; same-evidence evaluator differences remain explicit. No averaging or recency override.",
+    "decision_policy": "Stage-specific criteria; INITIAL HOLD for missing/unresolved Must. One focused follow-up; re-review weighs explicit adverse observations, accepts residual missing-only uncertainty with work support, never auto-fails missing evidence."
+  },
+  "offers": {
+    "response_events": [
+      "ACCEPTED",
+      "ACCEPTED",
+      "ACCEPTED",
+      "ACCEPTED",
+      "ACCEPTED",
+      "DECLINED",
+      "NO_RESPONSE"
+    ],
+    "response_days": [
+      2,
+      4,
+      7,
+      10
+    ],
+    "post_acceptance_contacts": [
+      "JOIN_AS_PLANNED",
+      "JOIN_AS_PLANNED",
+      "JOIN_AS_PLANNED",
+      "JOIN_AS_PLANNED",
+      "JOIN_AS_PLANNED",
+      "JOIN_AS_PLANNED",
+      "JOIN_AS_PLANNED",
+      "JOIN_AS_PLANNED",
+      "JOIN_AS_PLANNED",
+      "PRE_JOIN_WITHDRAWAL"
+    ],
+    "join_delay_days": [
+      14,
+      21,
+      28
+    ],
+    "expected_join_floor": "2027-03-01T09:00:00+09:00",
+    "response_window_days": 14
+  },
+  "onboarding": {
+    "milestone_days": [
+      30,
+      90,
+      180
+    ],
+    "completion_delay_days": [
+      0,
+      3,
+      7,
+      14
+    ],
+    "work_records": [
+      "VERIFIED",
+      "VERIFIED",
+      "VERIFIED",
+      "REVISED",
+      "CHECK_PENDING"
+    ],
+    "extension_days": 30,
+    "work_prep_requirements": [
+      {
+        "requirement_id": "LOCAL_PIPELINE_HANDOFF",
+        "skill_id": "M1_SKILL_03",
+        "context": "입사 후 로컬 배치 입력·복구 검증과 인수인계",
+        "recheck_below": "STRONG"
+      },
+      {
+        "requirement_id": "LOCAL_TEAM_HANDOFF",
+        "skill_id": "M1_SKILL_05",
+        "context": "입사 후 코드 리뷰·담당 범위 인수인계",
+        "recheck_below": "STRONG"
+      }
+    ],
+    "mentor_reviews": [
+      "CONFIRM",
+      "CONFIRM",
+      "CONFIRM",
+      "REQUEST_MORE_WORK"
+    ]
+  },
+  "skills": [
+    {
+      "skill_id": "M1_SKILL_01",
+      "skill_name": "문제 구조화",
+      "requirement_type": "MUST",
+      "description": "문제 구조화의 관찰 가능한 업무 근거",
+      "expected_evidence": "최소 납기 위반을 목표로 정의했다; 설비별 가용시간 제약을 확인했다",
+      "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction",
+      "evidence_refs": [
+        "docs/02_mission1_scenario.md#10-talent-profile-direction"
+      ],
+      "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+      "example_action": "최소 납기 위반을 목표로 정의했다",
+      "example_check": "설비별 가용시간 제약을 확인했다"
+    },
+    {
+      "skill_id": "M1_SKILL_02",
+      "skill_name": "ML/수리적 사고 기초",
+      "requirement_type": "MUST",
+      "description": "ML/수리적 사고 기초의 관찰 가능한 업무 근거",
+      "expected_evidence": "평균 오차와 구간별 편차를 따로 비교했다; 학습 구간과 검증 구간의 중복을 확인했다",
+      "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction",
+      "evidence_refs": [
+        "docs/02_mission1_scenario.md#10-talent-profile-direction"
+      ],
+      "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+      "example_action": "평균 오차와 구간별 편차를 따로 비교했다",
+      "example_check": "학습 구간과 검증 구간의 중복을 확인했다"
+    },
+    {
+      "skill_id": "M1_SKILL_03",
+      "skill_name": "알고리즘 구현 및 검증",
+      "requirement_type": "MUST",
+      "description": "알고리즘 구현 및 검증의 관찰 가능한 업무 근거",
+      "expected_evidence": "작업 의존 순서를 반영하는 함수를 작성했다; 빈 입력과 순환 의존의 재현 테스트를 실행했다",
+      "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction",
+      "evidence_refs": [
+        "docs/02_mission1_scenario.md#10-talent-profile-direction"
+      ],
+      "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+      "example_action": "작업 의존 순서를 반영하는 함수를 작성했다",
+      "example_check": "빈 입력과 순환 의존의 재현 테스트를 실행했다"
+    },
+    {
+      "skill_id": "M1_SKILL_04",
+      "skill_name": "새로운 기술 학습",
+      "requirement_type": "MUST",
+      "description": "새로운 기술 학습의 관찰 가능한 업무 근거",
+      "expected_evidence": "새 도구의 설명과 작은 실행 예제를 비교했다; 문서 버전 차이를 확인하고 실행 예제를 수정했다",
+      "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction",
+      "evidence_refs": [
+        "docs/02_mission1_scenario.md#10-talent-profile-direction"
+      ],
+      "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+      "example_action": "새 도구의 설명과 작은 실행 예제를 비교했다",
+      "example_check": "문서 버전 차이를 확인하고 실행 예제를 수정했다"
+    },
+    {
+      "skill_id": "M1_SKILL_05",
+      "skill_name": "협업 및 기술 커뮤니케이션",
+      "requirement_type": "MUST",
+      "description": "협업 및 기술 커뮤니케이션의 관찰 가능한 업무 근거",
+      "expected_evidence": "담당 부분과 검토 요청을 동료에게 문서로 전달했다; 동료 피드백과 수정 내역을 함께 기록했다",
+      "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction",
+      "evidence_refs": [
+        "docs/02_mission1_scenario.md#10-talent-profile-direction"
+      ],
+      "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+      "example_action": "담당 부분과 검토 요청을 동료에게 문서로 전달했다",
+      "example_check": "동료 피드백과 수정 내역을 함께 기록했다"
+    },
+    {
+      "skill_id": "M1_SKILL_06",
+      "skill_name": "Production 경험",
+      "requirement_type": "LEARNABLE",
+      "description": "Production 경험의 관찰 가능한 업무 근거",
+      "expected_evidence": "실패한 배치 작업을 격리하는 절차를 정리했다; 재시도 중복과 복구 로그를 점검했다",
+      "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction",
+      "evidence_refs": [
+        "docs/02_mission1_scenario.md#10-talent-profile-direction"
+      ],
+      "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+      "example_action": "실패한 배치 작업을 격리하는 절차를 정리했다",
+      "example_check": "재시도 중복과 복구 로그를 점검했다"
+    },
+    {
+      "skill_id": "M1_SKILL_07",
+      "skill_name": "논문/알고리즘 구현 경험",
+      "requirement_type": "PLUS",
+      "description": "논문/알고리즘 구현 경험의 관찰 가능한 업무 근거",
+      "expected_evidence": "논문 알고리즘의 작은 구현 예제를 작성했다; 기준 구현과 동일 입력의 결과를 비교했다",
+      "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction",
+      "evidence_refs": [
+        "docs/02_mission1_scenario.md#10-talent-profile-direction"
+      ],
+      "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+      "example_action": "논문 알고리즘의 작은 구현 예제를 작성했다",
+      "example_check": "기준 구현과 동일 입력의 결과를 비교했다"
+    },
+    {
+      "skill_id": "M1_SKILL_08",
+      "skill_name": "관련 연구/프로젝트",
+      "requirement_type": "PLUS",
+      "description": "관련 연구/프로젝트의 관찰 가능한 업무 근거",
+      "expected_evidence": "프로젝트의 담당 작업과 산출물을 설명했다; 변경 전후 결과와 한계를 기록했다",
+      "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction",
+      "evidence_refs": [
+        "docs/02_mission1_scenario.md#10-talent-profile-direction"
+      ],
+      "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+      "example_action": "프로젝트의 담당 작업과 산출물을 설명했다",
+      "example_check": "변경 전후 결과와 한계를 기록했다"
+    },
+    {
+      "skill_id": "M1_SKILL_09",
+      "skill_name": "필요시 Business English",
+      "requirement_type": "PLUS",
+      "description": "필요시 Business English의 관찰 가능한 업무 근거",
+      "expected_evidence": "기술 문서의 설정 조건을 설명했다; 원문 버전과 실제 동작을 대조했다",
+      "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction",
+      "evidence_refs": [
+        "docs/02_mission1_scenario.md#10-talent-profile-direction"
+      ],
+      "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+      "example_action": "기술 문서의 설정 조건을 설명했다",
+      "example_check": "원문 버전과 실제 동작을 대조했다"
+    }
+  ],
+  "random_stream_version": "m1-generator-0.1.0",
+  "source_matrix": {
+    "DOCUMENT_REVIEW": {
+      "source_type": "APPLICATION_RESPONSE",
+      "verification_mode": "SELF_REPORTED",
+      "skills": [
+        1,
+        4,
+        5,
+        6,
+        8
+      ],
+      "context": "지원 질문의 경험·성장·역할 자기기술"
+    },
+    "CODING_TEST": {
+      "source_type": "CODING_TEST_RESPONSE",
+      "verification_mode": "DIRECT_TASK",
+      "skills": [
+        3
+      ],
+      "context": "작은 데이터 처리 함수와 경계 입력 테스트"
+    },
+    "TECHNICAL_ASSESSMENT": {
+      "source_type": "TECHNICAL_ASSESSMENT_RESPONSE",
+      "verification_mode": "DIRECT_TASK",
+      "skills": [
+        1,
+        2,
+        7
+      ],
+      "context": "모델 결과 표·편차·학습 검증 분리의 해석"
+    },
+    "AI_CASE": {
+      "source_type": "AI_CASE_RESPONSE",
+      "verification_mode": "DIRECT_TASK",
+      "skills": [
+        1,
+        3
+      ],
+      "context": "설비시간·납기 CSV의 제약과 검증 산출물"
+    },
+    "PRACTITIONER_QA": {
+      "source_type": "INTERVIEW_RESPONSE",
+      "verification_mode": "DIRECT_INTERACTION",
+      "skills": [
+        4,
+        5,
+        6,
+        8
+      ],
+      "context": "새 도구 설명·개인 기여·운영 복구에 대한 후속 질의"
+    },
+    "VALUES_BEHAVIOR_INTERVIEW": {
+      "source_type": "INTERVIEW_RESPONSE",
+      "verification_mode": "BEHAVIORAL_INTERACTION",
+      "skills": [
+        4,
+        5
+      ],
+      "context": "학습·협업 행동의 상황·행동·피드백 확인"
+    }
+  },
+  "capacity": {
+    "initial_person_hours": 80,
+    "planned_unit_person_hours": 4,
+    "additional_panel_person_hours": 80,
+    "resource_decision_days": 2,
+    "initial_panels": 1,
+    "slots_per_panel_week": 2,
+    "pool_id_format": "FIRST_PANEL_{panel:02d}_{role}",
+    "no_response_release_days": 1
+  },
+  "hold": {
+    "follow_up_wait_days": 7,
+    "questions": {
+      "technical": "기존 미확인/제한을 작은 직접 과제와 검증 산출물로 확인",
+      "behavioral": "개인 행동·피드백·검증 범위를 구체적 후속 질문으로 확인"
+    },
+    "max_follow_ups": 1,
+    "re_review_policy": "Positive direct coverage supports proceed; repeated explicit limitations or unresolved adverse observations support human non-proceed. Missing-only residual uncertainty is accepted with scoped onboarding support."
+  },
+  "implementation_parameters": {
+    "randomness": "keyed streams retain v0.1 namespace to isolate rule changes; no seed search; unchanged legacy pattern/contact weights",
+    "stage_failure": "PRE: explicit coding verification omission; FIRST: repeated direct limitations in core technical Must without positive counter-evidence; SECOND: explicit current limitations in both learning and collaboration without prior direct positive support",
+    "document_eligibility": "No verified public basic requirements available; no invented failure criterion",
+    "onboarding": "Learnable gaps plus local work-prep requirements with selection level below STRONG; all required gap tasks need verified work and mentor confirmation",
+    "response_window": "14 days, SYNTHETIC assumption, not employer policy",
+    "capacity": "whole cohort after observed PRE notification; added reusable panels also change scheduling throughput",
+    "censoring": "planned appointments/deadlines may exceed end; actual events may not",
+    "human_decisions": "offline SYNTHETIC_HUMAN_SCENARIO, not operational hiring automation",
+    "pool_scheduling": "Reserve only occupied activity blocks; future follow-up reservations do not block earlier free intervals. No personal working-day/holiday calendar."
+  }
+}
