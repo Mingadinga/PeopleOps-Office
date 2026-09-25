@@ -119,13 +119,15 @@ Skill
 → Evidence
 → Assessment
 
-현재 기본 Selection Flow:
+V2 Selection Flow(상세 전형은 PeopleOps Office 시나리오):
 
-Application
-→ Technical Assessment
-→ AI Problem Solving Case
-→ Technical Interview
-→ Final Interview
+지원 → 서류 → 사전검증(역량검사·코딩테스트)
+→ 1차 실무진면접(기술평가·AI 문제해결 과제·실무진 질의)
+→ 1차 평가 조정 → 2차면접 → 최종검토 → Offer → Join
+
+기술평가와 AI 문제해결 과제는 독립 채용 Stage가 아니라 1차면접의 평가 활동이다.
+사전검증 Stage의 역량검사·코딩테스트는 내부 Activity다. 역량검사는 활동 이벤트만 다루며 실제 기업의 문항을 재현하지 않는다.
+세부 판단은 [07 채용 설계](07_recruitment_design_specification.md)를 따른다.
 
 각 역량은 Primary Assessment를 가진다.
 
@@ -179,7 +181,7 @@ Available Supply가 되었는지 확인하는 것이다.
 
 ## Step 8. KPI
 
-각 단계에는 Target KPI와 Actual KPI가 존재한다.
+각 단계에서 사용하는 KPI는 Target과 Actual을 구분한다. 아직 계산하지 않은 Actual을 0으로 표시하지 않는다.
 
 Target은 실제 결과를 보기 전에 설정한다.
 
@@ -189,24 +191,20 @@ Actual은 Event Data에서 계산한다.
 
 # 3. Mission 2
 
-Mission 2는 Mission 1의 결과를 미리 정하지 않는다.
+새로운 경력직 인력요청(제조AI - 제조AI Agent 데이터 엔지니어링)
+→ Headcount / Capability Gap
+→ Mission 1 canonical Dataset
+→ Workforce Outcome / Target vs Actual Funnel
+→ FAIL / WITHDRAW / Lead Time / 추가 분석
+→ 관찰 / 가설 / 한계 / Mission 1 개선
+→ 신입과 경력 조건 비교
+→ 재사용 Evidence / 재설계 Assumption
+→ 경력 인재 요건 / Sourcing / Funnel / Capacity / Assessment
+→ 경력 채용계획 확정
 
-Mission 1에서 생성된 데이터를 실제 분석한 뒤
-발견된 현상을 기반으로 개선점을 찾는다.
-
-Flow:
-
-New Workforce Need
-→ Mission 1 KPI Review
-→ Analysis Question
-→ Prompt
-→ Python/Pandas
-→ EDA
-→ Finding
-→ Hypothesis
-→ Additional Analysis
-→ Improvement Decision
-→ Next Recruiting Strategy
+Mission 1 결과를 미리 정하지 않는다. 실제 분석 후 의미 있는 패턴을 선택한다.
+과거 데이터는 다음 채용의 정답이 아니라 다음 계획의 Evidence다.
+상세 분석과 종료 조건은 [10](10_mission2_analytics_specification.md)을 따른다.
 
 ---
 
@@ -227,3 +225,23 @@ New Workforce Need
 → Decision
 
 이를 통해 분석 결과가 어떻게 만들어졌는지 추적 가능하게 한다.
+
+# 5. 사용자 진행도와 업무 흐름의 대응
+
+위 업무 Step은 HR 개념 구분이며 화면 진행도와 1:1 관계가 아니다.
+
+| 상위 Stage | 포함 업무 |
+|---|---|
+| 인력계획 | 요청, Demand, Current/Confirmed Flow, Forecast/Gap, 확보 방식 |
+| 인재 정의 | 업무 이해, 인재 요건 Workshop, Skill/Evidence |
+| 채용 설계 | 공고, 점검, 지원자 화면, 인재 유치, 지원 질문, Funnel/Capacity |
+| 지원자 검증 | 서류, 사전검증, 1차 설계·수행·조정, 2차 |
+| 인재 확보 | 최종검토, Offer, 응답, Join |
+| 업무 준비 | Skill Gap, Ramp-up, 실제 업무 Evidence, Ready, 결과 |
+
+완료 Summary는 다시 볼 수 있고 예정 단계로 Jump하지 않는다. Room 선택으로 이 규칙을 우회하지 않는다.
+Scene이 질문·근거·판단을 연결하며 동일 공간을 여러 Scene이 사용한다.
+Mission 1 결과는 Workforce / Recruiting Process / Onboarding의 WHAT을 보여주고
+`데이터 분석 시작`으로 연결한다. 원인 가설은 Mission 2에서 다룬다.
+Mission 2의 6단계 진행도 적용은 [OPEN-02](11_v2_migration_specification.md#7-open-issues)이며
+계획 수립을 실제 채용 완료로 표시하지 않는다.

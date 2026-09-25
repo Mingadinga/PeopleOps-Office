@@ -1,534 +1,113 @@
-# PeopleOps Office — Data Model
-
-## 1. Purpose
-
-데이터 모델은 Database 구현을 위한 Schema가 아니다.
-
-목적은 다음 질문에 답하는 것이다.
-
-어떤 Business Question에 답하기 위해
-어떤 Data가 필요한가?
-
-기본 구조:
-
-Business Question
-→ Required Data
-→ File / Field
-→ Analysis
-→ Decision
-
----
-
-# 2. Data Layers
-
-MVP는 영속 Database를 사용하지 않는다. 실행 중인 Office UI에서 사용하지 않는
-템플릿의 Drizzle 접근 코드, 마이그레이션 메타데이터 및 D1 예제는 제거했다.
-Case JSON, Synthetic CSV, Analysis JSON을 배포 Artifact에 포함하는 구조를 유지한다.
-
-기존 실행 환경을 보존하기 위해 Cloudflare 설정과 Worker는 유지한다.
-`.openai/hosting.json`의 D1 설정은 `null`이며, Worker의 `DB` 타입 선언은
-실제 Database 사용을 의미하지 않는다.
-
-## Case Data
-
-Format:
-
-JSON
-
-Purpose:
-
-Scenario와 사전에 정의된 HR Decision을 표현한다.
-
-Examples:
-
-mission1.json
-talent_profile.json
-recruiting_strategy.json
-kpi_definitions.json
-decisions.json
-
----
-
-## Event Data
-
-Format:
-
-CSV
-
-Purpose:
-
-Recruiting 및 Onboarding 과정에서 발생하는 Event를 표현한다.
-
-Examples:
-
-attraction_daily.csv
-applications.csv
-stage_history.csv
-assessment_evidence.csv
-onboarding.csv
-
-모든 Event Data는 SYNTHETIC이다.
-
----
-
-## Analysis Data
-
-Format:
-
-JSON
-
-Purpose:
-
-Python/Pandas 분석 결과를 Web UI에서 사용한다.
-
-Example:
-
-mission1_results.json
-
-Analysis JSON은 사람이 결과를 직접 작성하지 않는다.
-
-Synthetic CSV
-→ Python/Pandas
-→ Analysis JSON
-
-방식으로 생성한다.
-
----
-
-# 3. Mission Data
-
-File:
-
-data/case/mission1.json
-
-Business Questions:
-
-- 목표시점 Demand는 얼마인가?
-- 현재 Supply는 얼마인가?
-- 목표시점 Forecast Supply는 얼마인가?
-- Gap은 얼마인가?
-- 어떤 Constraint가 존재하는가?
-
-Required Data:
-
-mission_id
-baseline_date
-target_ready_date
-demand_fte
-current_fte
-confirmed_flow
-ramp_up_months
-development_capacity
-immediate_productivity_required
-
-Derived:
-
-forecast_supply_fte
-
-gap_fte
-
-Formula:
-
-Forecast Supply
-= Current Supply + Confirmed Future Flow
-
-Gap
-= Demand - Forecast Supply
-
----
-
-# 4. Talent Profile
-
-File:
-
-data/case/talent_profile.json
-
-Business Questions:
-
-- 어떤 Skill이 필요한가?
-- 입사 전 반드시 필요한 Skill인가?
-- 입사 후 학습 가능한가?
-- 어떤 Evidence로 확인할 수 있는가?
-
-Fields:
-
-skill_id
-name
-requirement
-reason
-expected_evidence
-evidence_type
-source_reference
-
-Requirement:
-
-MUST
-LEARNABLE
-PLUS
-
----
-
-# 5. Recruiting Strategy
-
-File:
-
-data/case/recruiting_strategy.json
-
-Includes:
-
-Attraction Strategy
-Selection Strategy
-
-Attraction:
-
-target
-problem
-message
-content
-channel
-channel_reason
-
-Selection:
-
-stage
-skill
-required_evidence
-primary_assessment
-validation_assessment
-reason
-
----
-
-# 6. Attraction Event
-
-File:
-
-data/synthetic/attraction_daily.csv
-
-Business Question:
-
-어떤 Channel이 실제 관심과 지원으로 이어졌는가?
-
-Fields:
-
-date
-campaign_id
-channel_id
-impressions
-job_page_visits
-application_starts
-
-Analysis:
-
-Visit Rate
-
-Application Start Rate
-
-Channel Comparison
-
-개별 사용자의 마케팅 Tracking Data는 MVP에서 수집하지 않는다.
-
----
-
-# 7. Applications
-
-File:
-
-data/synthetic/applications.csv
-
-Business Questions:
-
-- 어느 Channel에서 지원했는가?
-- 지원을 완료했는가?
-- 기본 Qualification을 충족했는가?
-- 지원 중 이탈했는가?
-
-Fields:
-
-application_id
-candidate_id
-campaign_id
-channel_id
-started_at
-submitted_at
-qualification_status
-
-Candidate는 Synthetic ID만 사용한다.
-
-실제 이름, 학교, 성별, 나이 등의 개인정보는 사용하지 않는다.
-
-Qualification은 불투명한 AI Fit Score가 아니다.
-
-명시된 기본 기준을 기반으로 한다.
-
----
-
-# 8. Recruiting Stage History
-
-File:
-
-data/synthetic/stage_history.csv
-
-Business Questions:
-
-- 어느 단계에서 이탈하는가?
-- 어느 단계가 오래 걸리는가?
-- 각 단계의 Conversion은 얼마인가?
-
-Fields:
-
-application_id
-stage
-entered_at
-result_decided_at
-notified_at
-completed_at
-result
-reason_code
-
-Stages:
-
-APPLICATION
-TECH_ASSESSMENT
-AI_CASE
-TECH_INTERVIEW
-FINAL_INTERVIEW
-OFFER
-JOIN
-
-Results:
-
-PASS
-FAIL
-WITHDRAW
-PENDING
-
-Analysis:
-
-Stage Conversion
-
-Stage Lead Time
-
-Notification Delay
-
-Withdrawal Rate
-
-현재 상태만 저장하지 않고
-Stage History를 보존해야 위 지표를 계산할 수 있다.
-
----
-
-# 9. Assessment Evidence
-
-File:
-
-data/synthetic/assessment_evidence.csv
-
-Business Question:
-
-Selection 과정에서 어떤 Skill Evidence가 관찰되었는가?
-
-Fields:
-
-application_id
-stage
-skill_id
-evidence_level
-observation_code
-
-Evidence Level:
-
-NOT_OBSERVED
-LIMITED
-MODERATE
-STRONG
-
-종합적인 AI Candidate Score를 만들지 않는다.
-
-Evidence는 관찰 기록이다.
-
----
-
-# 10. Onboarding
-
-File:
-
-data/synthetic/onboarding.csv
-
-Business Questions:
-
-- 입사자가 언제 Ready가 되었는가?
-- 어떤 Skill Gap이 있었는가?
-- Ramp-up이 목표 기간 내 완료되었는가?
-
-Fields:
-
-hire_id
-application_id
-join_date
-target_ready_date
-actual_ready_date
-readiness_status
-primary_skill_gap
-onboarding_task_type
-task_completed
-
-Readiness:
-
-ONBOARDING
-READY
-RAMP_UP_EXTENDED
-
-Core Concept:
-
-JOINED ≠ READY
-
----
-
-# 11. KPI
-
-File:
-
-data/case/kpi_definitions.json
-
-Each KPI should contain:
-
-code
-name
-category
-formula
-purpose
-decision_use
-
-현재 KPI 후보:
-
-Workforce
-
-- Workforce Fulfillment
-
-Attraction
-
-- Visit Rate
-- Application Start Rate
-- Qualified Application Rate
-
-Selection
-
-- Stage Conversion
-
-Operation
-
-- Stage Lead Time
-- Notification Delay
-- Withdrawal Rate
-
-Offer
-
-- Offer Acceptance
-
-Hiring
-
-- Join Rate
-
-Onboarding
-
-- Ready Rate
-
-KPI는 측정 가능하다는 이유만으로 추가하지 않는다.
-
-각 KPI는 반드시 다음 질문에 답해야 한다.
-
-이 KPI를 어떤 Decision에 사용할 것인가?
-
----
-
-# 12. Decision Data
-
-File:
-
-data/case/decisions.json
-
-Fields:
-
-decision_id
-mission_id
-step
-question
-decision
-reason
-alternatives
-evidence_refs
-revisit_condition
-
-Purpose:
-
-UI의 `판단 근거 보기`와
-HR Copilot의 설명에 공통으로 사용한다.
-
----
-
-# 13. Evidence Reference
-
-Recommended ID:
-
-PUBLIC-XXX
-INFERENCE-XXX
-SYN-XXX
-ANALYSIS-XXX
-
-각 Decision은 Evidence Reference를 통해
-근거를 추적할 수 있어야 한다.
-
----
-
-# 14. Synthetic Data Generation
-
-Generation Order:
-
-1. Attraction Channel Events
-2. Application Inflow
-3. Observable Skill Evidence
-4. Application Completion / Withdrawal
-5. Stage Events
-6. Stage Assessment Evidence
-7. Stage Results
-8. Lead Time
-9. Offer / Join
-10. Onboarding Skill Gap
-11. Ramp-up Tasks
-12. Ready State
-13. KPI Calculation
-
-Fixed Random Seed를 사용한다.
-
-초기 후보:
-
-20260921
-
-Synthetic Data는 특정 분석 결론을 강제로 만들기 위해 생성하지 않는다.
-
-현실적인 Noise를 포함한다.
-
-Examples:
-
-- Evidence가 강해도 지원자가 Withdraw할 수 있다.
-- 전형을 통과해도 Offer를 거절할 수 있다.
-- Channel별 Volume과 Qualification 비율이 다를 수 있다.
-- 작은 Skill Gap이 항상 빠른 Ready를 보장하지 않는다.
-- Stage Lead Time은 일정하지 않다.
-
----
-
-# 15. Mission 2 Analysis Questions
-
-현재 Data Model은 최소한 다음 질문에 답할 수 있어야 한다.
-
-- 어느 Channel이 Qualified Application 확보에 효과적이었는가?
-- 어느 Stage에서 지원자가 가장 많이 이탈했는가?
-- 어느 Stage의 Lead Time이 가장 길었는가?
-- Lead Time과 Withdrawal 사이에 어떤 관계가 관찰되는가?
-- 어떤 Skill Evidence가 상대적으로 부족했는가?
-- Selection Evidence와 Onboarding Skill Gap 사이에 어떤 관계가 관찰되는가?
-- 신규 입사자 4명이 실제 Target Date의 Available Supply가 되었는가?
-
-관계가 관찰되더라도 인과관계로 단정하지 않는다.
+# PeopleOps Office — Domain / Data Model
+
+## 1. 목적과 책임
+
+Business Question → Required Data → File / Field → Analysis → Decision을 연결한다.
+이 문서는 도메인과 데이터 계층의 정본이며 영속 DB 설계서가 아니다.
+V2 세부 필드·enum·PK/FK·생성·검증·freeze는 [09](09_mission1_data_specification.md),
+Metric과 분석 방법은 [10](10_mission2_analytics_specification.md)이 소유한다.
+V1의 개별 CSV 필드 목록은 09로 이동·대체했으며 서로 다른 계약을 병행하지 않는다.
+
+## 2. 데이터 계층과 실행 경계
+
+| 계층 | 형식 | 책임 |
+|---|---|---|
+| Case / Plan | JSON | Mission, 인력계획, 인재 요건, Funnel 계획, 판단·대안·근거, KPI 정의 |
+| Event | CSV | 합성 지원·전형·평가·Offer·입사·온보딩·Ready 원자료 |
+| Analysis | JSON | 동일 canonical Dataset을 실제 Python/Pandas로 계산한 결과 |
+
+Case JSON + Synthetic CSV → 실제 Python/Pandas → Analysis JSON → UI.
+Analysis JSON은 수작업으로 원하는 결과를 채우지 않는다.
+핵심 Mission은 Case·Event·Analysis 산출물을 배포 artifact에 포함하고 외부 AI API 없이 동작한다.
+영속 DB, 별도 분석 서버는 MVP 전제가 아니다.
+기존 Cloudflare/Worker 흔적은 현재 실행 환경의 요소이며 실제 DB 운영이나 Vercel 배포 완료를 뜻하지 않는다.
+이관 중 인프라 변경은 별도 범위다.
+
+## 3. 경험 도메인
+
+Mission → Stage → Scene.
+Scene은 Space, Characters, Dialogue, System Action, Interaction, Evidence, Decision, Transition을 연결한다.
+Room은 장소이며 채용 Stage와 동일한 식별자가 아니다.
+Scene Contract는 [06](06_mission1_experience_specification.md#2-scene-contract)를 따른다.
+탐색 상태(현재 Scene, 공개한 정보, 완료 Summary, 선택 Evidence)는 정본 채용 결과와 분리한다.
+사용자의 선택·Reveal·카메라 이동은 결과 데이터를 변경하지 않는다.
+
+## 4. 채용 데이터 관계
+
+WorkforcePlan → FunnelPlan / TalentProfile → Application → StageHistory.
+StageHistory → AssessmentActivity → AssessmentEvidence → EvidenceSkillLink / AssessmentObservation.
+EvidenceDecision → EvidenceDecisionSource → 복수 AssessmentEvidence.
+Application → FinalDecision → Offer → OfferEvent. 실제 Join/Ready는 WorkforceEvent가 소유한다.
+OnboardingProfile → SkillGap / Task → WorkforceEvent; ActivityParticipant는 활동 참여 시간을 보존한다.
+
+의미 계층은 PLAN / CANDIDATE·PROCESS / EVIDENCE / HUMAN INTERPRETATION·DECISION /
+WORKFORCE OUTCOME이다. 파일 형식의 3계층과 다른 구분이며 각 사실에는 하나의 canonical owner를 둔다.
+
+| 질문 | 데이터 책임 | 다음 판단 |
+|---|---|---|
+| 목표시점 인력이 충분한가? | workforce_plan의 입력과 확정 Flow, workforce_events의 Ready | Gap과 확보 방식 |
+| 어떤 역량을 언제 확인하는가? | talent_profile, 원본 Evidence, 연결·관찰·조정 기록 | Must/Learnable/Plus, 후속 질문 |
+| 어떤 정보와 채널을 사용할 것인가? | 채용전략 Case, applications.source_channel | 인재 유치 전략 |
+| 어느 단계에서 무엇이 일어났는가? | stage_history의 시각·결과·사유 | 처리·대기·이탈 검토 |
+| 실제로 입사·업무 준비가 되었는가? | offers, onboarding, workforce_events | JOINED/READY와 목표시점 Supply |
+| 무엇을 다음 경력채용에 가져갈 수 있는가? | 실제 Analysis와 새로운 Capability 조건 | 운영 근거 재사용 / 가정 재설계 |
+
+지원 건 application_id와 지원자 candidate_id를 분리하고 입사자는 employee_id로 연결한다.
+Mission 1의 1인 1지원도 같은 ID로 합치지 않는다. 실명·학교·보호특성을 사용하지 않는다.
+
+## 5. Plan / Derived / Actual
+
+Plan은 분석 전에 정의한다. Forecast와 Gap은 Plan 원천값에서 재계산할 수 있다.
+Actual은 Event에서 계산하고 Plan의 expected_conversion_rate와 혼합하지 않는다.
+초기 Forecast와 최종 Available Supply도 구분한다. 신규 입사자는 목표일의 Ready 확인 없이
+가용 인력으로 더하지 않는다. 같은 사람이나 확정 Flow를 중복 계상하지 않는다.
+
+Funnel 계획은 [07](07_recruitment_design_specification.md#3-funnel과-capacity-plan),
+집계 단위는 고유 candidate_id이며 Stage/Activity·시간·원자료 계약은 [09](09_mission1_data_specification.md)에 둔다.
+UI 수치는 Plan 정본 또는 계산 산출물에서 가져온다. 미생성 Actual은 0이나 성공으로 표시하지 않는다.
+
+## 6. Evidence와 Decision
+
+PUBLIC / INFERENCE / SYNTHETIC / ANALYSIS는 정보의 출처 유형이다.
+NOT_OBSERVED / LIMITED / MODERATE / STRONG은 사람의 평가 수준이며 출처 유형과 다른 축이다.
+원본 assessment_evidence에는 수준을 넣지 않는다. 관찰·AI 제안·사람의 확정·최종 판단을 분리한다.
+AI 요약은 원문을 대체하지 않는다.
+
+Decision의 기존 공통 개념은 유지한다:
+`decision_id`, `mission_id`, 질문, 결정, 이유, 대안, 미선택 이유, `evidence_refs`, 재검토 조건.
+V1 `step` 참조는 V2 Stage/Scene으로 이관할 대상이며 실제 필드 변경은 후속 작업이다.
+
+Evidence 참조는 기존 PUBLIC- / INFERENCE- / SYN- / ANALYSIS- 접두 구조를 사용할 수 있다.
+PUBLIC에는 발행 주체·제목·원문 위치·날짜·확인 범위·공식/아카이브/캡처 구분이 필요하다.
+INFERENCE는 해석의 기반을, SYNTHETIC은 Case/Event를, ANALYSIS는 데이터 버전·입력·코드·산출 항목을 추적한다.
+없는 출처를 임의 ID/URL로 만들지 않는다. Source 상태는 [11](11_v2_migration_specification.md#8-출처-등록부)을 따른다.
+
+## 7. KPI 정의와 분석
+
+기존 KPI 정의의 `code`, 이름, 산식, 목적, 사용하는 Decision을 보존한다.
+Target·Actual·단위·대상 기간·분자·분모·결측 처리·참조 데이터가 구별되어야 한다.
+사용할 수 있는 분석 범주는 Workforce Fulfillment, 지원완료, Stage 전환·FAIL/WITHDRAW,
+Lead Time, Offer Acceptance, Join, Ready다. 숫자를 얻을 수 있다는 이유만으로 KPI를 추가하지 않는다.
+
+V1의 attraction_daily.csv와 Visit/Application Start Rate는 기존 개념 후보이며 V2 09의 확정 파일 목록에는 없다.
+노출·방문 원자료 없이 비율을 계산하지 않는다. OPEN-12는 v0.1 KPI/원자료 계약 범위에서 해결됐으며
+Attraction 효율·채널 성과·Calibration 합의율·Assessment 효과를 Mission 2 Main KPI로 미리 정하지 않는다.
+Actual person-hours는 activity_participants의 참여 구간에서, 입사/Ready는 JOINED/READY_CONFIRMED에서 계산한다.
+기존 Qualified Application Rate도 자격 판정 정의와 원천 데이터가 먼저 필요하며 자동 Fit Score로 대체하지 않는다.
+개별 실제 사용자의 마케팅 Tracking을 도입하지 않는다.
+
+## 8. 버전과 재현성
+
+검토 후보 `data/generated/v0.x/` → 규칙·현실성·무결성 검토 → 승인 → `data/synthetic/v1/` freeze.
+Case/Plan과 생성규칙·manifest도 해당 Dataset 버전에 연결한다.
+Runtime과 Mission 2 분석은 동일한 canonical v1을 사용한다. 매 방문 랜덤 재생성은 하지 않는다.
+고정 seed를 사용하되 V1의 20260921은 초기 후보였으므로 최종 seed로 자동 확정하지 않는다.
+규칙 변경 시 CSV를 직접 고치지 않고 새 후보 전체를 재생성한다. 결과를 원하는 방향으로 맞추는 변경은 금지다.
+
+## 9. 현재 구현과 목표 설계
+
+현재 존재하는 Case는 `data/case/mission1.json`, `data/case/talent_profile.json`이다.
+09의 생성기와 검토 후보 `data/generated/v0.1/`을 추가했다. freeze된 v1과 Mission 2 Analysis 결과는 아직 없다.
+기존 Case/UI 데이터와 검토 후보를 연결하거나 교체하지 않았다.
+application_id와 candidate_id의 분리, Stage/Activity 및 Offer 객체/이력 분리, 단일 onboarding 파일의 분할,
+Evidence 수준 분리는 후속 이관 대상이다. 실제 구현 매핑은 [11](11_v2_migration_specification.md)을 따른다.
