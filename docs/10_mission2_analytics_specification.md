@@ -13,8 +13,8 @@ Mission 2의 종료는 계획 확정이다. 실제 경력 후보자 선발·Offe
 
 ## 2. 분석 입력과 재현성
 
-[09](09_mission1_data_specification.md)의 freeze된 canonical v1과 해당 Case/Plan을 읽는다.
-현재 승인 Baseline은 `data/generation/baseline_registry.json`의 v1(source v0.4)이다. 분석 결과와 Presentation Mapping은 `dataset_version`을 반드시 기록한다.
+[09](09_mission1_data_specification.md)의 freeze된 canonical v2와 해당 Case/Plan을 읽는다.
+현재 승인 Baseline은 `data/generation/baseline_registry.json`의 v2(source v0.6)이다. v1은 historical / SUPERSEDED로 보존한다. 분석 결과와 Presentation Mapping은 `dataset_version`을 반드시 기록한다.
 새 Baseline 승인 시 과거 결과를 자동 치환하지 않는다. 새 버전 분석/Mapping은 별도로 생성하고 v1의 결과는 보존한다.
 Runtime과 분석의 버전이 같아야 한다. 필드·enum은 09를 참조하고 별도로 정의하지 않는다.
 실제 Python/Pandas 코드가 Raw Event로부터 결과를 계산해야 한다.
@@ -25,6 +25,8 @@ Fake Code와 수작업으로 맞춘 결과는 금지다. 실제 코드로 사전
 후자의 경우 실행 중이라는 가짜 로그 대신 실제 실행 기록과 결과 탐색임을 표시한다.
 이 선택을 이유로 별도 서버/DB/외부 AI 의존성을 임의 도입하지 않는다.
 이번 문서 동기화에서 코드·데이터를 생성하거나 분석하지 않았다.
+
+승인 v2의 Document Target 120은 evidence-qualified 76과 비교한다. Eligibility Resolution 후 PRE Entry 43은 별도 지표다. JOINED ≠ READY이며 승인 snapshot은 Join 4 / 관측 종료 Ready 3 / 목표일 Ready 0이다. 현재 v1 UI/Mapping을 v2 분석의 근거로 자동 재사용하지 않는다. 이번 승격은 Mission 2 분석 실행이 아니다.
 
 ## 3. Mission 2 Scene 흐름
 

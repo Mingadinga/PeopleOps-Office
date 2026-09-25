@@ -1,5 +1,5 @@
 {
-  "active_baseline": "v1",
+  "active_baseline": "v2",
   "baselines": [
     {
       "approved_at": "2026-09-25T19:24:05+09:00",
@@ -8,6 +8,16 @@
       "manifest_ref": "data/generation/v1/dataset_manifest.json",
       "manifest_sha256": "2e887a77c4908462f8820e0a5b43aac0f295ca4381ab5c1503b802d3cc0c4807",
       "source_candidate_version": "v0.4",
+      "status": "SUPERSEDED",
+      "superseded_by": "v2"
+    },
+    {
+      "approved_at": "2026-09-25T21:45:52+09:00",
+      "change_reason": "After v1 Funnel Reality Review, Application evidence and Eligibility Resolution models were improved and Human Review approved unchanged v0.6. v1 remains a valid historical baseline; no target fitting.",
+      "dataset_version": "v2",
+      "manifest_ref": "data/generation/v2/dataset_manifest.json",
+      "manifest_sha256": "c7f0a50b48fd26ae78f13f46c03e081aae962bd3a3051781127362eb4fc28079",
+      "source_candidate_version": "v0.6",
       "status": "ACTIVE",
       "superseded_by": null
     }

@@ -1,0 +1,89 @@
+{
+  "accepted_at": "2026-09-25T21:45:52+09:00",
+  "approval_basis": "Explicit user Human Review approval of v0.6, unchanged, as v2.",
+  "assumptions": [
+    {
+      "description": "30 reusable synthetic evaluators; not product staffing policy or Kia actual headcount.",
+      "id": "evaluator_pool",
+      "status": "ACCEPTED_SYNTHETIC_ASSUMPTION"
+    },
+    {
+      "description": "Whole 1h allocations across the 30-person pool: ceil(Gap/30) hours each; no target-based hiring quota.",
+      "id": "additional_capacity",
+      "status": "ACCEPTED_SYNTHETIC_ASSUMPTION"
+    },
+    {
+      "description": "Conditional observation-triggered activity, two participants for 15 minutes, separate from interview effort.",
+      "id": "calibration",
+      "status": "ACCEPTED_SYNTHETIC_ASSUMPTION"
+    },
+    {
+      "description": "Observable evidence templates and keyed sampling are synthetic, not empirical hiring distributions.",
+      "id": "evidence_distribution",
+      "status": "ACCEPTED_SYNTHETIC_ASSUMPTION"
+    },
+    {
+      "description": "Role-specific rubric interpretations are synthetic human-scenario records, not real assessments.",
+      "id": "evaluator_interpretation",
+      "status": "ACCEPTED_SYNTHETIC_ASSUMPTION"
+    },
+    {
+      "description": "Question-specific response options with equal weights, keyed by HOLD input snapshot; not ordinary reassessment lottery.",
+      "id": "targeted_followup",
+      "status": "ACCEPTED_SYNTHETIC_ASSUMPTION"
+    },
+    {
+      "description": "Acceptance/decline/no-response and joining scenarios are synthetic; expiry is derived from deadline and absent response.",
+      "id": "offer_response",
+      "status": "ACCEPTED_SYNTHETIC_ASSUMPTION"
+    },
+    {
+      "description": "Individual gaps, work-like evidence and mentor confirmation use synthetic scenarios; elapsed time alone does not create READY.",
+      "id": "mentor_ready",
+      "status": "ACCEPTED_SYNTHETIC_ASSUMPTION"
+    },
+    {
+      "description": "No detailed individual work/holiday calendar; resource hours and overlap constraints only.",
+      "id": "calendar_scope",
+      "status": "ACCEPTED_SYNTHETIC_ASSUMPTION"
+    },
+    {
+      "description": "Equal-weight synthetic eligibility population scenarios; not actual Kia applicant statistics.",
+      "id": "eligibility_population",
+      "status": "ACCEPTED_SYNTHETIC_ASSUMPTION"
+    },
+    {
+      "description": "Request one day after Document notification; deadline 7 days and observed response 3 days after request. Synthetic calendar-day timing.",
+      "id": "verification_timing",
+      "status": "ACCEPTED_SYNTHETIC_ASSUMPTION"
+    },
+    {
+      "description": "VERIFIED_PASS, VERIFIED_FAIL and ELIGIBILITY_NOT_VERIFIED equally weighted per unknown requirement; not tuned to targets.",
+      "id": "verification_outcomes",
+      "status": "ACCEPTED_SYNTHETIC_ASSUMPTION"
+    },
+    {
+      "description": "Synthetic experience count, context and PROBLEM/BUILD/VALIDATE combinations; not observed applicant statistics.",
+      "id": "application_experiences",
+      "status": "ACCEPTED_SYNTHETIC_ASSUMPTION"
+    },
+    {
+      "description": "Synthetic SELF / TEAM_CLEAR / TEAM_UNCLEAR distribution; not a hidden ability or quality score.",
+      "id": "ownership",
+      "status": "ACCEPTED_SYNTHETIC_ASSUMPTION"
+    },
+    {
+      "description": "Eligibility structure uses a public reposted job listing. Official original detailed text remains unverified; reposted evidence is not official-source verification.",
+      "id": "public_requirements",
+      "status": "ACCEPTED_SYNTHETIC_ASSUMPTION"
+    },
+    {
+      "description": "Eligibility dates adapted to synthetic scenario submission/join dates, not original employer recruitment dates.",
+      "id": "eligibility_dates",
+      "status": "ACCEPTED_SYNTHETIC_ASSUMPTION"
+    }
+  ],
+  "dataset_version": "v2",
+  "disclaimer": "This Dataset is a PeopleOps Office synthetic scenario and is not Kia internal recruiting data or official Kia recruiting policy.",
+  "synthetic_data": true
+}

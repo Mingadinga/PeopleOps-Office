@@ -329,11 +329,15 @@ Offer32 / Join17 / Ready8(목표일까지1). Target에 맞추지 않고 결과�
 사용자의 명시적 Human Review 승인으로 v0.4 snapshot을 v1으로 승격한다. canonical 파일은 재생성 없이 동일 bytes로 보존하며
 v0.1~v0.4·Generator·UI는 변경하지 않는다. Active Baseline과 승인시각은 `data/generation/baseline_registry.json`,
 source provenance와 실제 검증 결과는 `data/generation/v1/`에서 확인한다. 기존 §15의 UNREVIEWED 상태는 source v0.4 이력이다.
-v1은 현재 승인 Baseline이며 기아 실데이터/공식 정책이 아니다. snapshot을 직접 수정하지 않고 정당한 변경 사유가 있으면
+v1은 최초 승인 당시 Baseline(현재 historical / SUPERSEDED)이며 기아 실데이터/공식 정책이 아니다. snapshot을 직접 수정하지 않고 정당한 변경 사유가 있으면
 새 Candidate→Validation→Human Review→새 Baseline으로 교체하며 과거 버전과 그 분석/Presentation을 보존한다(09 §6.3).
 이번 범위는 승인 snapshot·합성 가정·Registry·Freeze 검증까지다. 대표 사례 선정, Presentation Mapping 생성,
 Mission 2 분석 및 UI 연결은 별도 후속 작업이다.
 
 ## v0.5 Application / Document contract
 
-KIA-02 supplement: PUBLIC REPOSTED SOURCE https://app.superpasshr.com/positions/0da4b528-75fb-4d56-989c-9190cd34dbd7 reproduces eligibility/preferred/job structure. Official https://career.kia.com/apply/applyView.kc?recuCls=39&recuType=N1&recuYy=2026 detailed body not retrieved; official-source verification remains pending. Dates are synthetic adaptations, not original employer dates. v0.5 requires Human Review; ACTIVE remains v1.
+KIA-02 supplement: PUBLIC REPOSTED SOURCE https://app.superpasshr.com/positions/0da4b528-75fb-4d56-989c-9190cd34dbd7 reproduces eligibility/preferred/job structure. Official https://career.kia.com/apply/applyView.kc?recuCls=39&recuType=N1&recuYy=2026 detailed body not retrieved; official-source verification remains pending. Dates are synthetic adaptations, not original employer dates. v0.5 remains historical and UNREVIEWED; subsequent v0.6 is approved as Active Baseline v2.
+
+## v2 Baseline 승인 이관
+
+v0.6 Human Review 승인 후 재생성 없이 v2로 승격했다. Active=v2, source=v0.6; v1은 SUPERSEDED이며 정본·manifest·대표 Mapping을 보존한다. v0.5/v0.6 source snapshot도 변경하지 않는다. 승인 수치와 Document/Eligibility 지표 분리는 09의 v2 계약을 따른다. 현재 UI는 v1에 귀속되며 다음 단계는 v2 대표 선정→v2 Mapping→UI 연결이다. Mission 2는 시작하지 않았다.

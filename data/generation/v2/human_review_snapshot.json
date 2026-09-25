@@ -1,0 +1,371 @@
+{
+  "approval_basis": "Explicit user Human Review approval of v0.6, unchanged, as v2.",
+  "approved_at": "2026-09-25T21:45:52+09:00",
+  "approved_decisions": [
+    "Keep synthetic verification deadline 7 days, response 3 days, and equal-weight response scenarios; not observed Kia population statistics.",
+    "Accept actual Funnel unchanged: Document evidence-qualified 76 vs plan 120, resolved PRE entry 43, FIRST 30 vs plan 20; no quota, tuning or new thresholds.",
+    "JOINED != READY: Joined 4, observation-end Ready 3, target-date Ready 0; matching Join target is not automatic Mission success."
+  ],
+  "candidate_review_status": "APPROVED FOR BASELINE PROMOTION",
+  "dataset_version": "v2",
+  "metrics": {
+    "application_document": {
+      "application_combinations": {
+        "BUILD": 43,
+        "BUILD+PROBLEM": 44,
+        "BUILD+PROBLEM+VALIDATE": 48,
+        "BUILD+VALIDATE": 44,
+        "NONE": 45,
+        "PROBLEM": 51,
+        "PROBLEM+VALIDATE": 41,
+        "VALIDATE": 46
+      },
+      "category_applications": {
+        "BUILD": 154,
+        "PROBLEM": 161,
+        "VALIDATE": 152
+      },
+      "document_reasons": {
+        "APPLICATION_EVIDENCE_CANDIDATE": 26,
+        "BASIC_REQUIREMENT_VIOLATION": 80,
+        "ELIGIBILITY_CONFIRMATION_REQUIRED": 50,
+        "INSUFFICIENT_APPLICATION_EVIDENCE": 90
+      },
+      "eligibility": {
+        "FAIL": 80,
+        "PASS": 63,
+        "UNKNOWN": 103
+      },
+      "experience_combinations": {
+        "BUILD": 43,
+        "BUILD+PROBLEM": 47,
+        "BUILD+PROBLEM+VALIDATE": 49,
+        "BUILD+VALIDATE": 46,
+        "NONE": 48,
+        "PROBLEM": 55,
+        "PROBLEM+VALIDATE": 44,
+        "VALIDATE": 49
+      },
+      "experience_count": 381,
+      "note": "Application combination columns overlap for multiple experiences; category union is reporting only, never the decision rule. UNKNOWN eligibility is not verified PASS. CLOSED is insufficient submitted evidence, not Skill limitation.",
+      "ownership_experiences": {
+        "SELF": 124,
+        "TEAM_CLEAR": 137,
+        "TEAM_UNCLEAR": 120
+      },
+      "requirements": {
+        "degree": {
+          "FAIL": 18,
+          "PASS": 205,
+          "UNKNOWN": 23
+        },
+        "language": {
+          "FAIL": 28,
+          "PASS": 197,
+          "UNKNOWN": 21
+        },
+        "military": {
+          "FAIL": 18,
+          "NOT_APPLICABLE": 114,
+          "PASS": 90,
+          "UNKNOWN": 24
+        },
+        "travel_visa": {
+          "FAIL": 16,
+          "PASS": 195,
+          "UNKNOWN": 35
+        }
+      }
+    },
+    "calibration_activity": {
+      "actual": 23,
+      "eligible": 41,
+      "person_hours": 11.5,
+      "triggered": 23
+    },
+    "capacity": {
+      "additional_person_hours": 30.0,
+      "available_remaining_person_hours": 3.0,
+      "by_activity_person_hours": {
+        "AI_CASE": 0.0,
+        "CALIBRATION": 11.0,
+        "DOCUMENT_REVIEW": 80.8333,
+        "FINAL_REVIEW_DISCUSSION": 6.3333,
+        "FIRST_INTERVIEW_SESSION": 87.0,
+        "FOCUSED_FOLLOW_UP": 5.3333,
+        "FOLLOW_UP_CALIBRATION": 0.5,
+        "PRACTITIONER_QA": 0.0,
+        "TECHNICAL_ASSESSMENT": 0.0,
+        "VALUES_BEHAVIOR_INTERVIEW": 8.0
+      },
+      "demand_person_hours": 90.0,
+      "first_calibration_person_hours": 10.5,
+      "first_interview_and_calibration_person_hours": 97.5,
+      "first_interview_plan_capacity_person_hours": 60,
+      "gap_person_hours": 30.0,
+      "history": [
+        {
+          "capacity_event_id": "CAP_0000",
+          "cohort_application_ids": "[]",
+          "decided_by": "HR_OPERATIONS_01",
+          "decision_provenance": "SYNTHETIC_HUMAN_SCENARIO",
+          "demand_person_hours": "0",
+          "effective_at": "2026-10-01T00:00:00+09:00",
+          "event_type": "INITIAL_PLAN",
+          "person_hours": "60",
+          "rationale": "{\"evaluator_count\":30,\"initial_hours_each\":2,\"planned_candidates\":20,\"scope\":\"interview only, not quota\",\"unit_person_hours\":3}",
+          "reason_code": "INITIAL_CYCLE_PLAN",
+          "scope": "WHOLE_CYCLE",
+          "source_event_id": "",
+          "stage": "FIRST_INTERVIEW"
+        },
+        {
+          "capacity_event_id": "CAP_0001",
+          "cohort_application_ids": "[\"APP0005\",\"APP0031\",\"APP0039\",\"APP0056\",\"APP0061\",\"APP0064\",\"APP0068\",\"APP0076\",\"APP0082\",\"APP0101\",\"APP0128\",\"APP0141\",\"APP0143\",\"APP0150\",\"APP0153\",\"APP0181\",\"APP0189\",\"APP0193\",\"APP0223\",\"APP0228\",\"APP0237\",\"APP0238\",\"APP0240\",\"APP0268\",\"APP0270\",\"APP0285\",\"APP0297\",\"APP0309\",\"APP0325\",\"APP0342\"]",
+          "decided_by": "",
+          "decision_provenance": "",
+          "demand_person_hours": "90",
+          "effective_at": "2026-12-01T15:44:00+09:00",
+          "event_type": "GAP_IDENTIFIED",
+          "person_hours": "30",
+          "rationale": "all notified PRE_ASSESSMENT advanced candidates; demand minus total initial budget",
+          "reason_code": "WHOLE_CYCLE_DEMAND",
+          "scope": "WHOLE_CYCLE",
+          "source_event_id": "",
+          "stage": "FIRST_INTERVIEW"
+        },
+        {
+          "capacity_event_id": "CAP_0002",
+          "cohort_application_ids": "[\"APP0005\",\"APP0031\",\"APP0039\",\"APP0056\",\"APP0061\",\"APP0064\",\"APP0068\",\"APP0076\",\"APP0082\",\"APP0101\",\"APP0128\",\"APP0141\",\"APP0143\",\"APP0150\",\"APP0153\",\"APP0181\",\"APP0189\",\"APP0193\",\"APP0223\",\"APP0228\",\"APP0237\",\"APP0238\",\"APP0240\",\"APP0268\",\"APP0270\",\"APP0285\",\"APP0297\",\"APP0309\",\"APP0325\",\"APP0342\"]",
+          "decided_by": "HR_OPERATIONS_01",
+          "decision_provenance": "SYNTHETIC_HUMAN_SCENARIO",
+          "demand_person_hours": "90",
+          "effective_at": "2026-12-03T15:44:00+09:00",
+          "event_type": "CAPACITY_ADDED",
+          "person_hours": "30",
+          "rationale": "{\"additional_hours_each\":1,\"alternatives\":[\"EXTEND_WINDOW\",\"REDESIGN_ASSESSMENT\"],\"evaluator_count\":30,\"pool_panels\":10,\"rationale\":\"Fixed synthetic pool receives additional interview hours in whole one-hour allocations; no added panels\",\"selected\":\"ADD_EVALUATOR_RESOURCES\"}",
+          "reason_code": "ADDITIONAL_EVALUATOR_RESOURCES",
+          "scope": "WHOLE_CYCLE",
+          "source_event_id": "CAP_0001",
+          "stage": "FIRST_INTERVIEW"
+        }
+      ],
+      "incomplete_participation_intervals": 0,
+      "initial_person_hours": 60.0,
+      "interview_consumed_person_hours": 87.0,
+      "released_reservation_person_hours": 3.0,
+      "reserved_remaining_person_hours": 0.0,
+      "revised_person_hours": 90.0,
+      "total_person_hours": 199.0
+    },
+    "eligibility_resolution": {
+      "document_evidence_qualified": 76,
+      "document_states": {
+        "ADVANCED": 26,
+        "CLOSED": 90,
+        "CONDITIONAL_ADVANCE": 50,
+        "FAILED": 80
+      },
+      "initial": {
+        "FAIL": 80,
+        "PASS": 63,
+        "UNKNOWN": 103
+      },
+      "join_unresolved": 0,
+      "note": "Document conditional decision remains history; original UNKNOWN is never rewritten. NOT_VERIFIED is procedure closure, not eligibility FAIL or Skill limitation.",
+      "offer_unresolved": 0,
+      "pre_entry": 43,
+      "verification_candidates": {
+        "ELIGIBILITY_NOT_VERIFIED": 15,
+        "VERIFIED_FAIL": 18,
+        "VERIFIED_PASS": 17
+      },
+      "verification_requirements": {
+        "ELIGIBILITY_NOT_VERIFIED": 15,
+        "VERIFIED_FAIL": 18,
+        "VERIFIED_PASS": 17
+      }
+    },
+    "funnel": [
+      {
+        "actual": 342,
+        "difference": 22,
+        "label": "지원 시작",
+        "stage": "APPLICATION_STARTED",
+        "target": 320
+      },
+      {
+        "actual": 246,
+        "difference": 6,
+        "label": "지원 완료",
+        "stage": "APPLICATION_SUBMITTED",
+        "target": 240
+      },
+      {
+        "actual": 76,
+        "difference": -44,
+        "label": "서류 근거 충족(조건부 포함)",
+        "stage": "DOCUMENT_SCREEN",
+        "target": 120
+      },
+      {
+        "actual": 30,
+        "difference": -30,
+        "label": "사전검증 통과",
+        "stage": "PRE_ASSESSMENT",
+        "target": 60
+      },
+      {
+        "actual": 30,
+        "difference": 10,
+        "label": "1차면접 계획 인원",
+        "stage": "FIRST_INTERVIEW",
+        "target": 20
+      },
+      {
+        "actual": 10,
+        "difference": 2,
+        "label": "2차면접 대상",
+        "stage": "SECOND_INTERVIEW",
+        "target": 8
+      },
+      {
+        "actual": 7,
+        "difference": 2,
+        "label": "Offer",
+        "stage": "OFFER",
+        "target": 5
+      },
+      {
+        "actual": 4,
+        "difference": 0,
+        "label": "Join 목표",
+        "stage": "JOIN",
+        "target": 4
+      }
+    ],
+    "hold": {
+      "follow_up_activities": 4,
+      "initial": 4,
+      "initial_do_not_proceed": 0,
+      "initial_proceed": 4,
+      "pending": 0,
+      "re_review_outcomes": {
+        "DO_NOT_PROCEED": 1,
+        "PROCEED_TO_OFFER": 3
+      },
+      "re_reviews": 4,
+      "targeted_completed": 4
+    },
+    "offer_events": {
+      "ACCEPTED": 5,
+      "DECLINED": 1,
+      "EXPIRED": 1,
+      "OFFERED": 7,
+      "PRE_JOIN_WITHDRAWAL": 1
+    },
+    "stage_outcomes": {
+      "DOCUMENT_SCREEN": {
+        "ADVANCED": 26,
+        "CLOSED": 90,
+        "COMPLETED": 246,
+        "CONDITIONAL_ADVANCE": 50,
+        "ENTERED": 246,
+        "FAILED": 80,
+        "FINAL_REVIEW_COMPLETED": 0,
+        "IN_PROGRESS": 0,
+        "WITHDRAWN": 0,
+        "rates": {
+          "ADVANCED": 0.10569105691056911,
+          "FAILED": 0.3252032520325203,
+          "WITHDRAWN": 0.0
+        }
+      },
+      "FINAL_REVIEW": {
+        "ADVANCED": 0,
+        "CLOSED": 0,
+        "COMPLETED": 8,
+        "CONDITIONAL_ADVANCE": 0,
+        "ENTERED": 8,
+        "FAILED": 0,
+        "FINAL_REVIEW_COMPLETED": 8,
+        "IN_PROGRESS": 0,
+        "WITHDRAWN": 0,
+        "rates": {
+          "ADVANCED": null,
+          "FAILED": null,
+          "WITHDRAWN": null
+        }
+      },
+      "FIRST_INTERVIEW": {
+        "ADVANCED": 10,
+        "CLOSED": 0,
+        "COMPLETED": 29,
+        "CONDITIONAL_ADVANCE": 0,
+        "ENTERED": 30,
+        "FAILED": 7,
+        "FINAL_REVIEW_COMPLETED": 0,
+        "IN_PROGRESS": 13,
+        "WITHDRAWN": 0,
+        "rates": {
+          "ADVANCED": 0.3333333333333333,
+          "FAILED": 0.23333333333333334,
+          "WITHDRAWN": 0.0
+        }
+      },
+      "PRE_ASSESSMENT": {
+        "ADVANCED": 30,
+        "CLOSED": 0,
+        "COMPLETED": 36,
+        "CONDITIONAL_ADVANCE": 0,
+        "ENTERED": 43,
+        "FAILED": 6,
+        "FINAL_REVIEW_COMPLETED": 0,
+        "IN_PROGRESS": 5,
+        "WITHDRAWN": 2,
+        "rates": {
+          "ADVANCED": 0.6976744186046512,
+          "FAILED": 0.13953488372093023,
+          "WITHDRAWN": 0.046511627906976744
+        }
+      },
+      "SECOND_INTERVIEW": {
+        "ADVANCED": 8,
+        "CLOSED": 0,
+        "COMPLETED": 8,
+        "CONDITIONAL_ADVANCE": 0,
+        "ENTERED": 10,
+        "FAILED": 0,
+        "FINAL_REVIEW_COMPLETED": 0,
+        "IN_PROGRESS": 1,
+        "WITHDRAWN": 1,
+        "rates": {
+          "ADVANCED": 0.8,
+          "FAILED": 0.0,
+          "WITHDRAWN": 0.1
+        }
+      }
+    },
+    "workforce": {
+      "available_supply_at_target_fte": 12,
+      "demand_fte": 16,
+      "forecast_supply_fte": 12,
+      "fulfillment_ratio": 0.75,
+      "join_to_ready_days": {
+        "max": 231.0,
+        "median": 220.0,
+        "min": 210.0,
+        "n": 3,
+        "p90": 228.8
+      },
+      "joined": 4,
+      "ramp_up_extended": 4,
+      "ready_by_target_date": 0,
+      "ready_observed": 3,
+      "target_date": "2027-09-01"
+    }
+  },
+  "review_status": "APPROVED",
+  "scope": "Approved descriptive snapshot, not Mission 2 analysis or representative selection.",
+  "source_candidate_version": "v0.6"
+}

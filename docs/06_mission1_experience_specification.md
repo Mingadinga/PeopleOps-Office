@@ -410,7 +410,7 @@ Future v0.5 Document scenes distinguish public-structure eligibility (synthetic 
 
 ## v0.6 Eligibility Resolution — approved Human Review
 
-v0.6 supersedes only the v0.5 Eligibility lifecycle. Active baseline remains v1;
+v0.6 supersedes only the v0.5 Eligibility lifecycle. At v0.6 candidate creation, Active baseline remained v1 (now superseded by v2);
 v0.5 remains an unchanged historical candidate. Experience/category/ownership distribution,
 same-experience two-category Document evidence rule and every downstream decision/distribution remain unchanged.
 Document PASS + qualifying experience → ADVANCED; UNKNOWN + qualifying experience →
@@ -439,3 +439,7 @@ prevents entry, Offer and Join. Existing explicit PASS/FAIL/N/A statuses cannot 
 The original Document conditional decision remains history even after resolution. Reports separate
 Document evidence-qualified progression (ADVANCED + CONDITIONAL_ADVANCE) from resolved PRE entry.
 Target counts never influence verification response or deadline. No automatic baseline promotion.
+
+### 현재 Baseline 및 Presentation 버전
+
+Active Baseline은 v2(source v0.6), v1은 historical / SUPERSEDED다. v1 대표 Mapping(C0003/C0005/C0228)과 현재 UI는 dataset_version=v1에 귀속되며 v2로 자동 승계하지 않는다. v2 신규 대표 선정·Mapping·UI 연결은 후속 작업이다. 승인 snapshot과 Document evidence-qualified / Eligibility-resolved PRE Entry 지표 분리는 [09](09_mission1_data_specification.md)의 v2 Baseline 계약을 따른다.

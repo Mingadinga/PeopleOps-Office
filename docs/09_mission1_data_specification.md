@@ -871,10 +871,10 @@ v0.2는 UNREVIEWED / frozen=false이며 사람 검토·승인·Freeze는 미수�
 Freeze 후 UI와 분석은 같은 버전을 사용한다. 변경이 필요하면 버전과 변경 이유를 구분한다.
 Main Story는 실제 데이터 분석 후 의미 있는 패턴 2~3개로 정하며 무관계도 정상 결과다.
 
-#### 승인 Baseline v1과 후속 버전 정책
+#### 승인 Baseline과 후속 버전 정책
 
-v1은 사용자 Human Review 승인에 따라 v0.4(seed 20260924)를 승격한 **현재 승인된 Mission 1 Synthetic Dataset Baseline**이다.
-Human Review, Independent Validation, 현재 SSOT 정합성, 재현성 확인을 완료한 기준선이며 Mission 1 Presentation과 Mission 2 분석의 기본 입력이다.
+v1은 사용자 Human Review 승인에 따라 v0.4(seed 20260924)를 승격한 **첫 승인된 Mission 1 Synthetic Dataset Baseline(현재 historical / SUPERSEDED)**이다.
+Human Review, Independent Validation, 현재 SSOT 정합성, 재현성 확인을 완료한 기준선이었다. 현재 신규 Presentation과 Mission 2 분석의 기본 입력은 v2다.
 `data/synthetic/v1/`의 canonical 25개 파일은 source `data/generated/v0.4/`와 byte/hash가 동일하다. 재생성·row 수정·Target 사후 조정을 하지 않는다.
 승인 metadata는 `data/generation/v1/dataset_manifest.json`에서 dataset_version=v1, source_candidate_version=v0.4, frozen=true,
 baseline_status=FROZEN, review_status=APPROVED, frozen_at, source manifest/rules/code hashes와 관측창을 기록한다.
@@ -889,15 +889,15 @@ Mission 2 모델링 문제 또는 UI canonical contract 문제는 변경 사유�
 
 Registry는 active_baseline과 각 version의 status(ACTIVE/SUPERSEDED), source_candidate_version, approved_at,
 superseded_by, change_reason 및 manifest 참조를 관리한다. 새 Baseline 승인 시 Registry만 기존 항목을 SUPERSEDED로 전환하며
-과거 Baseline의 canonical 파일·승인 manifest·결과 snapshot은 보존한다. 이번 승격은 v1만 생성한다.
+과거 Baseline의 canonical 파일·승인 manifest·결과 snapshot은 보존한다. v1의 최초 승격 이력은 보존하며 현재 v0.6을 source로 v2를 승인했다.
 Mission 2 분석과 Presentation Mapping은 dataset_version을 필수 기록한다. Baseline 교체 후에도
 과거 분석/Presentation을 새 Dataset의 결과로 자동 재해석하지 않으며 새 버전 대상 재실행/재선정은 별도 작업이다.
 
-Freeze 검증은 `python3 -B data/generation/v1/verify_baseline.py`로 수행한다.
+현재 Freeze 및 historical snapshot 검증은 `python3 -B scripts/verify_mission1_baseline.py v2` (또는 `v1`)로 수행한다. 기존 v1 검증 스크립트는 최초 승인 당시 ACTIVE=v1을 가정한 역사적 artifact로 보존한다.
 기존 candidate CLI는 UNREVIEWED 계약 전용이므로 승인 manifest를 candidate manifest로 위장하거나 Generator를 변경하지 않는다.
-검증 스크립트는 v1 canonical에 기존 Independent Validator를 실행하고 source candidate manifest, 내용 동일성,
+검증 스크립트는 선택한 Baseline canonical에 기존 Independent Validator를 실행하고 source candidate manifest, 내용 동일성,
 승인 metadata, Registry, 합성 가정·승인 snapshot hash를 별도로 대조한다. source의 REVIEW_PENDING 경고는
-v0.4 검토 이력으로 유지하며 v1의 사용자 승인과 합성 가정 수용 기록을 분리한다.
+각 source candidate의 검토 이력으로 유지하며 Baseline의 사용자 승인과 합성 가정 수용 기록을 분리한다.
 
 ### 6.4 대표 사례 선정과 Presentation Mapping
 
@@ -1023,7 +1023,7 @@ v0.1 데이터와 기존 generation 산출물은 변경하지 않는다. v1 Free
 
 ## Application / Document Screen v0.5 — approved Human Review
 
-v1 remains the ACTIVE approved baseline; v0.5 is a new UNREVIEWED candidate, not v2.
+At v0.5 creation, v1 was the ACTIVE approved baseline and v0.5 an UNREVIEWED candidate. Current Active Baseline is v2 from v0.6.
 The public reposted 2026 H1 Kia ML Engineer eligibility structure is referenced; dates
 are adapted to the PeopleOps Office synthetic recruiting cycle, not Kia internal policy.
 Eligibility reference date is the synthetic application submission date; expected join date
@@ -1092,7 +1092,7 @@ No target-based resampling, probability tuning or automatic baseline promotion.
 
 ## v0.6 Eligibility Resolution — approved Human Review
 
-v0.6 supersedes only the v0.5 Eligibility lifecycle. Active baseline remains v1;
+v0.6 supersedes only the v0.5 Eligibility lifecycle. At v0.6 candidate creation, Active baseline remained v1 (now superseded by v2);
 v0.5 remains an unchanged historical candidate. Experience/category/ownership distribution,
 same-experience two-category Document evidence rule and every downstream decision/distribution remain unchanged.
 Document PASS + qualifying experience → ADVANCED; UNKNOWN + qualifying experience →
@@ -1123,3 +1123,24 @@ Document evidence-qualified progression (ADVANCED + CONDITIONAL_ADVANCE) from re
 Target counts never influence verification response or deadline. No automatic baseline promotion.
 
 Reporting note: v0.6 Funnel Document actual includes ADVANCED + CONDITIONAL_ADVANCE and is explicitly labelled evidence-qualified. Eligibility-resolved PRE entry is a separate count, not inferred from this total. Stage reports show Conditional and Closed separately.
+
+### v2 Active Baseline 승인 및 Funnel 표시 계약
+
+v0.6은 사용자 Human Review에서 **APPROVED FOR BASELINE PROMOTION**으로 승인됐다.
+Active Baseline은 **v2**, source candidate는 **v0.6**, seed는 **20260924**다.
+`data/synthetic/v2/`의 canonical 28개 파일은 v0.6과 byte/hash가 동일한 snapshot이며 재생성하지 않았다.
+승인 manifest·결과 snapshot·합성 가정·검증은 `data/generation/v2/`, 상태는 Baseline Registry가 관리한다.
+v1은 historical / SUPERSEDED이며 canonical·manifest·기존 Presentation Mapping을 변경하지 않는다.
+이는 v1의 오류 판정이 아니라 Funnel Reality Review 이후 Application/Eligibility 모델 개선의 승인 이력이다.
+
+- 지원서 검토: Target Document Advance **120** ↔ Actual Evidence-qualified **76** (ADVANCED 26 + CONDITIONAL_ADVANCE 50).
+- 지원자격 확인: Initial PASS 63 / FAIL 80 / UNKNOWN 103. Conditional 50 → VERIFIED_PASS 17 / VERIFIED_FAIL 18 / ELIGIBILITY_NOT_VERIFIED 15.
+- 사전검증: Eligibility Resolution 후 PRE Entry **43**, PRE Advance **30**. 120과 43을 같은 지표로 비교하지 않는다.
+- Target Funnel 320→240→120→60→20→8→5→4는 그대로 유지한다. FIRST 30을 20에 맞춰 자르지 않는다.
+- **JOINED ≠ READY**: Join 4 / observation-end Ready 3 / Target-date Ready 0. Join 목표 일치로 Mission 성공을 자동 선언하지 않는다.
+
+Verification deadline 7일·response 3일·동일 가중 결과 분포는 승인된 합성 가정이며 기아 통계가 아니다.
+공개 재게시 공고와 공식 원문 검증을 구분하고 날짜 adaptation·모집단·Experience·Ownership 등 해석 경계를 합성 가정 register에 보존한다.
+새 Baseline도 직접 덮어쓰지 않고 새 Candidate→Validation→Human Review→새 Baseline을 따른다.
+Presentation Mapping과 분석은 dataset_version에 귀속된다. 기존 C0003/C0005/C0228 Mapping은 v1 전용이며 v2로 자동 승계하지 않는다.
+v2 대표 선정→새 Mapping→UI 연결은 후속 작업이다. 현재 UI는 v1에 남아 있으며 이번 승인으로 변경되지 않는다.

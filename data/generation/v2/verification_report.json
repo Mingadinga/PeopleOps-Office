@@ -1,0 +1,47 @@
+{
+  "build_rendering": "Not run: UI/runtime unchanged; permitted by task scope.",
+  "candidate_compatibility": "v0.1-v0.6 physical canonical file hashes match each historical manifest; legacy and deterministic regressions pass in temporary output.",
+  "dataset_version": "v2",
+  "historical_baseline": "PASS",
+  "independent_validator": "PASS",
+  "lint": "PASS",
+  "manifest": "PASS",
+  "preservation": {
+    "checked_existing_files": 235,
+    "only_existing_metadata_change": "data/generation/baseline_registry.json",
+    "unchanged_files": 234
+  },
+  "registry": "v2 sole ACTIVE; v1 SUPERSEDED by v2",
+  "regression": {
+    "baseline_tests": 9,
+    "existing_tests": 164,
+    "note": "Existing presentation reader ResourceWarning for unclosed files remains; tests pass. No UI or presentation changes.",
+    "runs": [
+      {
+        "count": 172,
+        "scope": "full suite including first 8 freeze tests",
+        "seconds": 186.011,
+        "status": "PASS"
+      },
+      {
+        "count": 9,
+        "scope": "final freeze suite including candidate v0.1-v0.6 file preservation",
+        "status": "PASS"
+      }
+    ],
+    "status": "PASS",
+    "unique_tests": 173
+  },
+  "security": "No secret, home path, unexpected binary or oversized file found in commit scope.",
+  "source_identity": {
+    "canonical_files": 28,
+    "generation_for_promotion": false,
+    "source_candidate": "v0.6",
+    "status": "PASS"
+  },
+  "status": "PASS",
+  "unresolved_eligibility": {
+    "join": 0,
+    "offer": 0
+  }
+}

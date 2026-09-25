@@ -119,3 +119,7 @@ v0.5 adds application_eligibility.csv (raw minimal fields plus requirement state
 ## v0.6 operational eligibility history
 
 The requirement-level eligibility_verifications.csv links Document CONDITIONAL_ADVANCE to confirmed minimal facts, resolution and PRE entry. Initial eligibility and historical Document decisions remain unchanged. No new assessment Stage or candidate score. See 09 v0.6.
+
+### 현재 Baseline 및 Presentation 버전
+
+Active Baseline은 v2(source v0.6), v1은 historical / SUPERSEDED다. v1 대표 Mapping(C0003/C0005/C0228)과 현재 UI는 dataset_version=v1에 귀속되며 v2로 자동 승계하지 않는다. v2 신규 대표 선정·Mapping·UI 연결은 후속 작업이다. 승인 snapshot과 Document evidence-qualified / Eligibility-resolved PRE Entry 지표 분리는 [09](09_mission1_data_specification.md)의 v2 Baseline 계약을 따른다.
