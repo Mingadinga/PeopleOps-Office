@@ -24,7 +24,8 @@ Decision Layer / Evidence / Decision / State Transition / Next Question의 10개
 대표 3명은 Freeze 후 선정하며 Pattern은 Desired Contrast다. 별도 Presentation Mapping은 09를 따른다.
 
 판단 계보는 `Raw Evidence → Human Observation → Skill Decision → Final Hiring Decision`이며 Stage Transition은 별도 운영 판단이다.
-아래 Scene은 최신 계약의 경험 설계다. v0.1은 Audit 이력이고 새 Dataset·대표 3명은 미생성/미선정이다.
+아래 Scene은 경험 설계다. 승인 Baseline v1에서 대표 C0003/APP0003, C0005/APP0005, C0228/APP0228을 사용자 Human Selection으로 확정했다.
+09 §6.4의 별도 Presentation Mapping은 v1에 귀속되며 canonical row를 변경하지 않고 v2로 자동 승계하지 않는다. 실제 UI 연결은 후속 작업이다.
 
 ## 3. Mission 1 Scene 목록
 
@@ -264,7 +265,7 @@ v0.3부터 M1-12는 09의 60h 계획·고정 evaluator pool 추가시간 계약�
 - **Interaction:** Must → 불확실성 → Gap → 조정 → 기록된 판단
 - **Decision Layer:** 총점·순위 없이 Coverage와 rationale
 - **Evidence:** final_decisions와 근거 참조. 생성·검증 여부와 Provenance를 구분한다.
-- **Decision:** INITIAL의 PROCEED_TO_OFFER / DO_NOT_PROCEED / HOLD를 추적한다. HOLD는 Reason+Resolution Plan이 필수이며 terminal outcome이 아니다. 값은 미생성.
+- **Decision:** INITIAL의 PROCEED_TO_OFFER / DO_NOT_PROCEED / HOLD를 추적한다. HOLD는 Reason+Resolution Plan이 필수이며 terminal outcome이 아니다. 표시할 값은 v1 canonical Final Decision을 참조한다. C0003은 Final Review 미도달로 표시한다.
 - **State Transition:** 현재 내용 확인 후 M1-18. 상위 Stage가 바뀌면 이전 Stage를 탐색 완료로 기록한다.
 - **Next Question:** HOLD의 어떤 질문을 추가로 확인해야 하는가?
 

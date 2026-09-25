@@ -1,0 +1,581 @@
+{
+  "mapping_version": "1.0.0",
+  "dataset_version": "v1",
+  "baseline_manifest_ref": "data/generation/v1/dataset_manifest.json",
+  "baseline_manifest_sha256": "2e887a77c4908462f8820e0a5b43aac0f295ca4381ab5c1503b802d3cc0c4807",
+  "selection_provenance": "USER_CONFIRMED_HUMAN_SELECTION",
+  "version_policy": "Pinned to v1. A new baseline requires separate representative selection and mapping; never auto-rebind.",
+  "presentation_contract": {
+    "card_title_field": "presentation_question",
+    "identity_visibility": "DETAILS_ONLY",
+    "human_dialogue_typing": false,
+    "decision_reveal": "STORED_V1_TRACE_ONLY",
+    "allow_show_all": true,
+    "respect_reduced_motion": true,
+    "live_ai_evaluation": false,
+    "case_order_meaning": "QUESTION_SEQUENCE_NOT_RANKING"
+  },
+  "cases": [
+    {
+      "case_id": "CASE_A",
+      "display_id": "A",
+      "candidate_id": "C0003",
+      "application_id": "APP0003",
+      "presentation_question": "근거가 부족하면 어떻게 판단할까?",
+      "core_message": "Evidence 부족 ≠ Skill 부족",
+      "primary_skill_id": "M1_SKILL_02",
+      "selection_reason": "사용자가 v1 결과에서 이 판단 질문의 설명 사례로 확정함. 후보 우수성·순위·결과 비율 기준 아님.",
+      "scene_refs": [
+        "M1-10",
+        "M1-14",
+        "M1-15"
+      ],
+      "evidence_cards": [
+        {
+          "evidence_id": "EV_APP0003_DOCUMENT_SCREEN_DOCUMENT_REVIEW_M1_SKILL_01",
+          "purpose": "BACKGROUND_OTHER_SKILL",
+          "presentation_copy": "지원서의 문제 구조화 경험입니다. Skill02 자기기술이 아닙니다."
+        },
+        {
+          "evidence_id": "EV_APP0003_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT_M1_SKILL_02",
+          "purpose": "PRIMARY_SKILL",
+          "presentation_copy": "Skill02를 판단할 직접 근거를 확인하지 못했습니다."
+        },
+        {
+          "evidence_id": "EV_APP0003_FIRST_INTERVIEW_AI_CASE_M1_SKILL_03",
+          "purpose": "SUPPORTING_OTHER_SKILL",
+          "presentation_copy": "Skill03의 직접 근거가 Skill02의 미관찰을 대신하지 않습니다."
+        }
+      ],
+      "steps": [
+        {
+          "scene_ref": "M1-10",
+          "space_label": "채용운영실",
+          "human_roles": [
+            "채용담당자",
+            "ICT 인사담당자"
+          ],
+          "presentation_copy": "지원서의 문제 구조화 경험입니다. Skill02 자기기술이 아닙니다.",
+          "refs": {
+            "assessment_evidence": [
+              "EV_APP0003_DOCUMENT_SCREEN_DOCUMENT_REVIEW_M1_SKILL_01"
+            ],
+            "assessment_observations": [
+              "OB_DOCUMENT_SCREEN_PANEL_01_RECRUITER_EV_APP0003_DOCUMENT_SCREEN_DOCUMENT_REVIEW_M1_SKILL_01"
+            ]
+          }
+        },
+        {
+          "scene_ref": "M1-14",
+          "space_label": "면접실",
+          "human_roles": [
+            "지원자",
+            "ML 엔지니어",
+            "현업 채용책임자"
+          ],
+          "presentation_copy": "서로 다른 평가영역의 기록을 구분해 확인합니다.",
+          "refs": {
+            "assessment_evidence": [
+              "EV_APP0003_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT_M1_SKILL_02",
+              "EV_APP0003_FIRST_INTERVIEW_AI_CASE_M1_SKILL_03"
+            ],
+            "assessment_observations": [
+              "OB_FIRST_PANEL_02_ML_ENGINEER_EV_APP0003_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT_M1_SKILL_02",
+              "OB_FIRST_PANEL_02_HIRING_MANAGER_EV_APP0003_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT_M1_SKILL_02",
+              "OB_FIRST_PANEL_02_TECHNICAL_REVIEWER_EV_APP0003_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT_M1_SKILL_02",
+              "OB_FIRST_PANEL_02_ML_ENGINEER_EV_APP0003_FIRST_INTERVIEW_AI_CASE_M1_SKILL_03",
+              "OB_FIRST_PANEL_02_HIRING_MANAGER_EV_APP0003_FIRST_INTERVIEW_AI_CASE_M1_SKILL_03",
+              "OB_FIRST_PANEL_02_TECHNICAL_REVIEWER_EV_APP0003_FIRST_INTERVIEW_AI_CASE_M1_SKILL_03"
+            ]
+          }
+        },
+        {
+          "scene_ref": "M1-15",
+          "space_label": "평가회의실",
+          "human_roles": [
+            "ML 엔지니어",
+            "현업 채용책임자",
+            "ICT 인사담당자"
+          ],
+          "presentation_copy": "판단할 직접 근거가 아직 부족합니다. 역량 부족을 확인한 것은 아닙니다.",
+          "refs": {
+            "evidence_decisions": [
+              "DC_APP0003_M1_SKILL_02_000226"
+            ],
+            "stage_history": [
+              "APP0003_FIRST_INTERVIEW"
+            ],
+            "calibration_reviews": [
+              "APP0003_FIRST_INTERVIEW_CALIBRATION_REVIEW"
+            ]
+          }
+        }
+      ],
+      "refs": {
+        "stage_history": [
+          "APP0003_DOCUMENT_SCREEN",
+          "APP0003_PRE_ASSESSMENT",
+          "APP0003_FIRST_INTERVIEW"
+        ],
+        "assessment_activities": [
+          "APP0003_FIRST_INTERVIEW_FIRST_INTERVIEW_SESSION"
+        ],
+        "activity_sessions": [
+          "APP0003_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT",
+          "APP0003_FIRST_INTERVIEW_AI_CASE",
+          "APP0003_FIRST_INTERVIEW_PRACTITIONER_QA"
+        ]
+      },
+      "caveats": [
+        "탈락 사례가 아닙니다. FIRST EVIDENCE_PENDING이며 Final Review에 도달하지 않았습니다.",
+        "APPLICATION_RESPONSE의 Skill01을 Skill02 근거로 연결하지 않습니다.",
+        "FIRST Calibration은 별도 Skill07의 평가자 이견 때문이며 Skill02 미관찰 자체가 trigger가 아닙니다."
+      ],
+      "secondary_lifecycle_refs": {}
+    },
+    {
+      "case_id": "CASE_B",
+      "display_id": "B",
+      "candidate_id": "C0005",
+      "application_id": "APP0005",
+      "presentation_question": "추가 확인에도 근거가 없다면?",
+      "core_message": "Targeted Follow-up은 통과를 위한 구제 절차가 아니다.",
+      "primary_skill_id": "M1_SKILL_04",
+      "selection_reason": "사용자가 v1 결과에서 이 판단 질문의 설명 사례로 확정함. 후보 우수성·순위·결과 비율 기준 아님.",
+      "scene_refs": [
+        "M1-10",
+        "M1-14",
+        "M1-15",
+        "M1-16",
+        "M1-17",
+        "M1-18",
+        "M1-19"
+      ],
+      "evidence_cards": [
+        {
+          "evidence_id": "EV_APP0005_DOCUMENT_SCREEN_DOCUMENT_REVIEW_M1_SKILL_04",
+          "purpose": "PRIMARY_SKILL",
+          "presentation_copy": "지원서에 기술한 경험만으로 Skill을 확정하지 않습니다."
+        },
+        {
+          "evidence_id": "EV_APP0005_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+          "purpose": "PRIMARY_SKILL",
+          "presentation_copy": "질의에서 확인할 직접 근거를 확보하지 못했습니다."
+        },
+        {
+          "evidence_id": "EV_APP0005_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04",
+          "purpose": "PRIMARY_SKILL",
+          "presentation_copy": "과거 행동을 확인할 근거가 남아 있지 않습니다."
+        },
+        {
+          "evidence_id": "EV_APP0005_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04",
+          "purpose": "PRIMARY_SKILL",
+          "presentation_copy": "추가 확인에서도 필요한 산출물을 확인하지 못했습니다."
+        }
+      ],
+      "steps": [
+        {
+          "scene_ref": "M1-10",
+          "space_label": "채용운영실",
+          "human_roles": [
+            "채용담당자",
+            "ICT 인사담당자"
+          ],
+          "presentation_copy": "지원서에 기술한 경험만으로 Skill을 확정하지 않습니다.",
+          "refs": {
+            "assessment_evidence": [
+              "EV_APP0005_DOCUMENT_SCREEN_DOCUMENT_REVIEW_M1_SKILL_04"
+            ],
+            "assessment_observations": [
+              "OB_DOCUMENT_SCREEN_PANEL_01_RECRUITER_EV_APP0005_DOCUMENT_SCREEN_DOCUMENT_REVIEW_M1_SKILL_04"
+            ]
+          }
+        },
+        {
+          "scene_ref": "M1-14",
+          "space_label": "면접실",
+          "human_roles": [
+            "지원자",
+            "ML 엔지니어",
+            "현업 채용책임자"
+          ],
+          "presentation_copy": "서로 다른 평가영역의 기록을 구분해 확인합니다.",
+          "refs": {
+            "assessment_evidence": [
+              "EV_APP0005_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04"
+            ],
+            "assessment_observations": [
+              "OB_FIRST_PANEL_04_ML_ENGINEER_EV_APP0005_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+              "OB_FIRST_PANEL_04_HIRING_MANAGER_EV_APP0005_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+              "OB_FIRST_PANEL_04_TECHNICAL_REVIEWER_EV_APP0005_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04"
+            ]
+          }
+        },
+        {
+          "scene_ref": "M1-15",
+          "space_label": "평가회의실",
+          "human_roles": [
+            "ML 엔지니어",
+            "현업 채용책임자",
+            "ICT 인사담당자"
+          ],
+          "presentation_copy": "저장된 Observation과 Skill Decision을 확인합니다. 회의 개최 자체는 역량 신호가 아닙니다.",
+          "refs": {
+            "evidence_decisions": [
+              "DC_APP0005_M1_SKILL_04_000236"
+            ],
+            "stage_history": [
+              "APP0005_FIRST_INTERVIEW"
+            ],
+            "calibration_reviews": [
+              "APP0005_FIRST_INTERVIEW_CALIBRATION_REVIEW"
+            ]
+          }
+        },
+        {
+          "scene_ref": "M1-16",
+          "space_label": "면접실",
+          "human_roles": [
+            "지원자",
+            "면접관"
+          ],
+          "presentation_copy": "추가 행동 근거가 기록되어 있는지 확인합니다.",
+          "refs": {
+            "assessment_evidence": [
+              "EV_APP0005_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04"
+            ],
+            "assessment_observations": [
+              "OB_SECOND_INTERVIEW_PANEL_01_ML_ENGINEER_EV_APP0005_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04",
+              "OB_SECOND_INTERVIEW_PANEL_01_HIRING_MANAGER_EV_APP0005_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04"
+            ],
+            "evidence_decisions": [
+              "DC_APP0005_M1_SKILL_04_001628"
+            ],
+            "stage_history": [
+              "APP0005_SECOND_INTERVIEW"
+            ]
+          }
+        },
+        {
+          "scene_ref": "M1-17",
+          "space_label": "평가회의실",
+          "human_roles": [
+            "ICT 인사담당자",
+            "현업 채용책임자"
+          ],
+          "presentation_copy": "필요한 직접 근거를 확보하지 못해 HOLD로 기록했습니다.",
+          "refs": {
+            "final_decisions": [
+              "FD_APP0005_INITIAL"
+            ],
+            "evidence_decisions": [
+              "DC_APP0005_M1_SKILL_04_002036"
+            ]
+          },
+          "resolution_plan_ref": {
+            "final_decision_id": "FD_APP0005_INITIAL",
+            "skill_id": "M1_SKILL_04"
+          }
+        },
+        {
+          "scene_ref": "M1-18",
+          "space_label": "면접실",
+          "human_roles": [
+            "지원자",
+            "해당 Skill 평가자",
+            "ICT 인사담당자"
+          ],
+          "presentation_copy": "추가 확인에서도 필요한 산출물을 확인하지 못했습니다.",
+          "refs": {
+            "assessment_activities": [
+              "APP0005_FINAL_REVIEW_FOCUSED_FOLLOW_UP"
+            ],
+            "targeted_followups": [
+              "EV_APP0005_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04"
+            ],
+            "assessment_evidence": [
+              "EV_APP0005_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04"
+            ],
+            "assessment_observations": [
+              "OB_FINAL_REVIEW_PANEL_01_ML_ENGINEER_EV_APP0005_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04",
+              "OB_FINAL_REVIEW_PANEL_01_HIRING_MANAGER_EV_APP0005_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04"
+            ]
+          },
+          "resolution_plan_ref": {
+            "final_decision_id": "FD_APP0005_INITIAL",
+            "skill_id": "M1_SKILL_04"
+          }
+        },
+        {
+          "scene_ref": "M1-19",
+          "space_label": "평가회의실",
+          "human_roles": [
+            "해당 Skill 평가자",
+            "현업 채용책임자",
+            "ICT 인사담당자"
+          ],
+          "presentation_copy": "한 차례 추가 확인 후에도 판단 근거를 확보하지 못해 이번 채용 진행을 종료했습니다. 역량 부족으로 단정하지 않습니다.",
+          "refs": {
+            "assessment_observations": [
+              "OB_FINAL_REVIEW_PANEL_01_ML_ENGINEER_EV_APP0005_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04",
+              "OB_FINAL_REVIEW_PANEL_01_HIRING_MANAGER_EV_APP0005_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04"
+            ],
+            "evidence_decisions": [
+              "DC_APP0005_M1_SKILL_04_002044"
+            ],
+            "final_decisions": [
+              "FD_APP0005_RE_REVIEW"
+            ],
+            "calibration_reviews": [
+              "APP0005_FINAL_REVIEW_FOLLOW_UP_CALIBRATION_REVIEW"
+            ]
+          }
+        }
+      ],
+      "refs": {
+        "stage_history": [
+          "APP0005_DOCUMENT_SCREEN",
+          "APP0005_PRE_ASSESSMENT",
+          "APP0005_FIRST_INTERVIEW",
+          "APP0005_SECOND_INTERVIEW",
+          "APP0005_FINAL_REVIEW"
+        ],
+        "assessment_activities": [
+          "APP0005_FIRST_INTERVIEW_FIRST_INTERVIEW_SESSION"
+        ],
+        "activity_sessions": [
+          "APP0005_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT",
+          "APP0005_FIRST_INTERVIEW_AI_CASE",
+          "APP0005_FIRST_INTERVIEW_PRACTITIONER_QA"
+        ],
+        "final_decisions": [
+          "FD_APP0005_INITIAL",
+          "FD_APP0005_RE_REVIEW"
+        ],
+        "targeted_followups": [
+          "EV_APP0005_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04"
+        ]
+      },
+      "caveats": [
+        "한 차례 후속 확인 뒤에도 MUST 판단 근거가 부족해 종료한 사례이며 Skill04 역량 부족 판정이 아닙니다.",
+        "추가 확인에서 두 평가자가 NOT_OBSERVED로 일치하여 Calibration 회의를 별도로 만들지 않았습니다."
+      ],
+      "secondary_lifecycle_refs": {}
+    },
+    {
+      "case_id": "CASE_C",
+      "display_id": "C",
+      "candidate_id": "C0228",
+      "application_id": "APP0228",
+      "presentation_question": "평가자 의견이 다르다면?",
+      "core_message": "불확실성을 정의하고 필요한 Evidence를 추가로 확인한다.",
+      "primary_skill_id": "M1_SKILL_04",
+      "selection_reason": "사용자가 v1 결과에서 이 판단 질문의 설명 사례로 확정함. 후보 우수성·순위·결과 비율 기준 아님.",
+      "scene_refs": [
+        "M1-14",
+        "M1-15",
+        "M1-16",
+        "M1-17",
+        "M1-18",
+        "M1-19"
+      ],
+      "evidence_cards": [
+        {
+          "evidence_id": "EV_APP0228_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+          "purpose": "PRIMARY_SKILL",
+          "presentation_copy": "개인 기여 범위에 대한 평가자의 해석이 다릅니다."
+        },
+        {
+          "evidence_id": "EV_APP0228_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04",
+          "purpose": "PRIMARY_SKILL",
+          "presentation_copy": "2차면접에서도 이를 해소할 행동 근거를 확인하지 못했습니다."
+        },
+        {
+          "evidence_id": "EV_APP0228_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04",
+          "purpose": "PRIMARY_SKILL",
+          "presentation_copy": "본인이 수행하고 검증한 범위를 추가로 확인했습니다."
+        }
+      ],
+      "steps": [
+        {
+          "scene_ref": "M1-14",
+          "space_label": "면접실",
+          "human_roles": [
+            "지원자",
+            "ML 엔지니어",
+            "현업 채용책임자"
+          ],
+          "presentation_copy": "서로 다른 평가영역의 기록을 구분해 확인합니다.",
+          "refs": {
+            "assessment_evidence": [
+              "EV_APP0228_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04"
+            ],
+            "assessment_observations": [
+              "OB_FIRST_PANEL_04_ML_ENGINEER_EV_APP0228_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+              "OB_FIRST_PANEL_04_HIRING_MANAGER_EV_APP0228_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04",
+              "OB_FIRST_PANEL_04_TECHNICAL_REVIEWER_EV_APP0228_FIRST_INTERVIEW_PRACTITIONER_QA_M1_SKILL_04"
+            ]
+          }
+        },
+        {
+          "scene_ref": "M1-15",
+          "space_label": "평가회의실",
+          "human_roles": [
+            "ML 엔지니어",
+            "현업 채용책임자",
+            "ICT 인사담당자"
+          ],
+          "presentation_copy": "저장된 Observation과 Skill Decision을 확인합니다. 회의 개최 자체는 역량 신호가 아닙니다.",
+          "refs": {
+            "evidence_decisions": [
+              "DC_APP0228_M1_SKILL_04_001172"
+            ],
+            "stage_history": [
+              "APP0228_FIRST_INTERVIEW"
+            ],
+            "calibration_reviews": [
+              "APP0228_FIRST_INTERVIEW_CALIBRATION_REVIEW"
+            ]
+          }
+        },
+        {
+          "scene_ref": "M1-16",
+          "space_label": "면접실",
+          "human_roles": [
+            "지원자",
+            "면접관"
+          ],
+          "presentation_copy": "추가 행동 근거가 기록되어 있는지 확인합니다.",
+          "refs": {
+            "assessment_evidence": [
+              "EV_APP0228_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04"
+            ],
+            "assessment_observations": [
+              "OB_SECOND_INTERVIEW_PANEL_01_ML_ENGINEER_EV_APP0228_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04",
+              "OB_SECOND_INTERVIEW_PANEL_01_HIRING_MANAGER_EV_APP0228_SECOND_INTERVIEW_VALUES_BEHAVIOR_INTERVIEW_M1_SKILL_04"
+            ],
+            "evidence_decisions": [
+              "DC_APP0228_M1_SKILL_04_001900"
+            ],
+            "stage_history": [
+              "APP0228_SECOND_INTERVIEW"
+            ]
+          }
+        },
+        {
+          "scene_ref": "M1-17",
+          "space_label": "평가회의실",
+          "human_roles": [
+            "ICT 인사담당자",
+            "현업 채용책임자"
+          ],
+          "presentation_copy": "개인 기여 범위의 이견이 남아 HOLD로 기록했습니다.",
+          "refs": {
+            "final_decisions": [
+              "FD_APP0228_INITIAL"
+            ],
+            "evidence_decisions": [
+              "DC_APP0228_M1_SKILL_04_002372"
+            ]
+          },
+          "resolution_plan_ref": {
+            "final_decision_id": "FD_APP0228_INITIAL",
+            "skill_id": "M1_SKILL_04"
+          }
+        },
+        {
+          "scene_ref": "M1-18",
+          "space_label": "면접실",
+          "human_roles": [
+            "지원자",
+            "해당 Skill 평가자",
+            "ICT 인사담당자"
+          ],
+          "presentation_copy": "본인이 수행하고 검증한 범위를 추가로 확인했습니다.",
+          "refs": {
+            "assessment_activities": [
+              "APP0228_FINAL_REVIEW_FOCUSED_FOLLOW_UP"
+            ],
+            "targeted_followups": [
+              "EV_APP0228_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04"
+            ],
+            "assessment_evidence": [
+              "EV_APP0228_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04"
+            ],
+            "assessment_observations": [
+              "OB_FINAL_REVIEW_PANEL_01_ML_ENGINEER_EV_APP0228_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04",
+              "OB_FINAL_REVIEW_PANEL_01_HIRING_MANAGER_EV_APP0228_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04"
+            ]
+          },
+          "resolution_plan_ref": {
+            "final_decision_id": "FD_APP0228_INITIAL",
+            "skill_id": "M1_SKILL_04"
+          }
+        },
+        {
+          "scene_ref": "M1-19",
+          "space_label": "평가회의실",
+          "human_roles": [
+            "해당 Skill 평가자",
+            "현업 채용책임자",
+            "ICT 인사담당자"
+          ],
+          "presentation_copy": "필수 Skill을 판단할 직접 근거를 확인한 뒤 Offer 진행을 기록했습니다. 과거 이견은 이력으로 보존합니다.",
+          "refs": {
+            "assessment_observations": [
+              "OB_FINAL_REVIEW_PANEL_01_ML_ENGINEER_EV_APP0228_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04",
+              "OB_FINAL_REVIEW_PANEL_01_HIRING_MANAGER_EV_APP0228_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04"
+            ],
+            "evidence_decisions": [
+              "DC_APP0228_M1_SKILL_04_002380"
+            ],
+            "final_decisions": [
+              "FD_APP0228_RE_REVIEW"
+            ],
+            "calibration_reviews": [
+              "APP0228_FINAL_REVIEW_FOLLOW_UP_CALIBRATION_REVIEW"
+            ]
+          }
+        }
+      ],
+      "refs": {
+        "stage_history": [
+          "APP0228_DOCUMENT_SCREEN",
+          "APP0228_PRE_ASSESSMENT",
+          "APP0228_FIRST_INTERVIEW",
+          "APP0228_SECOND_INTERVIEW",
+          "APP0228_FINAL_REVIEW"
+        ],
+        "assessment_activities": [
+          "APP0228_FIRST_INTERVIEW_FIRST_INTERVIEW_SESSION"
+        ],
+        "activity_sessions": [
+          "APP0228_FIRST_INTERVIEW_TECHNICAL_ASSESSMENT",
+          "APP0228_FIRST_INTERVIEW_AI_CASE",
+          "APP0228_FIRST_INTERVIEW_PRACTITIONER_QA"
+        ],
+        "final_decisions": [
+          "FD_APP0228_INITIAL",
+          "FD_APP0228_RE_REVIEW"
+        ],
+        "targeted_followups": [
+          "EV_APP0228_FINAL_REVIEW_FOCUSED_FOLLOW_UP_M1_SKILL_04"
+        ]
+      },
+      "caveats": [
+        "후속검증은 합격을 위한 재시험이 아닙니다. v1 HOLD 18명 중 Re-review Proceed는 이 사례 1명입니다.",
+        "후속검증의 두 MODERATE Observation이 일치하여 별도 Calibration 회의 없이 Skill Decision을 기록했습니다.",
+        "Offer EXPIRED는 이후 별도 lifecycle이며 Selection 판단의 성공·실패를 뜻하지 않습니다."
+      ],
+      "secondary_lifecycle_refs": {
+        "offers": [
+          "OF_APP0228"
+        ],
+        "offer_events": [
+          "OF_APP0228_OFFERED",
+          "OF_APP0228_EXPIRED"
+        ]
+      }
+    }
+  ]
+}

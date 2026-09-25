@@ -920,7 +920,22 @@ Observation→Evidence Decision→Final Review 추적, 보호특성/개인정보
 별도 `presentation/mission1_representative_cases.json` 책임으로
 dataset_version / display_id / candidate_id / selection_reason을 관리한다.
 UI 지원자 01 등의 display_id와 정본 candidate_id를 분리한다.
-**대표 사례는 Dataset의 입력이 아니라 Dataset의 결과다.** 이번 작업에서 실제 선정·Mapping 파일 생성은 하지 않는다.
+**대표 사례는 Dataset의 입력이 아니라 Dataset의 결과다.**
+
+사용자 Human Selection 확정: CASE A=C0003/APP0003, CASE B=C0005/APP0005, CASE C=C0228/APP0228.
+`presentation/mission1_representative_cases.json`은 mapping_version과 dataset_version=v1, 승인 manifest hash에 귀속된다.
+canonical Dataset의 일부가 아니며 v2로 자동 승계하지 않는다. v2에서는 별도 대표 선정과 새 Mapping을 검토한다.
+카드 제목은 후보 ID·합불이 아닌 판단 질문이다. ID는 상세에서 확인한다. 각 case는 primary_skill_id,
+2~4개 evidence_cards, scene별 ordered steps, table별 canonical refs, presentation copy, caveats를 가진다.
+refs는 Evidence/Observation/Skill Decision/Stage/Final/Calibration/Session/Follow-up ID만 연결하고 canonical 원문을 복제하지 않는다.
+Resolution Plan은 final_decision_id + skill_id로 원본 항목을 찾는다. 결과는 canonical record에서 읽으며 새 평가나 점수를 만들지 않는다.
+C0003의 APPLICATION_RESPONSE는 Skill01 배경이며 Skill02 자기기술로 오인하지 않는다. Skill02 미관찰과 보조 Skill03 직접 근거를 분리한다.
+C0005는 근거 미확보 종료이며 역량 부족 판정으로 표시하지 않는다. C0228은 targeted 확인 후 진행한 사례이나
+HOLD 18명 중 해당 경로는 1명이라는 version-bound 참고 문맥을 보존한다. Offer EXPIRED는 별도 lifecycle이다.
+Human Layer는 기존 직책·공간을 사용한다. 사람 대화에 typing을 쓰지 않고 Decision Panel의 순차 reveal은
+저장된 v1 trace 조회임을 명시하며 전체 표시/reduced motion을 지원하도록 계약만 둔다. 실시간 AI 판단이 아니다.
+`python3 -B scripts/validate_mission1_presentation.py`로 참조·동일 후보 소유·계보·HOLD chain·v1 hash를 검사한다.
+이번 구현은 Mapping과 검증까지이며 React/UI 연결 및 Mission 2 분석은 포함하지 않는다.
 
 ## 7. Open Issues
 
