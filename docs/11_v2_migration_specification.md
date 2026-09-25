@@ -322,3 +322,14 @@ Initial Final Proceed31 / DNP2 / HOLD18 → Targeted Follow-up18 → Re-review P
 Offer32 / Join17 / Ready8(목표일까지1). Target에 맞추지 않고 결과를 보존한다.
 확인된 제품 의미·데이터 정합성 Freeze blocker 없음. 합성 parameter/현실성 한계는 규칙·manifest에 남긴다.
 상태는 UNREVIEWED, frozen=false이며 Dataset 승인/Freeze·대표 선정·Mission 2 분석을 수행하지 않았다.
+
+
+## 16. Mission 1 Dataset v1 Baseline 승인
+
+사용자의 명시적 Human Review 승인으로 v0.4 snapshot을 v1으로 승격한다. canonical 파일은 재생성 없이 동일 bytes로 보존하며
+v0.1~v0.4·Generator·UI는 변경하지 않는다. Active Baseline과 승인시각은 `data/generation/baseline_registry.json`,
+source provenance와 실제 검증 결과는 `data/generation/v1/`에서 확인한다. 기존 §15의 UNREVIEWED 상태는 source v0.4 이력이다.
+v1은 현재 승인 Baseline이며 기아 실데이터/공식 정책이 아니다. snapshot을 직접 수정하지 않고 정당한 변경 사유가 있으면
+새 Candidate→Validation→Human Review→새 Baseline으로 교체하며 과거 버전과 그 분석/Presentation을 보존한다(09 §6.3).
+이번 범위는 승인 snapshot·합성 가정·Registry·Freeze 검증까지다. 대표 사례 선정, Presentation Mapping 생성,
+Mission 2 분석 및 UI 연결은 별도 후속 작업이다.

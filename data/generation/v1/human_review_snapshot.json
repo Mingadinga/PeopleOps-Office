@@ -1,0 +1,290 @@
+{
+  "approved_at": "2026-09-25T19:24:05+09:00",
+  "dataset_version": "v1",
+  "metrics": {
+    "calibration_activity": {
+      "actual": 144,
+      "eligible": 242,
+      "person_hours": 72.0,
+      "triggered": 144
+    },
+    "capacity": {
+      "additional_person_hours": 540.0,
+      "available_remaining_person_hours": 81.0,
+      "by_activity_person_hours": {
+        "AI_CASE": 0.0,
+        "CALIBRATION": 67.0,
+        "DOCUMENT_REVIEW": 80.8333,
+        "FINAL_REVIEW_DISCUSSION": 42.6667,
+        "FIRST_INTERVIEW_SESSION": 519.0,
+        "FOCUSED_FOLLOW_UP": 23.3333,
+        "FOLLOW_UP_CALIBRATION": 5.0,
+        "PRACTITIONER_QA": 0.0,
+        "TECHNICAL_ASSESSMENT": 0.0,
+        "VALUES_BEHAVIOR_INTERVIEW": 51.0
+      },
+      "demand_person_hours": 576.0,
+      "first_calibration_person_hours": 64.0,
+      "first_interview_and_calibration_person_hours": 583.0,
+      "first_interview_plan_capacity_person_hours": 60,
+      "gap_person_hours": 516.0,
+      "history": [
+        {
+          "capacity_event_id": "CAP_0000",
+          "cohort_application_ids": "[]",
+          "decided_by": "HR_OPERATIONS_01",
+          "decision_provenance": "SYNTHETIC_HUMAN_SCENARIO",
+          "demand_person_hours": "0",
+          "effective_at": "2026-10-01T00:00:00+09:00",
+          "event_type": "INITIAL_PLAN",
+          "person_hours": "60",
+          "rationale": "{\"evaluator_count\":30,\"initial_hours_each\":2,\"planned_candidates\":20,\"scope\":\"interview only, not quota\",\"unit_person_hours\":3}",
+          "reason_code": "INITIAL_CYCLE_PLAN",
+          "scope": "WHOLE_CYCLE",
+          "source_event_id": "",
+          "stage": "FIRST_INTERVIEW"
+        },
+        {
+          "capacity_event_id": "CAP_0001",
+          "cohort_application_ids": "[\"APP0002\",\"APP0003\",\"APP0004\",\"APP0005\",\"APP0006\",\"APP0007\",\"APP0009\",\"APP0010\",\"APP0012\",\"APP0013\",\"APP0014\",\"APP0018\",\"APP0021\",\"APP0022\",\"APP0025\",\"APP0026\",\"APP0027\",\"APP0029\",\"APP0031\",\"APP0034\",\"APP0035\",\"APP0037\",\"APP0039\",\"APP0040\",\"APP0041\",\"APP0042\",\"APP0044\",\"APP0045\",\"APP0046\",\"APP0048\",\"APP0049\",\"APP0050\",\"APP0051\",\"APP0052\",\"APP0053\",\"APP0056\",\"APP0057\",\"APP0058\",\"APP0059\",\"APP0061\",\"APP0062\",\"APP0063\",\"APP0064\",\"APP0066\",\"APP0068\",\"APP0070\",\"APP0073\",\"APP0076\",\"APP0077\",\"APP0078\",\"APP0079\",\"APP0080\",\"APP0082\",\"APP0083\",\"APP0085\",\"APP0089\",\"APP0090\",\"APP0093\",\"APP0095\",\"APP0096\",\"APP0097\",\"APP0101\",\"APP0102\",\"APP0103\",\"APP0104\",\"APP0105\",\"APP0107\",\"APP0109\",\"APP0110\",\"APP0112\",\"APP0113\",\"APP0115\",\"APP0116\",\"APP0119\",\"APP0121\",\"APP0123\",\"APP0124\",\"APP0128\",\"APP0129\",\"APP0130\",\"APP0131\",\"APP0134\",\"APP0135\",\"APP0136\",\"APP0139\",\"APP0140\",\"APP0141\",\"APP0142\",\"APP0143\",\"APP0146\",\"APP0148\",\"APP0149\",\"APP0150\",\"APP0151\",\"APP0152\",\"APP0153\",\"APP0154\",\"APP0155\",\"APP0159\",\"APP0161\",\"APP0162\",\"APP0163\",\"APP0164\",\"APP0166\",\"APP0167\",\"APP0170\",\"APP0171\",\"APP0173\",\"APP0175\",\"APP0176\",\"APP0181\",\"APP0182\",\"APP0184\",\"APP0186\",\"APP0188\",\"APP0189\",\"APP0193\",\"APP0194\",\"APP0196\",\"APP0199\",\"APP0201\",\"APP0202\",\"APP0205\",\"APP0209\",\"APP0210\",\"APP0215\",\"APP0216\",\"APP0217\",\"APP0219\",\"APP0220\",\"APP0222\",\"APP0223\",\"APP0225\",\"APP0228\",\"APP0230\",\"APP0231\",\"APP0232\",\"APP0235\",\"APP0237\",\"APP0238\",\"APP0239\",\"APP0240\",\"APP0241\",\"APP0242\",\"APP0243\",\"APP0246\",\"APP0247\",\"APP0251\",\"APP0253\",\"APP0254\",\"APP0255\",\"APP0256\",\"APP0258\",\"APP0263\",\"APP0264\",\"APP0265\",\"APP0267\",\"APP0268\",\"APP0269\",\"APP0270\",\"APP0272\",\"APP0273\",\"APP0274\",\"APP0275\",\"APP0278\",\"APP0279\",\"APP0285\",\"APP0286\",\"APP0288\",\"APP0289\",\"APP0295\",\"APP0296\",\"APP0297\",\"APP0299\",\"APP0300\",\"APP0301\",\"APP0302\",\"APP0305\",\"APP0307\",\"APP0309\",\"APP0314\",\"APP0318\",\"APP0319\",\"APP0322\",\"APP0324\",\"APP0325\",\"APP0326\",\"APP0334\",\"APP0335\",\"APP0336\",\"APP0338\",\"APP0342\"]",
+          "decided_by": "",
+          "decision_provenance": "",
+          "demand_person_hours": "576",
+          "effective_at": "2026-12-06T14:04:00+09:00",
+          "event_type": "GAP_IDENTIFIED",
+          "person_hours": "516",
+          "rationale": "all notified PRE_ASSESSMENT advanced candidates; demand minus total initial budget",
+          "reason_code": "WHOLE_CYCLE_DEMAND",
+          "scope": "WHOLE_CYCLE",
+          "source_event_id": "",
+          "stage": "FIRST_INTERVIEW"
+        },
+        {
+          "capacity_event_id": "CAP_0002",
+          "cohort_application_ids": "[\"APP0002\",\"APP0003\",\"APP0004\",\"APP0005\",\"APP0006\",\"APP0007\",\"APP0009\",\"APP0010\",\"APP0012\",\"APP0013\",\"APP0014\",\"APP0018\",\"APP0021\",\"APP0022\",\"APP0025\",\"APP0026\",\"APP0027\",\"APP0029\",\"APP0031\",\"APP0034\",\"APP0035\",\"APP0037\",\"APP0039\",\"APP0040\",\"APP0041\",\"APP0042\",\"APP0044\",\"APP0045\",\"APP0046\",\"APP0048\",\"APP0049\",\"APP0050\",\"APP0051\",\"APP0052\",\"APP0053\",\"APP0056\",\"APP0057\",\"APP0058\",\"APP0059\",\"APP0061\",\"APP0062\",\"APP0063\",\"APP0064\",\"APP0066\",\"APP0068\",\"APP0070\",\"APP0073\",\"APP0076\",\"APP0077\",\"APP0078\",\"APP0079\",\"APP0080\",\"APP0082\",\"APP0083\",\"APP0085\",\"APP0089\",\"APP0090\",\"APP0093\",\"APP0095\",\"APP0096\",\"APP0097\",\"APP0101\",\"APP0102\",\"APP0103\",\"APP0104\",\"APP0105\",\"APP0107\",\"APP0109\",\"APP0110\",\"APP0112\",\"APP0113\",\"APP0115\",\"APP0116\",\"APP0119\",\"APP0121\",\"APP0123\",\"APP0124\",\"APP0128\",\"APP0129\",\"APP0130\",\"APP0131\",\"APP0134\",\"APP0135\",\"APP0136\",\"APP0139\",\"APP0140\",\"APP0141\",\"APP0142\",\"APP0143\",\"APP0146\",\"APP0148\",\"APP0149\",\"APP0150\",\"APP0151\",\"APP0152\",\"APP0153\",\"APP0154\",\"APP0155\",\"APP0159\",\"APP0161\",\"APP0162\",\"APP0163\",\"APP0164\",\"APP0166\",\"APP0167\",\"APP0170\",\"APP0171\",\"APP0173\",\"APP0175\",\"APP0176\",\"APP0181\",\"APP0182\",\"APP0184\",\"APP0186\",\"APP0188\",\"APP0189\",\"APP0193\",\"APP0194\",\"APP0196\",\"APP0199\",\"APP0201\",\"APP0202\",\"APP0205\",\"APP0209\",\"APP0210\",\"APP0215\",\"APP0216\",\"APP0217\",\"APP0219\",\"APP0220\",\"APP0222\",\"APP0223\",\"APP0225\",\"APP0228\",\"APP0230\",\"APP0231\",\"APP0232\",\"APP0235\",\"APP0237\",\"APP0238\",\"APP0239\",\"APP0240\",\"APP0241\",\"APP0242\",\"APP0243\",\"APP0246\",\"APP0247\",\"APP0251\",\"APP0253\",\"APP0254\",\"APP0255\",\"APP0256\",\"APP0258\",\"APP0263\",\"APP0264\",\"APP0265\",\"APP0267\",\"APP0268\",\"APP0269\",\"APP0270\",\"APP0272\",\"APP0273\",\"APP0274\",\"APP0275\",\"APP0278\",\"APP0279\",\"APP0285\",\"APP0286\",\"APP0288\",\"APP0289\",\"APP0295\",\"APP0296\",\"APP0297\",\"APP0299\",\"APP0300\",\"APP0301\",\"APP0302\",\"APP0305\",\"APP0307\",\"APP0309\",\"APP0314\",\"APP0318\",\"APP0319\",\"APP0322\",\"APP0324\",\"APP0325\",\"APP0326\",\"APP0334\",\"APP0335\",\"APP0336\",\"APP0338\",\"APP0342\"]",
+          "decided_by": "HR_OPERATIONS_01",
+          "decision_provenance": "SYNTHETIC_HUMAN_SCENARIO",
+          "demand_person_hours": "576",
+          "effective_at": "2026-12-08T14:04:00+09:00",
+          "event_type": "CAPACITY_ADDED",
+          "person_hours": "540",
+          "rationale": "{\"additional_hours_each\":18,\"alternatives\":[\"EXTEND_WINDOW\",\"REDESIGN_ASSESSMENT\"],\"evaluator_count\":30,\"pool_panels\":10,\"rationale\":\"Fixed synthetic pool receives additional interview hours in whole one-hour allocations; no added panels\",\"selected\":\"ADD_EVALUATOR_RESOURCES\"}",
+          "reason_code": "ADDITIONAL_EVALUATOR_RESOURCES",
+          "scope": "WHOLE_CYCLE",
+          "source_event_id": "CAP_0001",
+          "stage": "FIRST_INTERVIEW"
+        }
+      ],
+      "incomplete_participation_intervals": 0,
+      "initial_person_hours": 60.0,
+      "interview_consumed_person_hours": 519.0,
+      "released_reservation_person_hours": 57.0,
+      "reserved_remaining_person_hours": 0.0,
+      "revised_person_hours": 600.0,
+      "total_person_hours": 788.8333
+    },
+    "final_current_states": {
+      "DO_NOT_PROCEED": 19,
+      "PROCEED_TO_OFFER": 32
+    },
+    "first_coverage": {
+      "COVERED": 87,
+      "NOT_COVERED": 86
+    },
+    "funnel": [
+      {
+        "actual": 342,
+        "difference": 22,
+        "label": "지원 시작",
+        "stage": "APPLICATION_STARTED",
+        "target": 320
+      },
+      {
+        "actual": 246,
+        "difference": 6,
+        "label": "지원 완료",
+        "stage": "APPLICATION_SUBMITTED",
+        "target": 240
+      },
+      {
+        "actual": 246,
+        "difference": 126,
+        "label": "서류 통과",
+        "stage": "DOCUMENT_SCREEN",
+        "target": 120
+      },
+      {
+        "actual": 192,
+        "difference": 132,
+        "label": "사전검증 통과",
+        "stage": "PRE_ASSESSMENT",
+        "target": 60
+      },
+      {
+        "actual": 192,
+        "difference": 172,
+        "label": "1차면접 계획 인원",
+        "stage": "FIRST_INTERVIEW",
+        "target": 20
+      },
+      {
+        "actual": 59,
+        "difference": 51,
+        "label": "2차면접 대상",
+        "stage": "SECOND_INTERVIEW",
+        "target": 8
+      },
+      {
+        "actual": 32,
+        "difference": 27,
+        "label": "Offer",
+        "stage": "OFFER",
+        "target": 5
+      },
+      {
+        "actual": 17,
+        "difference": 13,
+        "label": "Join 목표",
+        "stage": "JOIN",
+        "target": 4
+      }
+    ],
+    "hold": {
+      "follow_up_activities": 18,
+      "initial": 18,
+      "initial_do_not_proceed": 2,
+      "initial_proceed": 31,
+      "pending": 0,
+      "re_review_outcomes": {
+        "DO_NOT_PROCEED": 17,
+        "PROCEED_TO_OFFER": 1
+      },
+      "re_reviews": 18,
+      "targeted_completed": 18
+    },
+    "offer_current_states": {
+      "ACCEPTED": 17,
+      "DECLINED": 4,
+      "EXPIRED": 8,
+      "PRE_JOIN_WITHDRAWAL": 3
+    },
+    "offer_events": {
+      "ACCEPTED": 20,
+      "DECLINED": 4,
+      "EXPIRED": 8,
+      "OFFERED": 32,
+      "PRE_JOIN_WITHDRAWAL": 3
+    },
+    "ready": {
+      "gap_skill_counts": {
+        "M1_SKILL_03": 9,
+        "M1_SKILL_05": 11,
+        "M1_SKILL_06": 9
+      },
+      "not_yet_ready": 9
+    },
+    "stage_outcomes": {
+      "DOCUMENT_SCREEN": {
+        "ADVANCED": 246,
+        "COMPLETED": 246,
+        "ENTERED": 246,
+        "FAILED": 0,
+        "FINAL_REVIEW_COMPLETED": 0,
+        "IN_PROGRESS": 0,
+        "WITHDRAWN": 0,
+        "rates": {
+          "ADVANCED": 1.0,
+          "FAILED": 0.0,
+          "WITHDRAWN": 0.0
+        }
+      },
+      "FINAL_REVIEW": {
+        "ADVANCED": 0,
+        "COMPLETED": 51,
+        "ENTERED": 51,
+        "FAILED": 0,
+        "FINAL_REVIEW_COMPLETED": 51,
+        "IN_PROGRESS": 0,
+        "WITHDRAWN": 0,
+        "rates": {
+          "ADVANCED": null,
+          "FAILED": null,
+          "WITHDRAWN": null
+        }
+      },
+      "FIRST_INTERVIEW": {
+        "ADVANCED": 59,
+        "COMPLETED": 173,
+        "ENTERED": 192,
+        "FAILED": 37,
+        "FINAL_REVIEW_COMPLETED": 0,
+        "IN_PROGRESS": 91,
+        "WITHDRAWN": 5,
+        "rates": {
+          "ADVANCED": 0.3072916666666667,
+          "FAILED": 0.19270833333333334,
+          "WITHDRAWN": 0.026041666666666668
+        }
+      },
+      "PRE_ASSESSMENT": {
+        "ADVANCED": 192,
+        "COMPLETED": 217,
+        "ENTERED": 246,
+        "FAILED": 25,
+        "FINAL_REVIEW_COMPLETED": 0,
+        "IN_PROGRESS": 20,
+        "WITHDRAWN": 9,
+        "rates": {
+          "ADVANCED": 0.7804878048780488,
+          "FAILED": 0.1016260162601626,
+          "WITHDRAWN": 0.036585365853658534
+        }
+      },
+      "SECOND_INTERVIEW": {
+        "ADVANCED": 51,
+        "COMPLETED": 51,
+        "ENTERED": 59,
+        "FAILED": 0,
+        "FINAL_REVIEW_COMPLETED": 0,
+        "IN_PROGRESS": 4,
+        "WITHDRAWN": 4,
+        "rates": {
+          "ADVANCED": 0.864406779661017,
+          "FAILED": 0.0,
+          "WITHDRAWN": 0.06779661016949153
+        }
+      }
+    },
+    "workforce": {
+      "available_supply_at_target_fte": 13,
+      "demand_fte": 16,
+      "forecast_supply_fte": 12,
+      "fulfillment_ratio": 0.8125,
+      "join_to_ready_days": {
+        "max": 231.0,
+        "median": 194.0,
+        "min": 183.0,
+        "n": 8,
+        "p90": 220.5
+      },
+      "joined": 17,
+      "ramp_up_extended": 12,
+      "ready_by_target_date": 1,
+      "ready_observed": 8,
+      "target_date": "2027-09-01"
+    }
+  },
+  "review_status": "APPROVED",
+  "scope": "Approved descriptive snapshot; no representative selection or Mission 2 analysis.",
+  "source_candidate_version": "v0.4",
+  "source_validation_warnings": [
+    {
+      "code": "REVIEW_PENDING",
+      "message": "Synthetic rules/realism review remains pending; no freeze."
+    },
+    {
+      "code": "SYNTHETIC_POLICY_ASSUMPTIONS",
+      "message": "Source matrix, resource blocks, re-review uncertainty handling and mentor scenarios require human rule audit; not employer policies."
+    }
+  ]
+}

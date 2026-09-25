@@ -32,7 +32,9 @@ v0.1은 Audit history로 보존하며 row hand-edit하지 않는다. 문서 변�
 
 검토 후보는 `data/generated/v0.1/`, `data/generated/v0.2/` 등으로 구분한다.
 승인 후 Event 정본은 `data/synthetic/v1/`에 freeze한다.
-Case 버전 경로의 기존 설계는 `data/case/v1/`, 생성규칙/manifest는 `data/generation/`이다.
+v1은 source candidate의 Case/Plan JSON과 Event CSV를 함께 `data/synthetic/v1/`에 보존한다. 별도 `data/case/v1/` 복제는 만들지 않는다.
+승인 manifest·검증·Human Review snapshot·합성 가정은 `data/generation/v1/`, Active/Historical Registry는 `data/generation/baseline_registry.json`에 둔다.
+생성규칙과 Generator provenance는 보존된 source candidate v0.4의 파일과 hash를 참조한다.
 Plan·규칙·manifest가 어느 Event 버전을 설명하는지 명시하며 다른 버전을 혼용하지 않는다.
 Manifest의 필수 버전·관측창·검증 정보는 6.3절을 따른다.
 Runtime과 Mission 2는 동일 canonical v1을 사용한다. Runtime에서 generator를 실행하지 않는다.
@@ -868,6 +870,34 @@ record_counts는 파일별 실제 행 수다. 검증 상태/오류는 실제 검
 v0.2는 UNREVIEWED / frozen=false이며 사람 검토·승인·Freeze는 미수행이다.
 Freeze 후 UI와 분석은 같은 버전을 사용한다. 변경이 필요하면 버전과 변경 이유를 구분한다.
 Main Story는 실제 데이터 분석 후 의미 있는 패턴 2~3개로 정하며 무관계도 정상 결과다.
+
+#### 승인 Baseline v1과 후속 버전 정책
+
+v1은 사용자 Human Review 승인에 따라 v0.4(seed 20260924)를 승격한 **현재 승인된 Mission 1 Synthetic Dataset Baseline**이다.
+Human Review, Independent Validation, 현재 SSOT 정합성, 재현성 확인을 완료한 기준선이며 Mission 1 Presentation과 Mission 2 분석의 기본 입력이다.
+`data/synthetic/v1/`의 canonical 25개 파일은 source `data/generated/v0.4/`와 byte/hash가 동일하다. 재생성·row 수정·Target 사후 조정을 하지 않는다.
+승인 metadata는 `data/generation/v1/dataset_manifest.json`에서 dataset_version=v1, source_candidate_version=v0.4, frozen=true,
+baseline_status=FROZEN, review_status=APPROVED, frozen_at, source manifest/rules/code hashes와 관측창을 기록한다.
+이는 PeopleOps Office 합성 시나리오이며 기아 내부 채용 데이터나 공식 운영정책이 아니다.
+합성 가정은 `data/generation/v1/synthetic_assumptions.json`, 승인 당시 결과는 `human_review_snapshot.json`에 보존한다.
+
+Freeze는 현재 snapshot을 직접 덮어쓰지 않는다는 뜻이며 향후 오류 수정이나 제품 변경을 금지하지 않는다.
+변경 절차는 Current Baseline → Change Reason → 필요한 SSOT/Generation Rule 변경 → 새 Candidate → Validation → Human Review → 새 Baseline(v2 등)이다.
+Generator bug, 미검출 데이터 오류, 공개 근거 추가, 채용/Assessment 설계 변경, 합성 가정 개선,
+Mission 2 모델링 문제 또는 UI canonical contract 문제는 변경 사유가 될 수 있다.
+원하는 분석 결과가 나오지 않거나 Target Funnel과 다르다는 이유만으로 버전을 변경하지 않는다.
+
+Registry는 active_baseline과 각 version의 status(ACTIVE/SUPERSEDED), source_candidate_version, approved_at,
+superseded_by, change_reason 및 manifest 참조를 관리한다. 새 Baseline 승인 시 Registry만 기존 항목을 SUPERSEDED로 전환하며
+과거 Baseline의 canonical 파일·승인 manifest·결과 snapshot은 보존한다. 이번 승격은 v1만 생성한다.
+Mission 2 분석과 Presentation Mapping은 dataset_version을 필수 기록한다. Baseline 교체 후에도
+과거 분석/Presentation을 새 Dataset의 결과로 자동 재해석하지 않으며 새 버전 대상 재실행/재선정은 별도 작업이다.
+
+Freeze 검증은 `python3 -B data/generation/v1/verify_baseline.py`로 수행한다.
+기존 candidate CLI는 UNREVIEWED 계약 전용이므로 승인 manifest를 candidate manifest로 위장하거나 Generator를 변경하지 않는다.
+검증 스크립트는 v1 canonical에 기존 Independent Validator를 실행하고 source candidate manifest, 내용 동일성,
+승인 metadata, Registry, 합성 가정·승인 snapshot hash를 별도로 대조한다. source의 REVIEW_PENDING 경고는
+v0.4 검토 이력으로 유지하며 v1의 사용자 승인과 합성 가정 수용 기록을 분리한다.
 
 ### 6.4 대표 사례 선정과 Presentation Mapping
 

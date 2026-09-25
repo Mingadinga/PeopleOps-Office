@@ -1,0 +1,16 @@
+{
+  "active_baseline": "v1",
+  "baselines": [
+    {
+      "approved_at": "2026-09-25T19:24:05+09:00",
+      "change_reason": "First approved Mission 1 baseline after final Human Review and independent validation; no record changes.",
+      "dataset_version": "v1",
+      "manifest_ref": "data/generation/v1/dataset_manifest.json",
+      "manifest_sha256": "2e887a77c4908462f8820e0a5b43aac0f295ca4381ab5c1503b802d3cc0c4807",
+      "source_candidate_version": "v0.4",
+      "status": "ACTIVE",
+      "superseded_by": null
+    }
+  ],
+  "registry_schema_version": "1"
+}

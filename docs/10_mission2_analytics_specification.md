@@ -14,6 +14,8 @@ Mission 2의 종료는 계획 확정이다. 실제 경력 후보자 선발·Offe
 ## 2. 분석 입력과 재현성
 
 [09](09_mission1_data_specification.md)의 freeze된 canonical v1과 해당 Case/Plan을 읽는다.
+현재 승인 Baseline은 `data/generation/baseline_registry.json`의 v1(source v0.4)이다. 분석 결과와 Presentation Mapping은 `dataset_version`을 반드시 기록한다.
+새 Baseline 승인 시 과거 결과를 자동 치환하지 않는다. 새 버전 분석/Mapping은 별도로 생성하고 v1의 결과는 보존한다.
 Runtime과 분석의 버전이 같아야 한다. 필드·enum은 09를 참조하고 별도로 정의하지 않는다.
 실제 Python/Pandas 코드가 Raw Event로부터 결과를 계산해야 한다.
 분석 JSON·표·차트·문구의 수치가 코드와 일치하고 입력 버전·조건·기간·표본·단위를 추적할 수 있어야 한다.

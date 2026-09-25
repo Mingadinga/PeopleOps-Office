@@ -1,0 +1,90 @@
+[
+  {
+    "assumption_note": "SYNTHETIC Plan; not quota. FIRST: single 60min × 3; calibration separate.",
+    "available_capacity_person_hours": null,
+    "evidence_type": "SYNTHETIC",
+    "expected_conversion_rate": null,
+    "label": "지원 시작",
+    "plan_id": "M1_WP_01",
+    "stage": "APPLICATION_STARTED",
+    "target_count": 320,
+    "unit_effort_person_hours": null
+  },
+  {
+    "assumption_note": "SYNTHETIC Plan; not quota. FIRST: single 60min × 3; calibration separate.",
+    "available_capacity_person_hours": null,
+    "evidence_type": "SYNTHETIC",
+    "expected_conversion_rate": 0.75,
+    "label": "지원 완료",
+    "plan_id": "M1_WP_01",
+    "stage": "APPLICATION_SUBMITTED",
+    "target_count": 240,
+    "unit_effort_person_hours": null
+  },
+  {
+    "assumption_note": "SYNTHETIC Plan; not quota. FIRST: single 60min × 3; calibration separate.",
+    "available_capacity_person_hours": null,
+    "evidence_type": "SYNTHETIC",
+    "expected_conversion_rate": 0.5,
+    "label": "서류 통과",
+    "plan_id": "M1_WP_01",
+    "stage": "DOCUMENT_SCREEN",
+    "target_count": 120,
+    "unit_effort_person_hours": null
+  },
+  {
+    "assumption_note": "SYNTHETIC Plan; not quota. FIRST: single 60min × 3; calibration separate.",
+    "available_capacity_person_hours": null,
+    "evidence_type": "SYNTHETIC",
+    "expected_conversion_rate": 0.5,
+    "label": "사전검증 통과",
+    "plan_id": "M1_WP_01",
+    "stage": "PRE_ASSESSMENT",
+    "target_count": 60,
+    "unit_effort_person_hours": null
+  },
+  {
+    "assumption_note": "SYNTHETIC Plan; not quota. FIRST: single 60min × 3; calibration separate.",
+    "available_capacity_person_hours": 60,
+    "evidence_type": "SYNTHETIC",
+    "expected_conversion_rate": 0.3333333333333333,
+    "label": "1차면접 계획 인원",
+    "plan_id": "M1_WP_01",
+    "stage": "FIRST_INTERVIEW",
+    "target_count": 20,
+    "unit_effort_person_hours": 3
+  },
+  {
+    "assumption_note": "SYNTHETIC Plan; not quota. FIRST: single 60min × 3; calibration separate.",
+    "available_capacity_person_hours": null,
+    "evidence_type": "SYNTHETIC",
+    "expected_conversion_rate": 0.4,
+    "label": "2차면접 대상",
+    "plan_id": "M1_WP_01",
+    "stage": "SECOND_INTERVIEW",
+    "target_count": 8,
+    "unit_effort_person_hours": null
+  },
+  {
+    "assumption_note": "SYNTHETIC Plan; not quota. FIRST: single 60min × 3; calibration separate.",
+    "available_capacity_person_hours": null,
+    "evidence_type": "SYNTHETIC",
+    "expected_conversion_rate": 0.625,
+    "label": "Offer",
+    "plan_id": "M1_WP_01",
+    "stage": "OFFER",
+    "target_count": 5,
+    "unit_effort_person_hours": null
+  },
+  {
+    "assumption_note": "SYNTHETIC Plan; not quota. FIRST: single 60min × 3; calibration separate.",
+    "available_capacity_person_hours": null,
+    "evidence_type": "SYNTHETIC",
+    "expected_conversion_rate": 0.8,
+    "label": "Join 목표",
+    "plan_id": "M1_WP_01",
+    "stage": "JOIN",
+    "target_count": 4,
+    "unit_effort_person_hours": null
+  }
+]
