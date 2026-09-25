@@ -1,0 +1,15 @@
+{
+  "baseline_date": "2026-10-01",
+  "confirmed_joiners": 0,
+  "confirmed_transfer_in": 1,
+  "confirmed_transfer_out": 1,
+  "current_fte": 12,
+  "demand_fte": 16,
+  "evidence_type": "SYNTHETIC",
+  "forecast_supply_fte": 12,
+  "plan_id": "M1_WP_01",
+  "target_date": "2027-09-01",
+  "target_join": 4,
+  "target_ready": 4,
+  "workforce_gap": 4
+}

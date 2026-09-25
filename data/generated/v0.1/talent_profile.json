@@ -1,0 +1,110 @@
+[
+  {
+    "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+    "description": "문제 구조화의 관찰 가능한 업무 근거",
+    "evidence_refs": [
+      "docs/02_mission1_scenario.md#10-talent-profile-direction"
+    ],
+    "expected_evidence": "최소 납기 위반을 목표로 정의했다; 설비별 가용시간 제약을 확인했다",
+    "requirement_type": "MUST",
+    "skill_id": "M1_SKILL_01",
+    "skill_name": "문제 구조화",
+    "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction"
+  },
+  {
+    "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+    "description": "ML/수리적 사고 기초의 관찰 가능한 업무 근거",
+    "evidence_refs": [
+      "docs/02_mission1_scenario.md#10-talent-profile-direction"
+    ],
+    "expected_evidence": "평균 오차와 구간별 편차를 따로 비교했다; 학습 구간과 검증 구간의 중복을 확인했다",
+    "requirement_type": "MUST",
+    "skill_id": "M1_SKILL_02",
+    "skill_name": "ML/수리적 사고 기초",
+    "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction"
+  },
+  {
+    "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+    "description": "알고리즘 구현 및 검증의 관찰 가능한 업무 근거",
+    "evidence_refs": [
+      "docs/02_mission1_scenario.md#10-talent-profile-direction"
+    ],
+    "expected_evidence": "작업 의존 순서를 반영하는 함수를 작성했다; 빈 입력과 순환 의존의 재현 테스트를 실행했다",
+    "requirement_type": "MUST",
+    "skill_id": "M1_SKILL_03",
+    "skill_name": "알고리즘 구현 및 검증",
+    "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction"
+  },
+  {
+    "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+    "description": "새로운 기술 학습의 관찰 가능한 업무 근거",
+    "evidence_refs": [
+      "docs/02_mission1_scenario.md#10-talent-profile-direction"
+    ],
+    "expected_evidence": "새 도구의 설명과 작은 실행 예제를 비교했다; 문서 버전 차이를 확인하고 실행 예제를 수정했다",
+    "requirement_type": "MUST",
+    "skill_id": "M1_SKILL_04",
+    "skill_name": "새로운 기술 학습",
+    "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction"
+  },
+  {
+    "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+    "description": "협업 및 기술 커뮤니케이션의 관찰 가능한 업무 근거",
+    "evidence_refs": [
+      "docs/02_mission1_scenario.md#10-talent-profile-direction"
+    ],
+    "expected_evidence": "담당 부분과 검토 요청을 동료에게 문서로 전달했다; 동료 피드백과 수정 내역을 함께 기록했다",
+    "requirement_type": "MUST",
+    "skill_id": "M1_SKILL_05",
+    "skill_name": "협업 및 기술 커뮤니케이션",
+    "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction"
+  },
+  {
+    "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+    "description": "Production 경험의 관찰 가능한 업무 근거",
+    "evidence_refs": [
+      "docs/02_mission1_scenario.md#10-talent-profile-direction"
+    ],
+    "expected_evidence": "실패한 배치 작업을 격리하는 절차를 정리했다; 재시도 중복과 복구 로그를 점검했다",
+    "requirement_type": "LEARNABLE",
+    "skill_id": "M1_SKILL_06",
+    "skill_name": "Production 경험",
+    "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction"
+  },
+  {
+    "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+    "description": "논문/알고리즘 구현 경험의 관찰 가능한 업무 근거",
+    "evidence_refs": [
+      "docs/02_mission1_scenario.md#10-talent-profile-direction"
+    ],
+    "expected_evidence": "논문 알고리즘의 작은 구현 예제를 작성했다; 기준 구현과 동일 입력의 결과를 비교했다",
+    "requirement_type": "PLUS",
+    "skill_id": "M1_SKILL_07",
+    "skill_name": "논문/알고리즘 구현 경험",
+    "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction"
+  },
+  {
+    "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+    "description": "관련 연구/프로젝트의 관찰 가능한 업무 근거",
+    "evidence_refs": [
+      "docs/02_mission1_scenario.md#10-talent-profile-direction"
+    ],
+    "expected_evidence": "프로젝트의 담당 작업과 산출물을 설명했다; 변경 전후 결과와 한계를 기록했다",
+    "requirement_type": "PLUS",
+    "skill_id": "M1_SKILL_08",
+    "skill_name": "관련 연구/프로젝트",
+    "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction"
+  },
+  {
+    "classification_rationale": "V2 확정 인재 요건 분류. 기아 공식 공고의 검증된 직접 인용이 아님.",
+    "description": "필요시 Business English의 관찰 가능한 업무 근거",
+    "evidence_refs": [
+      "docs/02_mission1_scenario.md#10-talent-profile-direction"
+    ],
+    "expected_evidence": "기술 문서의 설정 조건을 설명했다; 원문 버전과 실제 동작을 대조했다",
+    "requirement_type": "PLUS",
+    "skill_id": "M1_SKILL_09",
+    "skill_name": "필요시 Business English",
+    "source_reference": "docs/02_mission1_scenario.md#10-talent-profile-direction"
+  }
+]

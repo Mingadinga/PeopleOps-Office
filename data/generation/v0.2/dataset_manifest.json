@@ -1,0 +1,172 @@
+{
+  "capacity_parameters": {
+    "additional_panel_person_hours": 80,
+    "initial_panels": 1,
+    "initial_person_hours": 80,
+    "no_response_release_days": 1,
+    "planned_unit_person_hours": 4,
+    "pool_id_format": "FIRST_PANEL_{panel:02d}_{role}",
+    "resource_decision_days": 2,
+    "slots_per_panel_week": 2
+  },
+  "case_id": "M01",
+  "dataset_path": "data/generated/v0.2",
+  "dataset_version": "v0.2",
+  "file_sha256": {
+    "activity_participants.csv": "e08b5d635f81985d07ac0ff235fe70de2dfc545b9afe12c17f0a37419640595a",
+    "applications.csv": "498192479c318d881da9d656ee8beb1a41ab1b2319c761c954a6d8e8961c0588",
+    "assessment_activities.csv": "47b497eae76bd5cded5107acdb2c2f7b96b5cd82a765e3e2ef0b54ec439d96e9",
+    "assessment_evidence.csv": "5a38189194e89bbca7220e1083eafe309905f0d207e2d18955f062fe04c77250",
+    "assessment_observations.csv": "0164923dea74418b8bd70746f75cab1aa70d66621b337ed320a3065644f69259",
+    "capacity_assignments.csv": "cadd24ede810fa7b9935c7c99ee2d2f0a57a5935618c618571e7b36b7921fdd3",
+    "evidence_decisions.csv": "db7c36a042138864d9283e03e88c720dd3223bcc65684dc324959f4b84167247",
+    "evidence_skill_links.csv": "a0dc23431e4173a4b68d531bc27f14a73aa5dfdbd546a3aa88ad7275dfb4f51a",
+    "final_decisions.csv": "3b6d54714b329e5b27ddea0050a899f4062761d0d3137b468413667f74958eaf",
+    "funnel_plan.json": "1bc864e5db9a022e9bbde6b17594de934ff11cfa29c8cef1c427b26991f33ded",
+    "interview_capacity_events.csv": "1ac284e1f9ebf552e5cbcb0d9425c52e3bdf46da2e5a8a91fda1a352cce2e569",
+    "offer_events.csv": "cb699fbe5200f6f145b3d3a8407a93e6c7d435569faf507768347a546bbf489e",
+    "offers.csv": "bb14989e1bd553ac97d7fbb0d6a2fce54dbdf65d8850e98841a5df627d4c08ce",
+    "onboarding_profiles.csv": "9a18d83e15856d0f97267bebaa451138fae0cc37026692476f7b5fd360934631",
+    "onboarding_skill_gaps.csv": "4c1d2303e07a2baf495bd5cc7bfbca71fecb1b8be2d0c1ba499286af9c7a1e44",
+    "onboarding_tasks.csv": "8ba408a80483f5642ae1c648b3bdc3466af44d48185e3f307e40ecad093793b1",
+    "skill_decision_observations.csv": "9457dcd2be7a9bf7b3659d40fec226bceb53941223c9469c7d8174dd47c6344e",
+    "stage_history.csv": "ec6929ad3a5d7b66108c956d6feb83d9dbc81ee10ad87f87402a8743633af62b",
+    "talent_profile.json": "c3dc5e138426eddbbd77253ff4876029cc47168e639688e0ebab63bbc1702924",
+    "workforce_events.csv": "363307c0f010523d78fa463cc9720fff862512e4c2d61808aa3b4a839ed42899",
+    "workforce_plan.json": "9c1152532e2776501302f5676fcc1a8ea4f9bf3f9bb539ca609899d7630c830a"
+  },
+  "frozen": false,
+  "generated_at": "2027-11-01T00:00:00+09:00",
+  "generation_rules_sha256": "b194ec869abd66fe61901dc3faa7fa4a98db2f44a5d563c58bb43fc3bf20150c",
+  "generation_rules_version": "m1-rules-0.2.0",
+  "generation_version": "m1-generator-0.2.0",
+  "generator_source_sha256": {
+    "__init__.py": "33339b8efbc3c6f480c0082ef855509f78f5fd7ff6983b7be38fd9850632c1c6",
+    "__main__.py": "de27cd17a0e88021fdc1663b2b03077ef67df71143ea4aca1a0e238afd56c154",
+    "capacity.py": "a48b231968be4005f6aa47fd004691a64dab0ede468d5c48c282abda2b2d45bb",
+    "common.py": "c8d7728a5a939e94e15b4cae3d285e6ca042e2cec812650f7ee0256171522c84",
+    "evidence.py": "05db1b488dc83ec4b0cfdba76db35481001480c83a64ecf9f8ef503498984f59",
+    "generate.py": "2c3874874ba6f4738f86587221bcf29ccbb952d9c5e92e777afee1d85c882445",
+    "invariants.py": "269e794b9aed1cd726f6f03f1c905fab06fa320d8afb7bb537fd9b5656ca349e",
+    "report.py": "166673e9036f3a582db2449215c8ba1cccfc1aec9e1db285785aae92b97347cc",
+    "schema.py": "f45c21d03ce22b0254e078f22ead92791f7dc9ffcf490aae36cfa9cfa7743861",
+    "validate.py": "70fbbee04500a4241d157c92486b3165fbb8a70bb30bab5fe15f71e50f98f97f"
+  },
+  "implementation_parameters": {
+    "capacity": "whole cohort after observed PRE notification; added reusable panels also change scheduling throughput",
+    "censoring": "planned appointments/deadlines may exceed end; actual events may not",
+    "document_eligibility": "No verified public basic requirements available; no invented failure criterion",
+    "human_decisions": "offline SYNTHETIC_HUMAN_SCENARIO, not operational hiring automation",
+    "onboarding": "Learnable gaps plus local work-prep requirements with selection level below STRONG; all required gap tasks need verified work and mentor confirmation",
+    "pool_scheduling": "Reserve only occupied activity blocks; future follow-up reservations do not block earlier free intervals. No personal working-day/holiday calendar.",
+    "randomness": "keyed streams retain v0.1 namespace to isolate rule changes; no seed search; unchanged legacy pattern/contact weights",
+    "response_window": "14 days, SYNTHETIC assumption, not employer policy",
+    "stage_failure": "PRE: explicit coding verification omission; FIRST: repeated direct limitations in core technical Must without positive counter-evidence; SECOND: explicit current limitations in both learning and collaboration without prior direct positive support"
+  },
+  "job_id": "M1_ML_ENGINEER",
+  "observation_end": "2027-10-31T23:59:59+09:00",
+  "observation_start": "2026-10-01T00:00:00+09:00",
+  "random_stream_version": "m1-generator-0.1.0",
+  "record_counts": {
+    "activity_participants.csv": 2634,
+    "applications.csv": 342,
+    "assessment_activities.csv": 1874,
+    "assessment_evidence.csv": 3456,
+    "assessment_observations.csv": 6912,
+    "capacity_assignments.csv": 1765,
+    "evidence_decisions.csv": 4785,
+    "evidence_skill_links.csv": 3456,
+    "final_decisions.csv": 251,
+    "funnel_plan.json": 8,
+    "interview_capacity_events.csv": 3,
+    "offer_events.csv": 178,
+    "offers.csv": 86,
+    "onboarding_profiles.csv": 56,
+    "onboarding_skill_gaps.csv": 90,
+    "onboarding_tasks.csv": 351,
+    "skill_decision_observations.csv": 19472,
+    "stage_history.csv": 1001,
+    "talent_profile.json": 9,
+    "workforce_events.csv": 189,
+    "workforce_plan.json": 1
+  },
+  "response_window_days": 14,
+  "review_status": "UNREVIEWED",
+  "schema_version": "m1-canonical-0.2.0",
+  "seed": 20260924,
+  "source_matrix": {
+    "AI_CASE": {
+      "context": "설비시간·납기 CSV의 제약과 검증 산출물",
+      "skills": [
+        1,
+        3
+      ],
+      "source_type": "AI_CASE_RESPONSE",
+      "verification_mode": "DIRECT_TASK"
+    },
+    "CODING_TEST": {
+      "context": "작은 데이터 처리 함수와 경계 입력 테스트",
+      "skills": [
+        3
+      ],
+      "source_type": "CODING_TEST_RESPONSE",
+      "verification_mode": "DIRECT_TASK"
+    },
+    "DOCUMENT_REVIEW": {
+      "context": "지원 질문의 경험·성장·역할 자기기술",
+      "skills": [
+        1,
+        4,
+        5,
+        6,
+        8
+      ],
+      "source_type": "APPLICATION_RESPONSE",
+      "verification_mode": "SELF_REPORTED"
+    },
+    "PRACTITIONER_QA": {
+      "context": "새 도구 설명·개인 기여·운영 복구에 대한 후속 질의",
+      "skills": [
+        4,
+        5,
+        6,
+        8
+      ],
+      "source_type": "INTERVIEW_RESPONSE",
+      "verification_mode": "DIRECT_INTERACTION"
+    },
+    "TECHNICAL_ASSESSMENT": {
+      "context": "모델 결과 표·편차·학습 검증 분리의 해석",
+      "skills": [
+        1,
+        2,
+        7
+      ],
+      "source_type": "TECHNICAL_ASSESSMENT_RESPONSE",
+      "verification_mode": "DIRECT_TASK"
+    },
+    "VALUES_BEHAVIOR_INTERVIEW": {
+      "context": "학습·협업 행동의 상황·행동·피드백 확인",
+      "skills": [
+        4,
+        5
+      ],
+      "source_type": "INTERVIEW_RESPONSE",
+      "verification_mode": "BEHAVIORAL_INTERACTION"
+    }
+  },
+  "timestamp_note": "generated_at is a fixed reproducibility stamp, not the wall-clock execution time.",
+  "timezone": "Asia/Seoul",
+  "validation_errors": [],
+  "validation_status": "PASS",
+  "validation_warnings": [
+    {
+      "code": "REVIEW_PENDING",
+      "message": "Synthetic rules/realism review remains pending; no freeze."
+    },
+    {
+      "code": "SYNTHETIC_POLICY_ASSUMPTIONS",
+      "message": "Source matrix, resource blocks, re-review uncertainty handling and mentor scenarios require human rule audit; not employer policies."
+    }
+  ]
+}

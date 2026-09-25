@@ -1,0 +1,49 @@
+{
+  "checks": {
+    "activity_relation": 3124,
+    "activity_state": 1562,
+    "application_state": 342,
+    "calibration": 6084,
+    "candidate_identity": 343,
+    "candidate_relation": 19866,
+    "decision_relation": 34719,
+    "derived_plan": 1,
+    "enum": 44196,
+    "evidence_relation": 7546,
+    "evidence_schema": 7546,
+    "final_decision": 245,
+    "forbidden": 298449,
+    "foreign_key": 98133,
+    "observation_relation": 15084,
+    "observation_window": 29875,
+    "offer_lifecycle": 8,
+    "participant_time": 3570,
+    "plan_schema": 11,
+    "plan_value": 63,
+    "primary_key": 34719,
+    "provenance": 18143,
+    "required": 229967,
+    "rubric": 7542,
+    "schema": 69468,
+    "skill_link": 3771,
+    "source_reference": 3773,
+    "stage_decision": 5408,
+    "stage_lifecycle": 1684,
+    "temporal": 43397,
+    "timestamp": 30409,
+    "withdrawal": 1705,
+    "workforce_relation": 1
+  },
+  "errors": [],
+  "status": "PASS",
+  "warnings": [
+    {
+      "code": "REVIEW_PENDING",
+      "message": "Synthetic generation rules and overall realism require human Dataset review; no v1 freeze."
+    },
+    {
+      "code": "EMPTY_ONBOARDING_COHORT",
+      "message": "No joined cohort; preserve the outcome, review rules without tuning to Target."
+    }
+  ]
+}

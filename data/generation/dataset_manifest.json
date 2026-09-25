@@ -1,0 +1,82 @@
+{
+  "case_id": "M01",
+  "dataset_path": "data/generated/v0.1",
+  "dataset_version": "v0.1",
+  "file_sha256": {
+    "activity_participants.csv": "1e451d17afe11857452a6cd6012a70cfa5085fb9a49ebac34c4116a1aa0730bd",
+    "applications.csv": "498192479c318d881da9d656ee8beb1a41ab1b2319c761c954a6d8e8961c0588",
+    "assessment_activities.csv": "09d2e47df4f77ba22f38aff2363fb56ad42f2029e27c7b71a30fc66c9d9966e9",
+    "assessment_evidence.csv": "b84379fcff7d8b61713a3f5bbeedc2a8b6a28fa1ecd8da72bf0b947d1cb539a6",
+    "assessment_observations.csv": "2fafaebe18b233a271fc1d03ce9b5a5c90aa7554de0ee51a95595a22d4dd908b",
+    "evidence_decision_sources.csv": "e4784d3d82a538c7cfdd7ca9ee0536fe7e16929c99778ba0ab544f075cf96b29",
+    "evidence_decisions.csv": "4df276bb81b9ff1a954d006f78900dbf2435bbd709cd0fb89cb694addb818515",
+    "evidence_skill_links.csv": "44e7df3267038ab80e14b449a12d6bcf52b1c6e98845d79332b65dce14a5f42f",
+    "final_decisions.csv": "d90829ee277313f87809c1c821e89a30749878bdddc0bcc25b44df31251f3622",
+    "funnel_plan.json": "f1fd0eeb11ba873121fc7d569ea9862177a1e9a3f8faca6277d3f534e85616a5",
+    "offer_events.csv": "4b5a5a416bda992b143493a715247549b2f2f3ea369fa58348c028dfcc422437",
+    "offers.csv": "1c3abee18be8452943977e715b591b6d9b99cd92cb2872c3300a8207581d5454",
+    "onboarding_profiles.csv": "d7701b4c91b9fe8670af675f1893f5293e34d73f67ea9c81d79c6af38aad24d7",
+    "onboarding_skill_gaps.csv": "5740322ece15920d4e73bfc97323ff02c02459aac81fa9661ff33bc4c49ab31f",
+    "onboarding_tasks.csv": "6f8ac709e927c72aaee49a7d48e6f9401781792286305a9cc0ffc0b3b8329478",
+    "stage_history.csv": "841bfa15c3851d6c29608d2a23b6d253edd23a8b7729a2bbaf6d986917de0f00",
+    "talent_profile.json": "c3dc5e138426eddbbd77253ff4876029cc47168e639688e0ebab63bbc1702924",
+    "workforce_events.csv": "8ecf3a32b32b16d867af22f354665111d847a60c6d1f5100961f93cdda2e9281",
+    "workforce_plan.json": "9c1152532e2776501302f5676fcc1a8ea4f9bf3f9bb539ca609899d7630c830a"
+  },
+  "frozen": false,
+  "generated_at": "2027-11-01T00:00:00+09:00",
+  "generation_rules_sha256": "b5de8e3029f40453bc8bafbcf81ccc7ce9c0d4ebc4eadadc8d881de324f1bc1b",
+  "generation_rules_version": "m1-rules-0.1.0",
+  "generation_version": "m1-generator-0.1.0",
+  "generator_source_sha256": {
+    "__init__.py": "33339b8efbc3c6f480c0082ef855509f78f5fd7ff6983b7be38fd9850632c1c6",
+    "__main__.py": "e9dcc22dcf8184b85123df9fc9ca9b6fa7b2fc20239e3455a3d8afb6bf2a1b30",
+    "common.py": "b1f467d2cc7e9e46b3088f09db57be1e36bded104febcf9e278a649004480404",
+    "evidence.py": "e54a7c7b15979b7051e47a316364e450ff5afe14338a43af68298eb39a0ecc5b",
+    "generate.py": "9cd7007e0d1cd1d85e36a8cf0cd4b89e95ad516b56e2d7d774514c526c7508db",
+    "report.py": "fd0a58a10d4cbaac50a13f245bcf33fd18b8c28bd1c8a1dcca3329669248dcfc",
+    "schema.py": "3a8e3de025d467d469c3193c6715cb9548396962501ab7c087cd4b47393965ea",
+    "validate.py": "c887904d63d33ffc8ef12b8834bd312274e3df1aef2bf4e60f6f4d82f2662299"
+  },
+  "job_id": "M1_ML_ENGINEER",
+  "observation_end": "2027-10-31T23:59:59+09:00",
+  "observation_start": "2026-10-01T00:00:00+09:00",
+  "record_counts": {
+    "activity_participants.csv": 1190,
+    "applications.csv": 342,
+    "assessment_activities.csv": 1562,
+    "assessment_evidence.csv": 3773,
+    "assessment_observations.csv": 7542,
+    "evidence_decision_sources.csv": 9545,
+    "evidence_decisions.csv": 6084,
+    "evidence_skill_links.csv": 3771,
+    "final_decisions.csv": 61,
+    "funnel_plan.json": 8,
+    "offer_events.csv": 4,
+    "offers.csv": 2,
+    "onboarding_profiles.csv": 0,
+    "onboarding_skill_gaps.csv": 0,
+    "onboarding_tasks.csv": 0,
+    "stage_history.csv": 842,
+    "talent_profile.json": 9,
+    "workforce_events.csv": 0,
+    "workforce_plan.json": 1
+  },
+  "review_status": "UNREVIEWED",
+  "schema_version": "m1-canonical-0.1.0",
+  "seed": 20260924,
+  "timestamp_note": "generated_at is a fixed reproducibility stamp, not the wall-clock execution time.",
+  "timezone": "Asia/Seoul",
+  "validation_errors": [],
+  "validation_status": "PASS",
+  "validation_warnings": [
+    {
+      "code": "REVIEW_PENDING",
+      "message": "Synthetic generation rules and overall realism require human Dataset review; no v1 freeze."
+    },
+    {
+      "code": "EMPTY_ONBOARDING_COHORT",
+      "message": "No joined cohort; preserve the outcome, review rules without tuning to Target."
+    }
+  ]
+}

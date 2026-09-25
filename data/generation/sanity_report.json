@@ -1,0 +1,454 @@
+{
+  "calibration": {
+    "AGREED": 4206,
+    "DISAGREEMENT_REMAINS": 1208,
+    "INSUFFICIENT_EVIDENCE": 670
+  },
+  "capacity": {
+    "by_activity_person_hours": {
+      "AI_CASE": 84.6667,
+      "CALIBRATION": 59.1667,
+      "DOCUMENT_REVIEW": 80.8333,
+      "FINAL_REVIEW_DISCUSSION": 50.3333,
+      "PRACTITIONER_QA": 64.5,
+      "TECHNICAL_ASSESSMENT": 87.3333,
+      "VALUES_BEHAVIOR_INTERVIEW": 110.3333
+    },
+    "first_interview_and_calibration_person_hours": 295.6667,
+    "first_interview_plan_capacity_person_hours": 80,
+    "incomplete_participation_intervals": 0,
+    "total_person_hours": 537.1667
+  },
+  "dataset_version": "v0.1",
+  "evidence_counts": {
+    "assessment_evidence": 3773,
+    "assessment_observations": 7542,
+    "evidence_decision_sources": 9545,
+    "evidence_decisions": 6084,
+    "final_decisions": 61
+  },
+  "final_decisions": {
+    "DO_NOT_PROCEED": 0,
+    "HOLD": 59,
+    "PROCEED_TO_OFFER": 2
+  },
+  "funnel": [
+    {
+      "actual": 342,
+      "difference": 22,
+      "label": "지원 시작",
+      "stage": "APPLICATION_STARTED",
+      "target": 320
+    },
+    {
+      "actual": 246,
+      "difference": 6,
+      "label": "지원 완료",
+      "stage": "APPLICATION_SUBMITTED",
+      "target": 240
+    },
+    {
+      "actual": 246,
+      "difference": 126,
+      "label": "서류 통과",
+      "stage": "DOCUMENT_SCREEN",
+      "target": 120
+    },
+    {
+      "actual": 205,
+      "difference": 145,
+      "label": "사전검증 통과",
+      "stage": "PRE_ASSESSMENT",
+      "target": 60
+    },
+    {
+      "actual": 205,
+      "difference": 185,
+      "label": "1차면접 대상",
+      "stage": "FIRST_INTERVIEW",
+      "target": 20
+    },
+    {
+      "actual": 81,
+      "difference": 73,
+      "label": "2차면접 대상",
+      "stage": "SECOND_INTERVIEW",
+      "target": 8
+    },
+    {
+      "actual": 2,
+      "difference": -3,
+      "label": "Offer",
+      "stage": "OFFER",
+      "target": 5
+    },
+    {
+      "actual": 0,
+      "difference": -4,
+      "label": "Join 목표",
+      "stage": "JOIN",
+      "target": 4
+    }
+  ],
+  "notes": [
+    "Target differences are not validation errors.",
+    "Calibration counts include successive review snapshots, not unique candidates.",
+    "All people, judgments and work artifacts are synthetic. Human rule review remains pending."
+  ],
+  "offer_current_states": {
+    "EXPIRED": 2
+  },
+  "offer_events": {
+    "ACCEPTED": 0,
+    "DECLINED": 0,
+    "EXPIRED": 2,
+    "OFFERED": 2,
+    "PRE_JOIN_WITHDRAWAL": 0
+  },
+  "record_counts": {
+    "activity_participants.csv": 1190,
+    "applications.csv": 342,
+    "assessment_activities.csv": 1562,
+    "assessment_evidence.csv": 3773,
+    "assessment_observations.csv": 7542,
+    "evidence_decision_sources.csv": 9545,
+    "evidence_decisions.csv": 6084,
+    "evidence_skill_links.csv": 3771,
+    "final_decisions.csv": 61,
+    "funnel_plan.json": 8,
+    "offer_events.csv": 4,
+    "offers.csv": 2,
+    "onboarding_profiles.csv": 0,
+    "onboarding_skill_gaps.csv": 0,
+    "onboarding_tasks.csv": 0,
+    "stage_history.csv": 842,
+    "talent_profile.json": 9,
+    "workforce_events.csv": 0,
+    "workforce_plan.json": 1
+  },
+  "scope": "Synthetic Dataset v0.1 sanity only; no WHY, hypothesis, intervention or Mission 2 Main Story.",
+  "stage_outcomes": {
+    "DOCUMENT_SCREEN": {
+      "ADVANCED": 246,
+      "COMPLETED": 246,
+      "ENTERED": 246,
+      "FAILED": 0,
+      "IN_PROGRESS": 0,
+      "WITHDRAWN": 0,
+      "rates": {
+        "ADVANCED": 1.0,
+        "FAILED": 0.0,
+        "WITHDRAWN": 0.0
+      }
+    },
+    "FINAL_REVIEW": {
+      "ADVANCED": 2,
+      "COMPLETED": 64,
+      "ENTERED": 64,
+      "FAILED": 0,
+      "IN_PROGRESS": 62,
+      "WITHDRAWN": 0,
+      "rates": {
+        "ADVANCED": 0.03125,
+        "FAILED": 0.0,
+        "WITHDRAWN": 0.0
+      }
+    },
+    "FIRST_INTERVIEW": {
+      "ADVANCED": 83,
+      "COMPLETED": 86,
+      "ENTERED": 205,
+      "FAILED": 3,
+      "IN_PROGRESS": 114,
+      "WITHDRAWN": 5,
+      "rates": {
+        "ADVANCED": 0.40487804878048783,
+        "FAILED": 0.014634146341463415,
+        "WITHDRAWN": 0.024390243902439025
+      }
+    },
+    "PRE_ASSESSMENT": {
+      "ADVANCED": 205,
+      "COMPLETED": 217,
+      "ENTERED": 246,
+      "FAILED": 12,
+      "IN_PROGRESS": 20,
+      "WITHDRAWN": 9,
+      "rates": {
+        "ADVANCED": 0.8333333333333334,
+        "FAILED": 0.04878048780487805,
+        "WITHDRAWN": 0.036585365853658534
+      }
+    },
+    "SECOND_INTERVIEW": {
+      "ADVANCED": 64,
+      "COMPLETED": 67,
+      "ENTERED": 81,
+      "FAILED": 2,
+      "IN_PROGRESS": 8,
+      "WITHDRAWN": 7,
+      "rates": {
+        "ADVANCED": 0.7901234567901234,
+        "FAILED": 0.024691358024691357,
+        "WITHDRAWN": 0.08641975308641975
+      }
+    }
+  },
+  "time_distributions": {
+    "decision_time": {
+      "DOCUMENT_SCREEN": {
+        "max": 12.0174,
+        "median": 7.0104,
+        "min": 3.0104,
+        "n": 246,
+        "null_count": 0,
+        "p90": 10.0122,
+        "unit": "days"
+      },
+      "FINAL_REVIEW": {
+        "max": 12.0208,
+        "median": 7.0208,
+        "min": 3.0174,
+        "n": 61,
+        "null_count": 3,
+        "p90": 10.0174,
+        "unit": "days"
+      },
+      "FIRST_INTERVIEW": {
+        "max": 5.0174,
+        "median": 2.0174,
+        "min": 1.0104,
+        "n": 86,
+        "null_count": 119,
+        "p90": 5.0139,
+        "unit": "days"
+      },
+      "PRE_ASSESSMENT": {
+        "max": 5.0,
+        "median": 2.0,
+        "min": 1.0,
+        "n": 217,
+        "null_count": 29,
+        "p90": 5.0,
+        "unit": "days"
+      },
+      "SECOND_INTERVIEW": {
+        "max": 5.0,
+        "median": 2.0,
+        "min": 1.0,
+        "n": 66,
+        "null_count": 15,
+        "p90": 5.0,
+        "unit": "days"
+      }
+    },
+    "notification_delay": {
+      "DOCUMENT_SCREEN": {
+        "max": 4.0,
+        "median": 1.5,
+        "min": 0.0,
+        "n": 246,
+        "null_count": 0,
+        "p90": 4.0,
+        "unit": "days"
+      },
+      "FINAL_REVIEW": {
+        "max": 2.0,
+        "median": 1.5,
+        "min": 1.0,
+        "n": 2,
+        "null_count": 62,
+        "p90": 1.9,
+        "unit": "days"
+      },
+      "FIRST_INTERVIEW": {
+        "max": 4.0,
+        "median": 1.0,
+        "min": 0.0,
+        "n": 84,
+        "null_count": 121,
+        "p90": 4.0,
+        "unit": "days"
+      },
+      "PRE_ASSESSMENT": {
+        "max": 4.0,
+        "median": 2.0,
+        "min": 0.0,
+        "n": 217,
+        "null_count": 29,
+        "p90": 4.0,
+        "unit": "days"
+      },
+      "SECOND_INTERVIEW": {
+        "max": 4.0,
+        "median": 1.0,
+        "min": 0.0,
+        "n": 66,
+        "null_count": 15,
+        "p90": 4.0,
+        "unit": "days"
+      }
+    },
+    "scheduling_wait": {
+      "DOCUMENT_SCREEN": {
+        "max": null,
+        "median": null,
+        "min": null,
+        "n": 0,
+        "null_count": 246,
+        "p90": null,
+        "unit": "days"
+      },
+      "FINAL_REVIEW": {
+        "max": null,
+        "median": null,
+        "min": null,
+        "n": 0,
+        "null_count": 64,
+        "p90": null,
+        "unit": "days"
+      },
+      "FIRST_INTERVIEW": {
+        "max": 713.7889,
+        "median": 376.7243,
+        "min": 37.7174,
+        "n": 205,
+        "null_count": 0,
+        "p90": 651.2335,
+        "unit": "days"
+      },
+      "PRE_ASSESSMENT": {
+        "max": 10.0,
+        "median": 7.0,
+        "min": 4.0,
+        "n": 246,
+        "null_count": 0,
+        "p90": 10.0,
+        "unit": "days"
+      },
+      "SECOND_INTERVIEW": {
+        "max": 14.0,
+        "median": 10.0,
+        "min": 7.0,
+        "n": 81,
+        "null_count": 0,
+        "p90": 14.0,
+        "unit": "days"
+      }
+    },
+    "stage_lead_time": {
+      "DOCUMENT_SCREEN": {
+        "max": 14.0174,
+        "median": 8.0174,
+        "min": 3.0104,
+        "n": 246,
+        "null_count": 0,
+        "p90": 12.0174,
+        "unit": "days"
+      },
+      "FINAL_REVIEW": {
+        "max": 13.0208,
+        "median": 10.0208,
+        "min": 7.0208,
+        "n": 2,
+        "null_count": 62,
+        "p90": 12.4208,
+        "unit": "days"
+      },
+      "FIRST_INTERVIEW": {
+        "max": 344.7368,
+        "median": 198.7517,
+        "min": 39.7764,
+        "n": 84,
+        "null_count": 121,
+        "p90": 318.0511,
+        "unit": "days"
+      },
+      "PRE_ASSESSMENT": {
+        "max": 20.0764,
+        "median": 12.0799,
+        "min": 6.0694,
+        "n": 217,
+        "null_count": 29,
+        "p90": 17.0618,
+        "unit": "days"
+      },
+      "SECOND_INTERVIEW": {
+        "max": 22.0417,
+        "median": 16.0347,
+        "min": 9.0347,
+        "n": 66,
+        "null_count": 15,
+        "p90": 20.5312,
+        "unit": "days"
+      }
+    }
+  },
+  "validation": {
+    "checks": {
+      "activity_relation": 3124,
+      "activity_state": 1562,
+      "application_state": 342,
+      "calibration": 6084,
+      "candidate_identity": 343,
+      "candidate_relation": 19866,
+      "decision_relation": 34719,
+      "derived_plan": 1,
+      "enum": 44196,
+      "evidence_relation": 7546,
+      "evidence_schema": 7546,
+      "final_decision": 245,
+      "forbidden": 298449,
+      "foreign_key": 98133,
+      "observation_relation": 15084,
+      "observation_window": 29875,
+      "offer_lifecycle": 8,
+      "participant_time": 3570,
+      "plan_schema": 11,
+      "plan_value": 63,
+      "primary_key": 34719,
+      "provenance": 18143,
+      "required": 229967,
+      "rubric": 7542,
+      "schema": 69468,
+      "skill_link": 3771,
+      "source_reference": 3773,
+      "stage_decision": 5408,
+      "stage_lifecycle": 1684,
+      "temporal": 43397,
+      "timestamp": 30409,
+      "withdrawal": 1705,
+      "workforce_relation": 1
+    },
+    "errors": [],
+    "status": "PASS",
+    "warnings": [
+      {
+        "code": "REVIEW_PENDING",
+        "message": "Synthetic generation rules and overall realism require human Dataset review; no v1 freeze."
+      },
+      {
+        "code": "EMPTY_ONBOARDING_COHORT",
+        "message": "No joined cohort; preserve the outcome, review rules without tuning to Target."
+      }
+    ]
+  },
+  "workforce": {
+    "available_supply_at_target_fte": 12,
+    "demand_fte": 16,
+    "forecast_supply_fte": 12,
+    "fulfillment_ratio": 0.75,
+    "join_to_ready_days": {
+      "max": null,
+      "median": null,
+      "min": null,
+      "n": 0,
+      "p90": null
+    },
+    "joined": 0,
+    "ramp_up_extended": 0,
+    "ready_by_target_date": 0,
+    "ready_observed": 0,
+    "target_date": "2027-09-01"
+  }
+}
